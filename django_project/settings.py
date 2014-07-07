@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dissonant_tech',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,5 +83,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
+
+if DEBUG:
+    STATIC_ROOT = "/home/dissonance/Projects/web/dissonant_web/static/"
+else:
+    STATIC_ROOT = "/var/www/dissonant-tech.com/static/"
 
 STATIC_URL = '/static/'

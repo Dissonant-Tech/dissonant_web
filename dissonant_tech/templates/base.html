@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet"/>
+    <!-- Custom css -->
+    <link href="{% static "css/main.css" %}" rel="stylesheet"/>
+
+    <title>{% block title %}Dissonant-Tech{% endblock %}</title>
+
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    <input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
+    <label for="drawer-toggle" id="drawer-toggle-label"></label>
+    <header id="header">Dissonant-Tech</header>   
+    <nav id="drawer">
+      <ul>
+        <li>
+          <form method="get" action="/search" id="search">
+            <input name="q" type="text" size="40" placeholder="Search..." />
+          </form>
+        </li>
+        <li><hr id="nav-separator" /></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </nav>
+
+    <div id="page-content" class="container-fluid">
+      {% block content %}{% endblock %}   
+    </div>
+
+  </body>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+
+  <!-- Custom js -->
+  <script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+
+  // Dim page when drawer is open
+  $("#drawer-toggle").click(function(){
+    $("#page-content").toggleClass("dim-overlay");
+    $("#drawer").toggleClass("cs-box-shadow");
+  });
+
+  // Add shadow to header when scrolled
+  $("#page-content").scroll(function(){
+    if( $("#page-content").scrollTop() > 0 ) {
+      $("header").addClass("cs-box-shadow");
+    } else {
+      $("header").removeClass("cs-box-shadow");
+    }
+  });
+});
+
+  </script>
+</html>
