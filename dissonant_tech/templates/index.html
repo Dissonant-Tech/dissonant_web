@@ -12,14 +12,18 @@
     <link rel="import" href="{% static "components/core-item/core-item.html" %}">
     <link rel="import" href="{% static "components/core-icons/core-icons.html" %}">
     <link rel="import" href="{% static "components/core-toolbar/core-toolbar.html" %}">
+    <link rel="import" href="{% static "components/core-tooltip/core-tooltip.html" %}">
     <link rel="import" href="{% static "components/core-header-panel/core-header-panel.html" %}">
     <link rel="import" href="{% static "components/core-drawer-panel/core-drawer-panel.html" %}">
 
+    <link rel="import" href="{% static "components/paper-item/paper-item.html" %}">
+    <link rel="import" href="{% static "components/paper-toast/paper-toast.html" %}">
+    <link rel="import" href="{% static "components/paper-ripple/paper-ripple.html" %}">
     <link rel="import" href="{% static "components/paper-elements/paper-elements.html" %}">
     <link rel="import" href="{% static "components/paper-icon-button/paper-icon-button.html" %}">
 
     <!-- Bootstrap -->
-    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet"/>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom css -->
     <link href="{% static "css/main.css" %}" rel="stylesheet"/>
 
@@ -31,52 +35,93 @@
       <div class="row">
         <core-drawer-panel responsiveWidth="720px" id="drawerPanel">
 
-          <core-header-panel drawer mode="waterfall" class="cs-box-shadow">
-            <core-toolbar>
-              <span>Menu</span>
-            </core-toolbar>
-            <menu flex vertical layout>
-              <core-item label="Home"></core-item>
-              <core-item label="Projects"></core-item>
-              <core-item label="About"></core-item>
-              <core-item label="Contact"></core-item>
-            </menu>
-          </core-header-panel>
+        <core-header-panel drawer mode="seamed" class="cs-inset-box-shadow">
+        <core-toolbar id="drawer-toolbar" class="cs-inset-box-shadow">
+        <core-icon src="{% static "images/logo.png" %}" size="48"></core-icon>
+        <span id="menu-header">Dissonant</span>
+        </core-toolbar>
+        <menu flex vertical layout>
+          <paper-item label="Home"></paper-item>
+          <paper-item label="Projects"></paper-item>
+          <paper-item label="About"></paper-item>
+          <paper-item label="Contact"></paper-item>
+          <paper-item label="Calendar"></paper-item>
+        </menu>
+        </core-header-panel>
 
-          <core-header-panel main mode="waterfall">
-            <core-toolbar id="mainheader">
-              <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-                <span id="title" flex> {% block header-title %} Home {% endblock header-title %}</span>
-              <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
-            </core-toolbar>
+        <core-header-panel main mode="waterfall">
+        <core-toolbar id="mainheader">
+        <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+        <span id="title" flex> {% block header-title %} Home {% endblock header-title %}</span>
+        <paper-toast text="This feature is still under construction.">
+        <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+        </paper-toast>
+        </core-toolbar>
 
-            <div id="page-content" vertical layout>
+        <div id="page-content" vertical layout>
 
-              <div id="banner" flex>
+          <div id="banner-container" flex>
+            <div id="scene-container">
+              <div id="banner">
                 <h1> &lt; <u>Hello World!</u> &#47;&gt; </h1>
               </div>
-
-               <div id="test">
-                 <pre>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-                 </pre>
-               </div>
             </div>
+          </div>
 
-          </core-header-panel>
+          <div id="paper-post-container" class="container-fluid" vertical center-justified layout>
+
+            <div class="paper-post" vertical layout>
+              <div flex>
+                <paper-shadow z="2" animated></paper-shadow>
+                <div class="post-header row" flex>
+                  <div class="post-fab">
+                    <div class="fab-container">
+                      <core-tooltip label="This feature is still under construction">
+                      <paper-fab icon="launch"></paper-fab>
+                      </core-tooltip>
+                    </div>
+                  </div>
+                  <paper-shadow z="0"></paper-shadow>
+                  <div class="post-header">
+                    <img src=" {% static "images/Header1.jpg" %} ">
+                    <div class="post-header-title">
+                      <h1 id="welcome!" flex>Welcome!</h1>
+                    </div>
+                    <div class="post-header-subtitle">
+                      <h6>This is Dissonant-Tech's first post</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="post-body">
+                  <pre>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                  <code>
+                    def test_function():
+                    test_var = "test"
+                    var2 = 10
+                  </code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        </core-header-panel>
         </core-drawer-panel>
 
       </div>
@@ -88,26 +133,22 @@
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="{% static "js/bootstrap.min.js" %}"></script>
 
   <script type="text/javascript">
-// Wait for 'polymer-ready'. Ensures the element is upgraded.
-window.addEventListener('polymer-ready', function(e) {
-  var ajax = document.querySelector('core-ajax');
-
-  // Respond to events it fires.
-  ajax.addEventListener('core-response', function(e) {
-    console.log(this.response);
-  });
-
-  ajax.go(); // Call its API methods.
-});
 document.addEventListener('polymer-ready', function() {
   var navicon = document.getElementById('navicon');
   var drawerPanel = document.getElementById('drawerPanel');
   navicon.addEventListener('click', function() {
     drawerPanel.togglePanel();
+  });
+});
+$(document).ready(function(){
+  $(window).scroll(function(){
+    var offset = $(".paper-post").offset()
+    if (offset.top <= 0) {
+      console.log("Offset Fired!");
+      $("#title").text("Home > Welcome!");
+    }
   });
 });
   </script>

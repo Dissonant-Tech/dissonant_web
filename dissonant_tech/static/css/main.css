@@ -3,20 +3,34 @@
  * Universal Styles
  * =========================================*/
 
-* { 
-  -webkit-box-sizing: border-box; 
-  -moz-box-sizing: border-box; 
-  -o-box-sizing: border-box; 
-  box-sizing: border-box; 
-  /* adds animation for all transitions */ 
-  -webkit-transition: .45s ease-in-out; 
-  -moz-transition: .45s ease-in-out; 
-  -o-transition: .45s ease-in-out; 
-  transition: .45s ease-in-out; 
-  margin: 0; 
-  padding: 0; 
-  -webkit-text-size-adjust: none; 
-} 
+menu {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  /* adds animation for all transitions */
+  -webkit-transition: .45s ease-in-out;
+  -moz-transition: .45s ease-in-out;
+  -o-transition: .45s ease-in-out;
+  transition: .45s ease-in-out;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+pre {
+  border: none;
+  background: none;
+  font-family: "Roboto-Regular";
+  font-size: 16px;
+  padding: none;
+  margin: none;
+}
 
 /* ==========================================
  * Font Styles
@@ -30,6 +44,11 @@
 @font-face {
   font-family: "Roboto-Bold";
   src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url(../fonts/Roboto-Thin.ttf);
 }
 
 @font-face {
@@ -51,10 +70,10 @@
  * Helper classes
  * =========================================*/
 
-.cs-box-shadow {
-  -webkit-box-shadow: 1px 0 5px 0px #212121;
-  -moz-box-shadow: 1px 0 5px 0px #212121;
-  box-shadow: 1px 0 5px 0px #212121;
+.cs-inset-box-shadow {
+  -moz-box-shadow: inset -7px 0px 9px -7px rgba(0, 0, 0, 0.258824);
+  -webkit-box-shadow: inset -7px 0px 9px -7px rgba(0, 0, 0, 0.258824);
+  box-shadow: inset -7px 0px 9px -7px rgba(0, 0, 0, 0.258824);
 }
 
 .cs-box-shadow {
@@ -76,6 +95,7 @@ body {
   font-family: "Roboto-Regular";
   font-size: 16px;
 }
+
 core-header-panel {
   background: white;
 }
@@ -85,10 +105,31 @@ core-header-panel {
   color: white;
   font-family: "Roboto-Regular";
   font-size: 2.4rem;
+  background: #2ba7d8; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover, #2ba7d8 0%, #03a9f4 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#2ba7d8), color-stop(100%,#03a9f4)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* IE10+ */
+background: radial-gradient(ellipse at center, #2ba7d8 0%,#03a9f4 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ba7d8', endColorstr='#03a9f4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 core-toolbar {
-  background:: #ffffff;
+  background: #ffffff;
+}
+
+#drawer-toolbar {
+  border-bottom: 1px solid #eee;
+}
+
+core-toolbar::shadow {
+}
+
+core-toolbar > #menu-header {
+  padding-left: 0;
+  margin-left: 0;
+  font-family: "Roboto-Thin";
 }
 
 .content {
@@ -99,20 +140,22 @@ menu {
   padding: 0;
 }
 
-core-item {
-  padding: 20px;
+paper-item {
+  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   letter-spacing: .18em;
+  color: #757575;
 }
 
-core-item:hover {
+paper-item:hover {
   background: #eeeeee;
-  color: #9e9e9e;
+  color: black;
 }
 
-#banner {
+#banner-container {
   background-color: #03A9F4;
-  height: 300px;
-  color: black;
+  padding-bottom: 4rem;
 }
 
 #banner h1 {
@@ -126,6 +169,76 @@ core-item:hover {
 
 #banner h1 u {
   font-size: 7.5rem;
+}
+
+#page-content {
+  position: relative;
+}
+
+/* Post Styles ----------- */
+#paper-post-container {
+  margin: 3em;
+  margin-left: 9%;
+  margin-right: 9%;
+}
+
+.post-header {
+  font-family: "Roboto-Regular";
+}
+
+.post-fab {
+  float: right;
+}
+
+.fab-container {
+  position: absolute;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+.fab-container paper-fab {
+  background: white;
+  right: 50%;
+  top: 10px;
+}
+
+.fab-container > core-tooltip {
+  top: 80px;
+}
+
+.post-header img {
+  width: 100%;
+  height: 300px;
+}
+
+.post-header h1 {
+  padding-left: 1.4rem;
+  padding-top: 1rem;
+  line-height: 6rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: white;
+}
+
+.post-header-title {
+  background-color: #03A9F4;
+  font-size: 5rem;
+}
+
+.post-header-subtitle {
+  padding: .24rem;
+  padding-left: 4rem;
+  background-color: #eeeeee;
+  font-size: 1rem;
+}
+
+
+.post-body {
+  padding: 20px;
+}
+
+.post-bodyi pre {
+  padding: 0;
 }
 
 /* drawer is always visible on a wide screen
@@ -198,7 +311,11 @@ and (max-width : 860px) {
     font-size: 6rem;
   }
   #banner h1 u {
-    font-size: 4rem;
+    font-size: 4.6rem;
+  }
+  .post-header img {
+    width: 100%;
+    height: 200px;
   }
 }
 
