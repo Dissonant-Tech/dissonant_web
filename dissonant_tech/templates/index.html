@@ -1,61 +1,114 @@
-{% extends "base.html" %}
+{% load staticfiles %}
 
-{% block title %} Dissonant-Tech {% endblock title %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- 1. Load platform.js for polyfill support. -->
+    <script src=" {% static "components/platform/platform.js" %}"></script>
 
-{% block head %}{% endblock head %}
+    <!-- 2. Use an HTML Import to bring in the element. -->
+    <link rel="import" href="{% static "components/core-ajax/core-ajax.html" %}">
+    <link rel="import" href="{% static "components/core-menu/core-menu.html" %}">
+    <link rel="import" href="{% static "components/core-item/core-item.html" %}">
+    <link rel="import" href="{% static "components/core-icons/core-icons.html" %}">
+    <link rel="import" href="{% static "components/core-toolbar/core-toolbar.html" %}">
+    <link rel="import" href="{% static "components/core-header-panel/core-header-panel.html" %}">
+    <link rel="import" href="{% static "components/core-drawer-panel/core-drawer-panel.html" %}">
 
+    <link rel="import" href="{% static "components/paper-elements/paper-elements.html" %}">
+    <link rel="import" href="{% static "components/paper-icon-button/paper-icon-button.html" %}">
 
-{% block content %}
-<div id="banner" class="row">
-  <div id="banner-text">
-    <h1 id="hello_world!">Hello World!</h1>
-  </div>
-</div>
+    <!-- Bootstrap -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet"/>
+    <!-- Custom css -->
+    <link href="{% static "css/main.css" %}" rel="stylesheet"/>
 
-<div class="circle-container">   
-  <div class="circle"></div>
-</div>
+  </head>
 
-<div id="main-content">
-  <div id="post1" class="paper">
-    <div class="paper-title">
-      <h1 id="hello_world!">Hello World!</h1>
+  <body unresolved>
+    <div class="container-fluid">
+
+      <div class="row">
+        <core-drawer-panel responsiveWidth="720px" id="drawerPanel">
+
+          <core-header-panel drawer mode="waterfall" class="cs-box-shadow">
+            <core-toolbar>
+              <span>Menu</span>
+            </core-toolbar>
+            <menu flex vertical layout>
+              <core-item label="Home"></core-item>
+              <core-item label="Projects"></core-item>
+              <core-item label="About"></core-item>
+              <core-item label="Contact"></core-item>
+            </menu>
+          </core-header-panel>
+
+          <core-header-panel main mode="waterfall">
+            <core-toolbar id="mainheader">
+              <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+                <span id="title" flex> {% block header-title %} Home {% endblock header-title %}</span>
+              <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+            </core-toolbar>
+
+            <div id="page-content" vertical layout>
+
+              <div id="banner" flex>
+                <h1> &lt; <u>Hello World!</u> &#47;&gt; </h1>
+              </div>
+
+               <div id="test">
+                 <pre>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet. 
+                 </pre>
+               </div>
+            </div>
+
+          </core-header-panel>
+        </core-drawer-panel>
+
+      </div>
     </div>
-    <div class="paper-body">
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-      vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-      no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-      vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-      no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-      vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-      no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </div>
-  </div>
-  <div id="post1" class="paper">
-    <div class="paper-title">
-      <h1 id="hello_world!">Hello World!</h1>
-    </div>
-    <div class="paper-body">
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-      vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-      no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-      vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-      no sea takimata sanctus est Lorem ipsum dolor sit amet.
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-      tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-      vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-      no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </div>
-  </div>
-</div>
+  </body>
 
-{% endblock content %}
+  <!-- 3. Declare the element. Configure using its attributes. -->
+  <core-ajax url="http://example.com/json" handleAs="json"></core-ajax>
 
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+
+  <script type="text/javascript">
+// Wait for 'polymer-ready'. Ensures the element is upgraded.
+window.addEventListener('polymer-ready', function(e) {
+  var ajax = document.querySelector('core-ajax');
+
+  // Respond to events it fires.
+  ajax.addEventListener('core-response', function(e) {
+    console.log(this.response);
+  });
+
+  ajax.go(); // Call its API methods.
+});
+document.addEventListener('polymer-ready', function() {
+  var navicon = document.getElementById('navicon');
+  var drawerPanel = document.getElementById('drawerPanel');
+  navicon.addEventListener('click', function() {
+    drawerPanel.togglePanel();
+  });
+});
+  </script>
+</html>
