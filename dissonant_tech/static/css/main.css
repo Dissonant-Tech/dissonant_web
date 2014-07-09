@@ -135,7 +135,7 @@ core-item:hover {
 
 #banner-container {
   background-color: #03A9F4;
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
 }
 
 #banner h1 {
@@ -172,9 +172,13 @@ core-item:hover {
   overflow: visible;
 }
 
-.fab-container > paper-fab {
+.fab-container paper-fab {
   background: white;
   right: 50%;
+  top: 10px;
+}
+
+.fab-container > core-tooltip {
   top: 80px;
 }
 

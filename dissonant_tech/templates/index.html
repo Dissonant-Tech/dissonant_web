@@ -12,9 +12,12 @@
     <link rel="import" href="{% static "components/core-item/core-item.html" %}">
     <link rel="import" href="{% static "components/core-icons/core-icons.html" %}">
     <link rel="import" href="{% static "components/core-toolbar/core-toolbar.html" %}">
+    <link rel="import" href="{% static "components/core-tooltip/core-tooltip.html" %}">
     <link rel="import" href="{% static "components/core-header-panel/core-header-panel.html" %}">
     <link rel="import" href="{% static "components/core-drawer-panel/core-drawer-panel.html" %}">
 
+    <link rel="import" href="{% static "components/paper-item/paper-item.html" %}">
+    <link rel="import" href="{% static "components/paper-toast/paper-toast.html" %}">
     <link rel="import" href="{% static "components/paper-elements/paper-elements.html" %}">
     <link rel="import" href="{% static "components/paper-icon-button/paper-icon-button.html" %}">
 
@@ -47,7 +50,9 @@
         <core-toolbar id="mainheader">
         <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
         <span id="title" flex> {% block header-title %} Home {% endblock header-title %}</span>
+        <paper-toast text="This feature is still under construction.">
         <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+        </paper-toast>
         </core-toolbar>
 
         <div id="page-content" vertical layout>
@@ -68,7 +73,9 @@
                 <div class="post-header row" flex>
                   <div class="post-fab">
                     <div class="fab-container">
+                      <core-tooltip label="This feature is still under construction">
                       <paper-fab icon="launch"></paper-fab>
+                      </core-tooltip>
                     </div>
                   </div>
                   <paper-shadow z="0"></paper-shadow>
@@ -80,7 +87,7 @@
                     <div class="post-header-subtitle">
                       <h6>This is Dissonant-Tech's first post</h6>
                     </div>
-                  </div>   
+                  </div>
                 </div>
                 <div class="post-body">
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
@@ -97,6 +104,11 @@
                   tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
                   vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
                   no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                  <code>
+                    def test_function():
+                    test_var = "test"
+                    var2 = 10
+                  </code>
                 </div>
               </div>
             </div>
