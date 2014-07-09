@@ -1,68 +1,95 @@
 {% load staticfiles %}
-<!doctype html>
-<html lang="en">
+{% verbatim %}
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block page-title %} Dissonant-Tech {% endblock page-title %} </title>
+    <!-- 1. Load platform.js for polyfill support. -->
+    <script src=" {% static "components/platform/platform.js" %}"></script>
+
+    <!-- 2. Use an HTML Import to bring in the element. -->
+    <link rel="import" href="{% static "components/core-ajax/core-ajax.html" %}">
+    <link rel="import" href="{% static "components/core-menu/core-menu.html" %}">
+    <link rel="import" href="{% static "components/core-item/core-item.html" %}">
+    <link rel="import" href="{% static "components/core-icons/core-icons.html" %}">
+    <link rel="import" href="{% static "components/core-toolbar/core-toolbar.html" %}">
+    <link rel="import" href="{% static "components/core-header-panel/core-header-panel.html" %}">
+    <link rel="import" href="{% static "components/core-drawer-panel/core-drawer-panel.html" %}">
+
+    <link rel="import" href="{% static "components/paper-elements/paper-elements.html" %}">
+    <link rel="import" href="{% static "components/paper-icon-button/paper-icon-button.html" %}">
 
     <!-- Bootstrap -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet"/>
     <!-- Custom css -->
     <link href="{% static "css/main.css" %}" rel="stylesheet"/>
 
-    <title>{% block title %}Dissonant-Tech{% endblock %}</title>
+    {% block head %}{% endblock head %}
 
-    {% block head %}{% endblock %}
   </head>
-  <body>
-    <input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
-    <label for="drawer-toggle" id="drawer-toggle-label"></label>
-    <header id="header">Dissonant-Tech</header>   
-    <nav id="drawer">
-      <ul>
-        <li>
-          <form method="get" action="/search" id="search">
-            <input name="q" type="text" size="40" placeholder="Search..." />
-          </form>
-        </li>
-        <li><hr id="nav-separator" /></li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Projects</a></li>
-      </ul>
-    </nav>
 
-    <div id="page-content" class="container-fluid">
-      {% block content %}{% endblock %}   
+  <body unresolved>
+    <div class="container-fluid">
+
+      <div class="row">
+        <core-drawer-panel responsiveWidth="720px" id="drawerPanel">
+
+          <core-header-panel drawer mode="waterfall" class="cs-box-shadow">
+            <core-toolbar>
+              <span>Menu</span>
+            </core-toolbar>
+            <menu flex vertical layout>
+              <core-item label="Home"></core-item>
+              <core-item label="Projects"></core-item>
+              <core-item label="About"></core-item>
+              <core-item label="Contact"></core-item>
+            </menu>
+          </core-header-panel>
+
+          <core-header-panel main mode="waterfall">
+            <core-toolbar id="mainheader">
+              <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+                <span id="title" flex> {% block header-title %} Home {% endblock header-title %}</span>
+              <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+            </core-toolbar>
+
+            <div id="page-content" vertical layout>
+              {% block body %} {% endblock body %}
+
+          </core-header-panel>
+        </core-drawer-panel>
+
+      </div>
     </div>
-
   </body>
+
+  <!-- 3. Declare the element. Configure using its attributes. -->
+  <core-ajax url="http://example.com/json" handleAs="json"></core-ajax>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="{% static "js/bootstrap.min.js" %}"></script>
 
-  <!-- Custom js -->
-  <script type="text/javascript" charset="utf-8">
-$(document).ready(function(){
+  <script type="text/javascript">
+// Wait for 'polymer-ready'. Ensures the element is upgraded.
+window.addEventListener('polymer-ready', function(e) {
+  var ajax = document.querySelector('core-ajax');
 
-  // Dim page when drawer is open
-  $("#drawer-toggle").click(function(){
-    $("#page-content").toggleClass("dim-overlay");
-    $("#drawer").toggleClass("cs-box-shadow");
+  // Respond to events it fires.
+  ajax.addEventListener('core-response', function(e) {
+    console.log(this.response);
   });
 
-  // Add shadow to header when scrolled
-  $("#page-content").scroll(function(){
-    if( $("#page-content").scrollTop() > 0 ) {
-      $("header").addClass("cs-box-shadow");
-    } else {
-      $("header").removeClass("cs-box-shadow");
-    }
+  ajax.go(); // Call its API methods.
+});
+document.addEventListener('polymer-ready', function() {
+  var navicon = document.getElementById('navicon');
+  var drawerPanel = document.getElementById('drawerPanel');
+  navicon.addEventListener('click', function() {
+    drawerPanel.togglePanel();
   });
 });
-
   </script>
 </html>
+{% endverbatim %}
