@@ -31,52 +31,80 @@
       <div class="row">
         <core-drawer-panel responsiveWidth="720px" id="drawerPanel">
 
-          <core-header-panel drawer mode="waterfall" class="cs-box-shadow">
-            <core-toolbar>
-              <span>Menu</span>
-            </core-toolbar>
-            <menu flex vertical layout>
-              <core-item label="Home"></core-item>
-              <core-item label="Projects"></core-item>
-              <core-item label="About"></core-item>
-              <core-item label="Contact"></core-item>
-            </menu>
-          </core-header-panel>
+        <core-header-panel drawer mode="waterfall" class="cs-inset-box-shadow">
+        <core-toolbar>
+        <span id="menu-header">Dissonant</span>
+        </core-toolbar>
+        <menu flex vertical layout>
+          <core-item label="Home"></core-item>
+          <core-item label="Projects"></core-item>
+          <core-item label="About"></core-item>
+          <core-item label="Contact"></core-item>
+        </menu>
+        </core-header-panel>
 
-          <core-header-panel main mode="waterfall">
-            <core-toolbar id="mainheader">
-              <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-                <span id="title" flex> {% block header-title %} Home {% endblock header-title %}</span>
-              <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
-            </core-toolbar>
+        <core-header-panel main mode="waterfall-tall">
+        <core-toolbar id="mainheader">
+        <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+        <span id="title" flex> {% block header-title %} Home {% endblock header-title %}</span>
+        <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+        </core-toolbar>
 
-            <div id="page-content" vertical layout>
+        <div id="page-content" vertical layout>
 
-              <div id="banner" flex>
+          <div id="banner-container" flex>
+            <div id="scene-container">
+              <div id="banner">
                 <h1> &lt; <u>Hello World!</u> &#47;&gt; </h1>
               </div>
-
-               <div id="test">
-                 <pre>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-                 </pre>
-               </div>
             </div>
+          </div>
 
-          </core-header-panel>
+          <div id="paper-post-container" class="container-fluid" vertical center-justified layout>
+
+            <div class="paper-post row" vertical layout>
+              <div class="col-lg-12">
+                <paper-shadow z="2"></paper-shadow>
+                <div class="post-header row" flex>
+                  <div class="post-fab">
+                    <div class="fab-container">
+                      <paper-fab icon="launch"></paper-fab>
+                    </div>
+                  </div>
+                  <paper-shadow z="0"></paper-shadow>
+                  <div class="post-header-image">
+                    <img src=" {% static "images/Header1.jpg" %} ">
+                    <div class="post-header-title">
+                      <h1 id="welcome!" flex>Welcome!</h1>
+                    </div>
+                    <div class="post-header-subtitle">
+                      <h6>This is Dissonant-Tech's first post</h6>
+                    </div>
+                  </div>   
+                </div>
+                <div class="post-body">
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        </core-header-panel>
         </core-drawer-panel>
 
       </div>
