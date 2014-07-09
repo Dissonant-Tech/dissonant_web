@@ -18,7 +18,7 @@
   <body>
     <input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
     <label for="drawer-toggle" id="drawer-toggle-label"></label>
-    <header>Dissonant-Tech</header>   
+    <header id="header">Dissonant-Tech</header>   
     <nav id="drawer">
       <ul>
         <li>
@@ -36,19 +36,33 @@
     <div id="page-content" class="container-fluid">
       {% block content %}{% endblock %}   
     </div>
+
   </body>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="{% static "js/bootstrap.min.js" %}"></script>
 
   <!-- Custom js -->
   <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
+
+  // Dim page when drawer is open
   $("#drawer-toggle").click(function(){
     $("#page-content").toggleClass("dim-overlay");
+    $("#drawer").toggleClass("cs-box-shadow");
+  });
+
+  // Add shadow to header when scrolled
+  $("#page-content").scroll(function(){
+    if( $("#page-content").scrollTop() > 0 ) {
+      $("header").addClass("cs-box-shadow");
+    } else {
+      $("header").removeClass("cs-box-shadow");
+    }
   });
 });
+
   </script>
 </html>

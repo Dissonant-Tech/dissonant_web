@@ -19,6 +19,51 @@
 }
 
 /* ==========================================
+ * Font Styles
+ * =========================================*/
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Black";
+  src: url(../fonts/Roboto-Black.ttf);
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Regular";
+  src: url(../fonts/RobotoCondensed-Regular.ttf);
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Bold";
+  src: url(../fonts/RobotoCondensed-Bold.ttf);
+}
+
+/* ==========================================
+ * Helper classes
+ * =========================================*/
+
+.cs-box-shadow {
+  -webkit-box-shadow: 1px 0 5px 0px #212121;
+     -moz-box-shadow: 1px 0 5px 0px #212121;
+          box-shadow: 1px 0 5px 0px #212121;
+}
+
+.cs-box-shadow {
+  -moz-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+  box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+}
+
+/* ==========================================
  * Drawer/Header Styles
  * =========================================*/
 
@@ -62,7 +107,7 @@ html,body {
   height: 2px;
   width: 24px;
   background: #212121;
-  left: 13px;
+  left: 23px;
   top: 28px;
   box-shadow: 0 6px 0 #212121, 0 12px 0 #212121;
 }
@@ -73,14 +118,12 @@ header {
   position: fixed;
   left: 0px;
   background-color: #673ab7;
-  padding: 20px 10px 20px 50px;
+  padding: 20px 10px 20px 70px;
   font-size: 30px;
   line-height: 30px;
   z-index: 0;
-  -moz-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
-  box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
   -webkit-font-smoothing: antialiased;
+  font-family: "Roboto-Regular";
 }
 
 /* drawer menu pane - note the 0px width */
@@ -88,40 +131,41 @@ header {
 #drawer {
   position: fixed;
   top: 0;
-  left:-300px;
+  left:-250px;
   height: 100%;
-  width: 300px;
-  background: #2f2f2f;
+  width: 250px;
+  background: #ffffff;
   overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 20px;
+  overflow-y: hidden;
+  padding-top: 20px;
+  padding-bottom 20px;
   -webkit-overflow-scrolling: touch;
 }
 
 /* actual page content pane */
 
+
 #page-content {
   margin-left: 0px;
-  margin-top: 50px;
+  margin-top: 70px;
   width: 100%;
   height: calc(100% - 50px);
-  overflow-x:hidden;
-  overflow-y:scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  padding: 20px;
 }
 
 /* checked styles (menu open state) */
 
 #drawer-toggle:checked ~ #drawer-toggle-label {
   height: 100%;
-  width: calc(100% - 300px);
+  width: calc(100% - 250px);
   z-index: 1002;
 }
 
 #drawer-toggle:checked ~ #drawer-toggle-label,
 #drawer-toggle:checked ~ header {
-  left: 300px;
+  left: 250px;
 }
 
 #drawer-toggle:checked ~ #drawer {
@@ -129,7 +173,7 @@ header {
 }
 
 #drawer-toggle:checked ~ #page-content {
-  margin-left: 300px;
+  margin-left: 250px;
 }
 
 /* Menu item styles */
@@ -138,40 +182,22 @@ header {
   list-style-type:none;
 }
 
+#drawer ul li {
+  padding-left: 20px;
+}
+
+#drawer ul li:hover {
+  background: #e0e0e0;
+}
+
 #drawer ul a {
-  display:block;
-  padding:10px;
-  color:#c7c7c7;
-  text-decoration:none;
-}
-
-#drawer ul a:hover {
-  color:white;
-}
-
-/* Responsive MQ */
-
-@media all and (max-width:350px) {
-
-  #drawer-toggle:checked ~ #drawer-toggle-label {
-    height: 100%;
-    width: 50px;
-  }
-
-  #drawer-toggle:checked ~ #drawer-toggle-label,
-  #drawer-toggle:checked ~ header {
-    left: calc(100% - 50px);
-  }
-
-  #drawer-toggle:checked ~ #drawer {
-    width: calc(100% - 50px);
-    padding: 20px;
-  }
-
-  #drawer-toggle:checked ~ #page-content {
-    margin-left: calc(100% - 50px);
-  }
-
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  font-weight: 100;
+  font-family: "Roboto-Regular";
+  line-height: 28px;
 }
 
 /* Search box */
@@ -208,20 +234,72 @@ header {
  * =========================================*/
 
 .dim-overlay{
-    position:fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    background-color:#757575;
-    opacity:0.8;
-    z-index:1001;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color:#ddd;
+  opacity:0.6;
+  z-index:1001;
 }
 
-#left-nav {
-  overflow-x: hidden;
+#banner {
+  background-color: #673ab7;
+  text-align: center;
+  padding: 40px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
-#top-nav {
-  color: white;
+#banner h1 {
+  color: #424242;
+  font-size: 65px;
+  font-family: "Roboto-Bold";
+  opacity:0.9;
+}
+
+.circle-container {
+  width: 150px;
+  height: 150px;
+  vertical-align: middle;
+}
+
+.circle {
+  width: 100%;
+  height:0;
+  padding-bottom: 100%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #4679BD;
+}
+
+/* ==========================================
+ * Responsive Styles
+ * =========================================*/
+
+/* Responsive MQ */
+
+@media all and (max-width:350px) {
+
+  #drawer-toggle:checked ~ #drawer-toggle-label {
+    height: 100%;
+    width: 50px;
+  }
+
+  #drawer-toggle:checked ~ #drawer-toggle-label,
+  #drawer-toggle:checked ~ header {
+    left: calc(100% - 50px);
+  }
+
+  #drawer-toggle:checked ~ #drawer {
+    width: calc(100% - 50px);
+    padding: 20px;
+  }
+
+  #drawer-toggle:checked ~ #page-content {
+    margin-left: calc(100% - 50px);
+  }
+
 }
