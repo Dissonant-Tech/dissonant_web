@@ -3,7 +3,7 @@
  * Universal Styles
  * =========================================*/
 
-* {
+menu {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -21,6 +21,15 @@
 img {
   max-width: 100%;
   max-height: 100%;
+}
+
+pre {
+  border: none;
+  background: none;
+  font-family: "Roboto-Regular";
+  font-size: 16px;
+  padding: none;
+  margin: none;
 }
 
 /* ==========================================
@@ -107,10 +116,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ba7d8', end
 }
 
 core-toolbar {
-  background:: #ffffff;
+  background: #ffffff;
+}
+
+#drawer-toolbar {
+  border-bottom: 1px solid #eee;
+}
+
+core-toolbar::shadow {
 }
 
 core-toolbar > #menu-header {
+  padding-left: 0;
+  margin-left: 0;
   font-family: "Roboto-Thin";
 }
 
@@ -122,13 +140,15 @@ menu {
   padding: 0;
 }
 
-core-item {
-  padding: 20px;
+paper-item {
+  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   letter-spacing: .18em;
   color: #757575;
 }
 
-core-item:hover {
+paper-item:hover {
   background: #eeeeee;
   color: black;
 }
@@ -149,6 +169,10 @@ core-item:hover {
 
 #banner h1 u {
   font-size: 7.5rem;
+}
+
+#page-content {
+  position: relative;
 }
 
 /* Post Styles ----------- */
@@ -211,6 +235,10 @@ core-item:hover {
 
 .post-body {
   padding: 20px;
+}
+
+.post-bodyi pre {
+  padding: 0;
 }
 
 /* drawer is always visible on a wide screen
@@ -284,6 +312,10 @@ and (max-width : 860px) {
   }
   #banner h1 u {
     font-size: 4.6rem;
+  }
+  .post-header img {
+    width: 100%;
+    height: 200px;
   }
 }
 
