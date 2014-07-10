@@ -1,10 +1,8 @@
-{% load staticfiles %}
-
 <!DOCTYPE html>
 <html>
   <head>
     <!-- 1. Load platform.js for polyfill support. -->
-    <script src=" {% static "components/platform/platform.js" %}"></script>
+    <script src="static/components/platform/platform.js"></script>
 
     <!-- 2. Use an HTML Import to bring in the element. -->
     <link rel="import" href="static/components/core-ajax/core-ajax.html">
@@ -25,7 +23,7 @@
     <!-- Bootstrap -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom css -->
-    <link href="{% static "css/main.css" %}" rel="stylesheet"/>
+    <link href="static/css/main.css" rel="stylesheet"/>
 
   </head>
 
@@ -37,7 +35,7 @@
 
         <core-header-panel drawer mode="seamed" class="cs-inset-box-shadow">
         <core-toolbar id="drawer-toolbar" class="cs-inset-box-shadow">
-        <core-icon src="{% static "images/logo.png" %}" size="48"></core-icon>
+        <core-icon src="static/images/logo.png" size="48"></core-icon>
         <span id="menu-header">Dissonant</span>
         </core-toolbar>
         <menu flex vertical layout>
@@ -52,7 +50,7 @@
         <core-header-panel main mode="waterfall">
         <core-toolbar id="mainheader">
         <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-        <span id="title" flex> {% block header-title %} Home {% endblock header-title %}</span>
+        <span id="title" flex> Home </span>
         <paper-toast text="This feature is still under construction.">
         <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
         </paper-toast>
@@ -82,7 +80,7 @@
                   </div>
                   <paper-shadow z="0"></paper-shadow>
                   <div class="post-header">
-                    <img src=" {% static "images/Header1.jpg" %} ">
+                    <img src="static/images/Header1.jpg">
                     <div class="post-header-title">
                       <h1 id="welcome!" flex>Welcome!</h1>
                     </div>
@@ -131,7 +129,7 @@
   <core-ajax url="http://example.com/json" handleAs="json"></core-ajax>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+  <script src="static/js/jquery-2.1.1.min.js"></script>
 
   <script type="text/javascript">
 document.addEventListener('polymer-ready', function() {
