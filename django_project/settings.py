@@ -86,7 +86,9 @@ USE_TZ = True
 
 if DEBUG:
     STATIC_ROOT = "/home/dissonance/Projects/web/dissonant_web/static/"
+    COMPONENT_ROOT = os.path.join(BASE_DIR, "bower_components")
 else:
     STATIC_ROOT = "/var/www/dissonant-tech.com/static/"
 
+COMPONENT_URL = '/component'
 STATIC_URL = '/static/'

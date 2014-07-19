@@ -1,0 +1,25 @@
+{
+  "name": "David Rodriguez",
+  "version": "0.0.0",
+  "authors": [
+    "David Rodriguez <dissonant.tech@gmail.com>"
+  ],
+  "description": "Personal Website",
+  "keywords": [
+    "Dissonant_tech"
+  ],
+  "license": "MIT",
+  "homepage": "www.dissonant-tech.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.4",
+    "core-elements": "Polymer/core-elements#~0.3.4",
+    "paper-elements": "Polymer/paper-elements#~0.3.4"
+  }
+}

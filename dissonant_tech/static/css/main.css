@@ -3,6 +3,11 @@
  * Universal Styles
  * =========================================*/
 
+body {
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+}
+
 menu {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -30,6 +35,18 @@ pre {
   font-size: 16px;
   padding: none;
   margin: none;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+a {
+  text-decoration: none;
+}
+
+code {
 }
 
 /* ==========================================
@@ -91,11 +108,6 @@ pre {
  * Custom Styles
  * =========================================*/
 
-body {
-  font-family: "Roboto-Regular";
-  font-size: 16px;
-}
-
 core-header-panel {
   background: white;
 }
@@ -106,13 +118,13 @@ core-header-panel {
   font-family: "Roboto-Regular";
   font-size: 2.4rem;
   background: #2ba7d8; /* Old browsers */
-background: -moz-radial-gradient(center, ellipse cover, #2ba7d8 0%, #03a9f4 100%); /* FF3.6+ */
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#2ba7d8), color-stop(100%,#03a9f4)); /* Chrome,Safari4+ */
-background: -webkit-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* Chrome10+,Safari5.1+ */
-background: -o-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* Opera 12+ */
-background: -ms-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* IE10+ */
-background: radial-gradient(ellipse at center, #2ba7d8 0%,#03a9f4 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ba7d8', endColorstr='#03a9f4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background: -moz-radial-gradient(center, ellipse cover, #2ba7d8 0%, #03a9f4 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#2ba7d8), color-stop(100%,#03a9f4)); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #2ba7d8 0%,#03a9f4 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center, #2ba7d8 0%,#03a9f4 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2ba7d8', endColorstr='#03a9f4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 core-toolbar {
@@ -121,9 +133,6 @@ core-toolbar {
 
 #drawer-toolbar {
   border-bottom: 1px solid #eee;
-}
-
-core-toolbar::shadow {
 }
 
 core-toolbar > #menu-header {
@@ -142,9 +151,9 @@ menu {
 
 paper-item {
   padding: 30px;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  letter-spacing: .18em;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  letter-spacing: .14em;
   color: #757575;
 }
 
@@ -164,159 +173,26 @@ paper-item:hover {
   color: #212121;
   font-family: "Roboto-Bold";
   opacity: 0.7;
-  font-size: 9rem;
+  font-size: 7rem;
 }
 
 #banner h1 u {
-  font-size: 7.5rem;
+  font-size: 5rem;
 }
 
 #page-content {
   position: relative;
 }
 
+#page-content > core-pages h1 {
+  margin-top: 0;
+}
+
 /* Post Styles ----------- */
 #paper-post-container {
-  margin: 3em;
+  margin: 2rem;
   margin-left: 9%;
   margin-right: 9%;
-}
-
-.post-header {
-  font-family: "Roboto-Regular";
-}
-
-.post-fab {
-  float: right;
-}
-
-.fab-container {
-  position: absolute;
-  vertical-align: middle;
-  overflow: visible;
-}
-
-.fab-container paper-fab {
-  background: white;
-  right: 50%;
-  top: 10px;
-}
-
-.fab-container > core-tooltip {
-  top: 80px;
-}
-
-.post-header img {
-  width: 100%;
-  height: 300px;
-}
-
-.post-header h1 {
-  padding-left: 1.4rem;
-  padding-top: 1rem;
-  line-height: 6rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  color: white;
-}
-
-.post-header-title {
-  background-color: #03A9F4;
-  font-size: 5rem;
-}
-
-.post-header-subtitle {
-  padding: .24rem;
-  padding-left: 4rem;
-  background-color: #eeeeee;
-  font-size: 1rem;
-}
-
-
-.post-body {
-  padding: 20px;
-}
-
-.post-bodyi pre {
-  padding: 0;
-}
-
-/* drawer is always visible on a wide screen
-so menu button isn't required */
-core-drawer-panel:not([narrow]) #navicon {
-  display: none;
-}
-
-
-/* ==========================================
- * Responsive Styles
- * =========================================*/
-
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) {
-  /* Styles */
-}
-
-/* Smartphones (landscape) ----------- */
-@media only screen
-and (min-width : 321px) {
-  /* Styles */
-}
-
-/* Smartphones (portrait) ----------- */
-@media only screen
-and (max-width : 320px) {
-  /* Styles */
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px) {
-  /* Styles */
-  #banner h1 {
-    font-size: .6em;
-  }
-  #banner h1 u {
-    font-size: .4em;
-  }
-}
-
-/* iPads (landscape) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : landscape) {
-  /* Styles */
-}
-
-/* iPads (portrait) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : portrait) {
-  /* Styles */
-}
-
-/* Small Desktops and laptops ----------- */
-@media screen
-and (max-width : 860px) {
-  /* Styles */
-  #banner {
-    padding-top: 3rem;
-  }
-  #banner h1 {
-    font-size: 6rem;
-  }
-  #banner h1 u {
-    font-size: 4.6rem;
-  }
-  .post-header img {
-    width: 100%;
-    height: 200px;
-  }
 }
 
 /* Desktops and laptops ----------- */
