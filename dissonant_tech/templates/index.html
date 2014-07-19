@@ -2,13 +2,14 @@
 <html>
   <head>
     <!-- 1. Load platform.js for polyfill support. -->
-    <script src="static/components/platform/platform.js"></script>
+    <script src="/component/platform/platform.js"></script>
 
     <!-- 2. Use an HTML Import to bring in the element. -->
     <link rel="import" href="static/components/core-ajax/core-ajax.html">
     <link rel="import" href="static/components/core-menu/core-menu.html">
     <link rel="import" href="static/components/core-item/core-item.html">
     <link rel="import" href="static/components/core-icons/core-icons.html">
+    <link rel="import" href="static/components/core-pages/core-pages.html">
     <link rel="import" href="static/components/core-toolbar/core-toolbar.html">
     <link rel="import" href="static/components/core-tooltip/core-tooltip.html">
     <link rel="import" href="static/components/core-header-panel/core-header-panel.html">
@@ -20,113 +21,69 @@
     <link rel="import" href="static/components/paper-elements/paper-elements.html">
     <link rel="import" href="static/components/paper-icon-button/paper-icon-button.html">
 
-    <!-- Bootstrap -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="import" href="static/elements/my-post/my-post.html">
+
     <!-- Custom css -->
     <link href="static/css/main.css" rel="stylesheet"/>
 
   </head>
 
   <body unresolved>
-    <div>
+    <core-drawer-panel responsiveWidth="1280px" id="drawerPanel">
 
-      <div class="row">
-        <core-drawer-panel responsiveWidth="720px" id="drawerPanel">
+    <core-header-panel drawer mode="seamed" class="cs-inset-box-shadow">
+    <core-toolbar id="drawer-toolbar" class="cs-inset-box-shadow">
+    <core-icon src="static/images/logo.png" size="48"></core-icon>
+    <span id="menu-header">Dissonant</span>
+    </core-toolbar>
+    <menu id="core-pages-switcher" flex vertical layout>
+      <paper-item label="Home"></paper-item>
+      <paper-item label="Projects"></paper-item>
+      <paper-item label="About"></paper-item>
+      <paper-item label="Contact"></paper-item>
+      <paper-item label="Calendar"></paper-item>
+    </menu>
+    </core-header-panel>
 
-        <core-header-panel drawer mode="seamed" class="cs-inset-box-shadow">
-        <core-toolbar id="drawer-toolbar" class="cs-inset-box-shadow">
-        <core-icon src="static/images/logo.png" size="48"></core-icon>
-        <span id="menu-header">Dissonant</span>
-        </core-toolbar>
-        <menu flex vertical layout>
-          <paper-item label="Home"></paper-item>
-          <paper-item label="Projects"></paper-item>
-          <paper-item label="About"></paper-item>
-          <paper-item label="Contact"></paper-item>
-          <paper-item label="Calendar"></paper-item>
-        </menu>
-        </core-header-panel>
+    <core-header-panel main mode="waterfall">
+    <core-toolbar id="mainheader">
+    <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+    <span id="title" flex> Home </span>
+    <paper-toast text="This feature is still under construction.">
+    <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+    </paper-toast>
+    </core-toolbar>
 
-        <core-header-panel main mode="waterfall">
-        <core-toolbar id="mainheader">
-        <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-        <span id="title" flex> Home </span>
-        <paper-toast text="This feature is still under construction.">
-        <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
-        </paper-toast>
-        </core-toolbar>
+    <div id="page-content" vertical layout>
 
-        <div id="page-content" vertical layout>
-
-          <div id="banner-container" flex>
-            <div id="scene-container">
-              <div id="banner">
-                <h1> &lt; <u>Hello World!</u> &#47;&gt; </h1>
-              </div>
+      <core-pages selected="0">
+      <div id="Home" class="page">
+        <div id="banner-container" flex>
+          <div id="scene-container">
+            <div id="banner">
+              <h1> &lt; <u>Hello World!</u> &#47;&gt; </h1>
             </div>
           </div>
-
-          <div id="paper-post-container">
-            <div class="paper-post">
-              <paper-shadow z="2" animated></paper-shadow>
-              <div>
-                <div class="post-header">
-                  <div class="post-fab">
-                    <div class="fab-container">
-                      <core-tooltip label="This feature is still under construction">
-                      <paper-fab icon="launch"></paper-fab>
-                      </core-tooltip>
-                    </div>
-                  </div>
-                  <paper-shadow z="0"></paper-shadow>
-                  <div class="post-header">
-                    <img src="static/images/Header1.jpg">
-                    <div class="post-header-title">
-                      <h1 id="welcome!" flex>Welcome!</h1>
-                    </div>
-                    <div class="post-header-subtitle">
-                      <h6>This is Dissonant-Tech's first post</h6>
-                    </div>
-                  </div>
-                </div>
-                <div class="post-body">
-                  <pre>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                  tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
-                  vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-                  no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                  <code>
-                    def test_function():
-                    test_var = "test"
-                    var2 = 10
-                  </code>
-                  </pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
-
-        </core-header-panel>
-        </core-drawer-panel>
+        <div id="paper-post-container" flex>
+          <my-post title="Welcome!"></my-post>
+      </div>
+      <div id="Projects" class="page">
 
       </div>
-    </div>
-  </body>
+      <div id="page2">
+      </div>
+      <div id="Projects" class="page">
 
-  <!-- 3. Declare the element. Configure using its attributes. -->
-  <core-ajax url="http://example.com/json" handleAs="json"></core-ajax>
+      </div>
+      </core-pages>
+
+
+    </div>
+    </core-header-panel>
+    </core-drawer-panel>
+
+  </body>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="static/js/jquery-2.1.1.min.js"></script>
@@ -139,14 +96,18 @@ document.addEventListener('polymer-ready', function() {
     drawerPanel.togglePanel();
   });
 });
-$(document).ready(function(){
-  $(window).scroll(function(){
-    var offset = $(".paper-post").offset()
-    if (offset.top <= 0) {
-      console.log("Offset Fired!");
-      $("#title").text("Home > Welcome!");
-    }
-  });
+
+var page_switcher = document.querySelector('#core-pages-switcher');
+
+page_switcher.addEventListener('click', function(e) {
+  var clicked = e.target.getAttribute('label');
+  var pages = document.querySelector('core-pages');
+  var page = document.getElementById(clicked);
+  var clicked_index = 0;
+  while ((page = page.previousSibling) != Null ){
+    clicked_index++;
+  }
+  pages.selected = clicked_index;
 });
   </script>
 </html>

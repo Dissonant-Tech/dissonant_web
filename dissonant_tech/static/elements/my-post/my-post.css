@@ -1,0 +1,75 @@
+
+.post-header {
+  font-family: "Roboto-Regular";
+}
+
+.post-fab {
+  float: right;
+}
+
+.fab-container {
+  position: absolute;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+.fab-container paper-fab {
+  background: white;
+  right: 50%;
+  top: 10px;
+}
+
+.fab-container > core-tooltip {
+  top: 80px;
+}
+
+.post-header img {
+  width: 100%;
+  height: 300px;
+  width: 200px;
+}
+
+.header-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 300px;
+  background: url("../images/Header1.jpg");
+}
+
+.post-header h1 {
+  padding-left: 1.4rem;
+  padding-top: .8rem;
+  line-height: 4rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: white;
+}
+
+.post-header-title {
+  background-color: #03A9F4;
+  font-size: 2rem;
+  bottom: 20px;
+  position: relative;
+}
+
+.post-header-subtitle h6 {
+  margin: 0;
+  padding: .4rem;
+  padding-left: 2.6rem;
+  background-color: #eeeeee;
+  font-size: .8rem;
+  font-weight: 200;
+  bottom: 20px;
+  position: relative;
+  opacity: 0.6;
+}
+
+
+.post-body {
+  padding: 20px;
+}
+
+.post-body pre {
+  padding: 0;
+}
