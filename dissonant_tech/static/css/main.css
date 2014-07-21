@@ -165,19 +165,12 @@ paper-item:hover {
 #banner-container {
   background-color: #03A9F4;
   padding-bottom: 4rem;
+  width: 100%;
 }
 
-#banner h1 {
-  padding-top: 60px;
-  text-align: center;
-  color: #212121;
-  font-family: "Roboto-Bold";
-  opacity: 0.7;
-  font-size: 7rem;
-}
-
-#banner h1 u {
-  font-size: 5rem;
+#banner {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #page-content {
@@ -196,6 +189,11 @@ paper-item:hover {
 }
 
 /* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 600px) {
+  /* Styles */
+}
+
 @media only screen
 and (min-width : 1224px) {
   /* Styles */
