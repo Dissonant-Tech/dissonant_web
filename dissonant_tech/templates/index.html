@@ -2,29 +2,41 @@
 <html>
   <head>
     <!-- 1. Load platform.js for polyfill support. -->
-    <script src="/component/platform/platform.js"></script>
+    <script src="/bower_components/platform/platform.js"></script>
 
     <!-- 2. Use an HTML Import to bring in the element. -->
-    <link rel="import" href="static/components/core-ajax/core-ajax.html">
-    <link rel="import" href="static/components/core-menu/core-menu.html">
-    <link rel="import" href="static/components/core-item/core-item.html">
-    <link rel="import" href="static/components/core-icons/core-icons.html">
-    <link rel="import" href="static/components/core-pages/core-pages.html">
-    <link rel="import" href="static/components/core-toolbar/core-toolbar.html">
-    <link rel="import" href="static/components/core-tooltip/core-tooltip.html">
-    <link rel="import" href="static/components/core-header-panel/core-header-panel.html">
-    <link rel="import" href="static/components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="/bower_components/core-menu/core-menu.html">
+    <link rel="import" href="/bower_components/core-item/core-item.html">
+    <link rel="import" href="/bower_components/core-icons/core-icons.html">
+    <link rel="import" href="/bower_components/core-pages/core-pages.html">
+    <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="/bower_components/core-tooltip/core-tooltip.html">
+    <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="/bower_components/core-drawer-panel/core-drawer-panel.html">
 
-    <link rel="import" href="static/components/paper-item/paper-item.html">
-    <link rel="import" href="static/components/paper-toast/paper-toast.html">
-    <link rel="import" href="static/components/paper-ripple/paper-ripple.html">
-    <link rel="import" href="static/components/paper-elements/paper-elements.html">
-    <link rel="import" href="static/components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="/bower_components/paper-item/paper-item.html">
+    <link rel="import" href="/bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="/bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="/bower_components/paper-elements/paper-elements.html">
+    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
 
-    <link rel="import" href="static/elements/my-post/my-post.html">
+    <link rel="import" href="/bower_components/elements/my-post/my-post.html">
+    <link rel="import" href="/bower_components/elements/project-page/project-page.html">
+    <link rel="import" href="/bower_components/elements/contact-page/contact-page.html">
 
     <!-- Custom css -->
     <link href="static/css/main.css" rel="stylesheet"/>
+
+    <style type="text/css" media="screen">
+      .blue {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 350px;
+        background: #03A9F4;
+      }
+    </style>
 
   </head>
 
@@ -41,7 +53,6 @@
       <paper-item label="Projects"></paper-item>
       <paper-item label="About"></paper-item>
       <paper-item label="Contact"></paper-item>
-      <paper-item label="Calendar"></paper-item>
     </menu>
     </core-header-panel>
 
@@ -55,9 +66,9 @@
     </core-toolbar>
 
     <div id="page-content" vertical layout>
-
       <core-pages id="core-pages" selected="0">
-      <div id="Home" class="page">
+
+      <div id="Home" class="page blue">
         <div id="banner-container" flex>
           <div id="banner" horizontal center-justified layout>
             <img src="static/images/main_header.png" flex>
@@ -66,18 +77,26 @@
         <div id="paper-post-container" flex>
           <my-post title="Welcome!"></my-post>
         </div>
-        <div id="Projects" class="page">
-
-        </div>
-        <div id="page2">
-        </div>
-        <div id="Projects" class="page">
-
-        </div>
-      </core-pages>
-
-
       </div>
+
+      <div id="Projects" class="page blue">
+        <project-page>
+        </project-page>
+      </div>
+
+      <div id="About" class="page blue">
+        <about-page>
+        </about-page>
+      </div>
+
+      <div id="Contact" class="page blue">
+        <contact-page>
+        </contact-page>
+      </div>
+
+      </core-pages>
+    </div>
+
     </core-header-panel>
     </core-drawer-panel>
 
@@ -96,12 +115,15 @@ document.addEventListener('polymer-ready', function() {
 });
 
 // core-pages-switcher, uses nav menu to switch through different pages
+var title = document.getElementById("title");
+
 var pages = document.querySelector('#core-pages');
 var page_switcher = document.querySelector('#core-pages-switcher');
 var pageList = page_switcher.children;
 
 page_switcher.addEventListener('click', function(e) {
   var clicked = e.target;
+  title.innerHTML = clicked.label;
   pages.selected = Array.prototype.indexOf.call(pageList, clicked);
 });
   </script>
