@@ -90,5 +90,5 @@ if DEBUG:
 else:
     STATIC_ROOT = "/var/www/dissonant-tech.com/static/"
 
-COMPONENT_URL = '/component'
+COMPONENT_URL = '/bower_components'
 STATIC_URL = '/static/'
