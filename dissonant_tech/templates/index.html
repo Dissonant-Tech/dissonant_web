@@ -13,6 +13,7 @@
     <link rel="import" href="/bower_components/core-tooltip/core-tooltip.html">
     <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="/bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
 
     <link rel="import" href="/bower_components/paper-item/paper-item.html">
     <link rel="import" href="/bower_components/paper-toast/paper-toast.html">
@@ -66,7 +67,7 @@
     </core-toolbar>
 
     <div id="page-content" vertical layout>
-      <core-pages id="core-pages" selected="0">
+      <core-animated-pages id="core-pages" selected="0" transitions="cross-fade-all">
 
       <div id="Home" class="page blue">
         <div id="banner-container" flex>
@@ -94,7 +95,7 @@
         </contact-page>
       </div>
 
-      </core-pages>
+      </core-animated-pages>
     </div>
 
     </core-header-panel>
@@ -115,16 +116,22 @@ document.addEventListener('polymer-ready', function() {
 });
 
 // core-pages-switcher, uses nav menu to switch through different pages
-var title = document.getElementById("title");
-
 var pages = document.querySelector('#core-pages');
 var page_switcher = document.querySelector('#core-pages-switcher');
 var pageList = page_switcher.children;
 
 page_switcher.addEventListener('click', function(e) {
   var clicked = e.target;
-  title.innerHTML = clicked.label;
   pages.selected = Array.prototype.indexOf.call(pageList, clicked);
+
+  updateTitle(clicked.label);
 });
+
+// Updates the toolbar title
+var title = document.getElementById("title");
+
+function updateTitle(txt) {
+  title.innerHTML = txt;
+}
   </script>
 </html>

@@ -1,1 +1,44 @@
 
+<link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
+
+<polymer-element name="page-switcher">
+<template>
+<style>
+
+</style>
+
+<core-animated-pages selected="0" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
+
+</core-animated-pages>
+</template>
+<script>
+Polymer('page-switcher', {
+
+  pages: [
+    { title: 'Home',      subTitle: '' },
+    { title: 'About',     subTitle: '' },
+    { title: 'Contact',   subTitle: '' }
+  ],
+
+  selectedPage: null,
+
+});
+
+// core-pages-switcher, uses nav menu to switch through different pages
+var title = document.getElementById("title");
+
+var pages = document.querySelector('#core-pages');
+var page_switcher = document.querySelector('#core-pages-switcher');
+var pageList = page_switcher.children;
+
+page_switcher.addEventListener('click', function(e) {
+  var clicked = e.target;
+  title.innerHTML = clicked.label;
+  pages.selected = Array.prototype.indexOf.call(pageList, clicked);
+});
+
+// page switcher transitions
+function pageTransition() {
+}
+</script>
+</polymer-element>
