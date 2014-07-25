@@ -34,7 +34,7 @@
     line-height: 1.5;
   }
 
-  .chip-album-title {
+  .chip-type-title {
     font-weight: bold;
   }
 
@@ -66,12 +66,15 @@
     margin-right: 16px;
   }
 
-  .card-album-title {
+  .card-type-title {
     font-size: 2em;
+  }
+
+  .view {
   }
 </style>
 
-<core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
+<core-animated-pages id="projects" selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
 
 <section>
 
@@ -79,11 +82,11 @@
 
     <template repeat="{{projects as project}}">
 
-    <div class="chip" hero-id="{{project.artist}}-{{project.album}}" hero?="{{selectedAlbum === project }}">
-      <div class="chip-top" style="background:{{project.color}};" hero-id="{{project.artist}}-{{project.album}}-art" hero?="{{selectedAlbum === project}}"></div>
+    <div class="chip" hero-id="{{project.name}}-{{project.type}}" hero?="{{selectedAlbum === project }}">
+      <div class="chip-top" style="background:{{project.color}};" hero-id="{{project.name}}-{{project.type}}-art" hero?="{{selectedAlbum === project}}"></div>
       <div class="chip-bottom">
-        <div class="chip-album-title">{{project.album}}</div>
-        <div class="chip-artist">{{project.artist}}</div>
+        <div class="chip-type-title">{{project.type}}</div>
+        <div class="chip-name">{{project.name}}</div>
       </div>
     </div>
 
@@ -92,18 +95,18 @@
   </div>
 </section>
 
-<section id="details">
+<section id="project-details">
 
-  <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-    <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
-    <div class="card-right" flex>
+  <div class="view"  flex horizontal center center-justified layout hero-id="{{selectedAlbum.name}}-{{selectedAlbum.type}}" hero on-tap="{{transition}}" style="background:{{selectedAlbum.color}}">
+    <div class="" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.name}}-{{selectedAlbum.type}}-art" hero></div>
+    <div class="" flex>
       <div layout horizontal center>
         <div>
           <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
         </div>
         <div flex>
-          <div class="card-album-title">{{selectedAlbum.album}}</div>
-          <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+          <div class="card-type-title">{{selectedAlbum.type}}</div>
+          <div class="card-type-name">{{selectedAlbum.name}}</div>
         </div>
       </div>
     </div>
@@ -120,10 +123,10 @@ Polymer('project-page', {
 page: 0,
 
   projects: [
-  { artist: 'Tycho', album: 'Fragments', color: '#f4db33' },
-  { artist: 'Tycho', album: 'Past Prologue', color: '#972ff8' },
-  { artist: 'Tycho', album: 'Spectre', color: '#7dd6fe' },
-  { artist: 'Tycho', album: 'Awake', color: '#dc3c84' }
+  { name: 'PyDzen', type: 'Fragments', color: '#f4db33' },
+  { name: 'Dissonant-Tech', type: 'Past Prologue', color: '#972ff8' },
+  { name: 'Tycho', type: 'Spectre', color: '#7dd6fe' },
+  { name: 'Tycho', type: 'Awake', color: '#dc3c84' }
 ],
 
   selectedAlbum: null,
@@ -138,29 +141,5 @@ page: 0,
   }
 
 });
-
-
-addEventListener('template-bound', function(e) {
-  var scope = e.target;
-
-  scope.selectView = function(e) {
-    var i = e.target.templateInstance.model.item;
-    this.$.pages.selected = i+1;
-  }
-
-  scope.back = function() {
-    this.lastSelected = this.$.pages.selected;
-    console.log(this.lastSelected);
-    this.$.pages.selected = 0;
-  }
-
-  scope.transitionend = function() {
-    if (this.lastSelected) {
-      this.lastSelected = null;
-    }
-  }
-})
-
-
 </script>
 </polymer-element>
