@@ -1,127 +1,127 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- 1. Load platform.js for polyfill support. -->
-    <script src="/bower_components/platform/platform.js"></script>
+<head>
+  <!-- 1. Load platform.js for polyfill support. -->
+  <script src="/bower_components/platform/platform.js"></script>
 
-    <!-- 2. Use an HTML Import to bring in the element. -->
-    <link rel="import" href="/bower_components/core-menu/core-menu.html">
-    <link rel="import" href="/bower_components/core-item/core-item.html">
-    <link rel="import" href="/bower_components/core-icons/core-icons.html">
-    <link rel="import" href="/bower_components/core-pages/core-pages.html">
-    <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
-    <link rel="import" href="/bower_components/core-tooltip/core-tooltip.html">
-    <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
-    <link rel="import" href="/bower_components/core-drawer-panel/core-drawer-panel.html">
-    <link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
+  <!-- 2. Use an HTML Import to bring in the element. -->
+  <link rel="import" href="/bower_components/core-menu/core-menu.html">
+  <link rel="import" href="/bower_components/core-item/core-item.html">
+  <link rel="import" href="/bower_components/core-icons/core-icons.html">
+  <link rel="import" href="/bower_components/core-pages/core-pages.html">
+  <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="/bower_components/core-tooltip/core-tooltip.html">
+  <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="/bower_components/core-drawer-panel/core-drawer-panel.html">
+  <link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
 
-    <link rel="import" href="/bower_components/paper-item/paper-item.html">
-    <link rel="import" href="/bower_components/paper-toast/paper-toast.html">
-    <link rel="import" href="/bower_components/paper-ripple/paper-ripple.html">
-    <link rel="import" href="/bower_components/paper-elements/paper-elements.html">
-    <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="/bower_components/paper-item/paper-item.html">
+  <link rel="import" href="/bower_components/paper-toast/paper-toast.html">
+  <link rel="import" href="/bower_components/paper-ripple/paper-ripple.html">
+  <link rel="import" href="/bower_components/paper-elements/paper-elements.html">
+  <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
 
-    <link rel="import" href="/bower_components/elements/my-post/my-post.html">
-    <link rel="import" href="/bower_components/elements/about-page/about-page.html">
-    <link rel="import" href="/bower_components/elements/project-page/project-page.html">
-    <link rel="import" href="/bower_components/elements/contact-page/contact-page.html">
+  <link rel="import" href="/bower_components/elements/my-post/my-post.html">
+  <link rel="import" href="/bower_components/elements/about-page/about-page.html">
+  <link rel="import" href="/bower_components/elements/project-page/project-page.html">
+  <link rel="import" href="/bower_components/elements/contact-page/contact-page.html">
 
-    <!-- Custom css -->
-    <link href="static/css/main.css" rel="stylesheet"/>
+  <!-- Custom css -->
+  <link href="static/css/main.css" rel="stylesheet"/>
 
-    <style type="text/css" media="screen">
+  <style type="text/css" media="screen">
 .blue {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 350px;
-  background: #03A9F4;
+position: absolute;
+top: 0;
+right: 0;
+left: 0;
+height: 350px;
+background: #03A9F4;
 }
 .active-page {
-  color: black;
+color: black;
 }
-    </style>
+</style>
 
-  </head>
+</head>
 
-  <body unresolved>
-    <core-drawer-panel responsiveWidth="1280px" id="drawerPanel">
+<body unresolved>
+<core-drawer-panel responsiveWidth="1280px" id="drawerPanel">
 
-    <core-header-panel drawer mode="seamed" class="cs-inset-box-shadow">
-    <core-toolbar id="drawer-toolbar" class="cs-inset-box-shadow" style="background: #f8f8f8;">
-    <core-icon src="static/images/logo.png" size="48"></core-icon>
-    <span id="menu-header">Dissonant</span>
-    </core-toolbar>
-    <menu id="core-pages-switcher" flex vertical layout>
-      <paper-item label="Home"></paper-item>
-      <paper-item label="Projects"></paper-item>
-      <paper-item label="About"></paper-item>
-      <paper-item label="Contact"></paper-item>
-    </menu>
-    </core-header-panel>
+<core-header-panel drawer mode="seamed" class="cs-inset-box-shadow">
+<core-toolbar id="drawer-toolbar" class="cs-inset-box-shadow" style="background: #f8f8f8;">
+<core-icon src="static/images/logo.png" size="48"></core-icon>
+<span id="menu-header">Dissonant</span>
+</core-toolbar>
+<menu id="core-pages-switcher" flex vertical layout>
+<paper-item label="Home"></paper-item>
+<paper-item label="Projects"></paper-item>
+<paper-item label="About"></paper-item>
+<paper-item label="Contact"></paper-item>
+</menu>
+</core-header-panel>
 
-    <core-header-panel main mode="waterfall">
-    <core-toolbar id="mainheader">
-    <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
-    <span id="title" flex> Home </span>
-    <paper-toast text="This feature is still under construction.">
-    <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
-    </paper-toast>
-    </core-toolbar>
+<core-header-panel main mode="waterfall">
+<core-toolbar id="mainheader">
+<paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+<span id="title" flex> Home </span>
+<paper-toast text="This feature is still under construction.">
+<paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+</paper-toast>
+</core-toolbar>
 
-    <div id="page-content" vertical layout>
-      <core-animated-pages id="core-pages" selected="0" transitions="cross-fade-all">
+<div id="page-content" vertical layout>
+<core-animated-pages id="core-pages" selected="0" transitions="cross-fade-all">
 
-      <div id="Home" class="page blue">
-        <div id="banner-container" flex>
-          <div id="banner" horizontal center-justified layout>
-            <img src="static/images/main_header.png" flex>
-          </div>
-        </div>
-        <div id="paper-post-container" flex>
-          <my-post title="Welcome!">
-          <pre>
-              Welcome to Dissonant-Tech.com! This website is still very much under contruction, but feel free to look around.
-            You can find my contact details on the contact page, or use the Projects page to look at some my work.
-          </pre>
-          </my-post>
-        </div>
-      </div>
-
-      <div id="Projects" class="page blue">
-        <project-page>
-        </project-page>
-      </div>
-
-      <div id="About" class="page blue">
-        <about-page>
-        </about-page>
-      </div>
-
-      <div id="Contact" class="page blue">
-        <contact-page>
-        </contact-page>
-      </div>
-
-      </core-animated-pages>
+<div id="Home" class="page blue">
+  <div id="banner-container" flex>
+    <div id="banner" horizontal center-justified layout>
+      <img src="static/images/main_header.png" flex>
     </div>
+  </div>
+  <div id="paper-post-container" flex>
+    <my-post title="Welcome!">
+    <pre>
+        Welcome to Dissonant-Tech.com! This website is still very much under contruction, but feel free to look around.
+      You can find my contact details on the contact page, or use the Projects page to look at some my work.
+    </pre>
+    </my-post>
+  </div>
+</div>
 
-    </core-header-panel>
-    </core-drawer-panel>
+<div id="Projects" class="page blue">
+  <project-page>
+  </project-page>
+</div>
 
-  </body>
+<div id="About" class="page blue">
+  <about-page>
+  </about-page>
+</div>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="static/js/jquery-2.1.1.min.js"></script>
+<div id="Contact" class="page blue">
+  <contact-page>
+  </contact-page>
+</div>
 
-  <script type="text/javascript">
+</core-animated-pages>
+</div>
+
+</core-header-panel>
+</core-drawer-panel>
+
+</body>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="static/js/jquery-2.1.1.min.js"></script>
+
+<script type="text/javascript">
 document.addEventListener('polymer-ready', function() {
-  var navicon = document.getElementById('navicon');
-  var drawerPanel = document.getElementById('drawerPanel');
-  navicon.addEventListener('click', function() {
-    drawerPanel.togglePanel();
-  });
+var navicon = document.getElementById('navicon');
+var drawerPanel = document.getElementById('drawerPanel');
+navicon.addEventListener('click', function() {
+drawerPanel.togglePanel();
+});
 });
 
 // core-pages-switcher, uses nav menu to switch through different pages
@@ -130,17 +130,17 @@ var page_switcher = document.querySelector('#core-pages-switcher');
 var pageList = page_switcher.children;
 
 page_switcher.addEventListener('click', function(e) {
-  var clicked = e.target;
-  pages.selected = Array.prototype.indexOf.call(pageList, clicked);
+var clicked = e.target;
+pages.selected = Array.prototype.indexOf.call(pageList, clicked);
 
-  updateTitle(clicked.label);
+updateTitle(clicked.label);
 });
 
 // Updates the toolbar title
 var title = document.getElementById("title");
 
 function updateTitle(txt) {
-  title.innerHTML = txt;
+title.innerHTML = txt;
 }
-  </script>
+</script>
 </html>
