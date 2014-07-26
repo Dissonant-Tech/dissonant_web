@@ -22,6 +22,7 @@
     <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
 
     <link rel="import" href="/bower_components/elements/my-post/my-post.html">
+    <link rel="import" href="/bower_components/elements/about-page/about-page.html">
     <link rel="import" href="/bower_components/elements/project-page/project-page.html">
     <link rel="import" href="/bower_components/elements/contact-page/contact-page.html">
 
@@ -37,6 +38,9 @@
         height: 350px;
         background: #03A9F4;
       }
+      .active-page {
+        color: black;
+      }
     </style>
 
   </head>
@@ -45,7 +49,7 @@
     <core-drawer-panel responsiveWidth="1280px" id="drawerPanel">
 
     <core-header-panel drawer mode="seamed" class="cs-inset-box-shadow">
-    <core-toolbar id="drawer-toolbar" class="cs-inset-box-shadow">
+    <core-toolbar id="drawer-toolbar" class="cs-inset-box-shadow" style="background: #f8f8f8;">
     <core-icon src="static/images/logo.png" size="48"></core-icon>
     <span id="menu-header">Dissonant</span>
     </core-toolbar>
@@ -76,7 +80,12 @@
           </div>
         </div>
         <div id="paper-post-container" flex>
-          <my-post title="Welcome!"></my-post>
+          <my-post title="Welcome!">
+          <pre>
+              Welcome to Dissonant-Tech.com! This website is still very much under contruction, but feel free to look around.
+            You can find my contact details on the contact page, or use the Projects page to look at some my work.
+          </pre>
+          </my-post>
         </div>
       </div>
 
@@ -133,5 +142,6 @@ var title = document.getElementById("title");
 function updateTitle(txt) {
   title.innerHTML = txt;
 }
+
   </script>
 </html>
