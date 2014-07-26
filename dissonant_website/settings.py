@@ -1,5 +1,5 @@
 """
-Django settings for django_project project.
+Django settings for dissonant_website project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'django_project.urls'
+ROOT_URLCONF = 'dissonant_website.urls'
 
-WSGI_APPLICATION = 'django_project.wsgi.application'
+WSGI_APPLICATION = 'dissonant_website.wsgi.application'
 
 
 # Database
@@ -58,12 +58,8 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'django',
-        'PASSWORD': 'eAz8Vir3kZ',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
