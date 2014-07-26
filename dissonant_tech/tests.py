@@ -13,7 +13,7 @@ class BlogPostTestCase(TestCase):
                 category = 'Testing')
 
     def test_post_have_category(self):
-        first_post = Post.objects.get(id=1)
-        second_post = Post.objects.get(id=2)
+        first_post = BlogPost.objects.get(id=1)
+        second_post = BlogPost.objects.get(id=2)
         self.assertEqual(first_post.category, 'Testing')
         self.assertEqual(second_post.category, 'Testing')
