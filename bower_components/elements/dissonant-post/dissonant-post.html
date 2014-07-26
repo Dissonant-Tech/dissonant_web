@@ -1,6 +1,4 @@
 
-<link rel="import" href="/bower_components/paper-fab/paper-fab.html">
-<link rel="import" href="/bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="/bower_components/core-style/core-style.html">
 <link rel="import" href="/bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
@@ -8,7 +6,7 @@
 <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="/bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 
-<core-style id="my-post">
+<core-style id="dissonant-post">
 <style>
   section {
     margin-bottom: 35px;
@@ -20,9 +18,7 @@
     background: white;
   }
   core-toolbar {
-    background: url("/static/images/Header1.jpg");
-    background-size: 100% auto;
-    color: white;
+    background: white;
   }
   .title {
     font-size: 1.6rem;
@@ -30,6 +26,7 @@
   .pubdate {
     vertical-align: center;
     font-size: 14px;
+    color: grey;
   }
   .content {
     background-color: white;
@@ -39,26 +36,26 @@
   }
 </style>
 </core-style>
-<polymer-element name="my-post" attributes="title subtitle pubdate">
+<polymer-element name="dissonant-post" attributes="title subtitle pubdate">
 <template>
-  <core-style ref="my-post"></core-style>
+  <core-style ref="dissonant-post"></core-style>
   <section center center-justified horizontal layout cross-fade>
     <div class="container" flex>
       <div class="main" flex>
       <paper-shadow z="2" animated></paper-shadow>
         <div class="post-header">
-          <core-toolbar style="border-bottom: solid 1px #D8D8D8;" class="tall">
-            <paper-menu-button icon="menu" style="font-size: 12px;" start-justified flex>
+          <core-toolbar style="border-bottom: solid 1px #D8D8D8;">
+            <paper-menu-button icon="menu" style="font-size: 12px;" start-justified>
             <paper-item> Copy Text </paper-item>
             <paper-item> Copy Link </paper-item>
             <paper-item> Open in Fullscreen </paper-item>
             </paper-menu-button>
-            <div class="bottom indent" flex>
+            <div flex>
               <div class="title">
                 {{title}}
               </div>
             </div>
-            <div class="bottom">
+            <div>
               <div class="pubdate">
                 <u>{{pubdate}}</u>
               </div>
@@ -77,7 +74,7 @@
   </section>
 </template>
 <script type="text/javascript" charset="utf-8">
-  Polymer('my-post',{
+  Polymer('dissonant-post',{
     title: 'Title',
     subtitle: '',
     pubdate: '01 Jan 2014',
