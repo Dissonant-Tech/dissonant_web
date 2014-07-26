@@ -1,12 +1,115 @@
 
+<link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
+
 <polymer-element name="project-page">
-<template>
+<style>
+  .chip-container {
+    position: absolute;
+    top: 275px;
+    right: 0;
+    left: 0;
+    text-align: center;
+  }
 
-<div id="underconstruction" center center-justified flex vertical layout>
-   <h1 flex center>This Website is</h1>
-   <h1 flex>Under Construction</h1>
-</div>
+  .chip {
+    display: inline-block;
+    position: relative;
+    border-radius: 3px;
+    margin: 4px;
+    overflow: hidden;
+    text-align: start;
+    background-color: #fff;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+  }
 
+  .chip-top {
+    width: 200px;
+    height: 200px;
+  }
+
+  .chip-bottom {
+    padding: 8px;
+    line-height: 1.5;
+  }
+
+  .chip-album-title {
+    font-weight: bold;
+  }
+
+  #details {
+    padding: 200px 10% 0;
+  }
+
+  .card {
+    height: 400px;
+    border-radius: 3px;
+    text-align: start;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .card-left {
+    width: 400px;
+  }
+
+  .card-right {
+    padding: 24px;
+  }
+
+  .card-icon {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-right: 16px;
+  }
+
+  .card-album-title {
+    font-size: 2em;
+  }
+</style>
+
+<core-animated-pages selected="{{page}}" transitions="hero-transition" on-core-animated-pages-transition-end="{{complete}}">
+
+<section>
+
+  <div class="chip-container" hero-p on-tap="{{transition}}">
+
+    <template repeat="{{projects as project}}">
+
+    <div class="chip" hero-id="{{project.description}}-{{project.album}}" hero?="{{selectedAlbum === project }}">
+      <div class="chip-top" style="background:{{project.color}};" hero-id="{{project.description}}-{{project.album}}-art" hero?="{{selectedAlbum === project}}"></div>
+      <div class="chip-bottom">
+        <div class="chip-album-title">{{project.album}}</div>
+        <div class="chip-description">{{project.description}}</div>
+      </div>
+    </div>
+
+    </template>
+
+  </div>
+</section>
+
+<section id="details">
+
+  <div class="card" layout horizontal hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
+    <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}-art" hero></div>
+    <div class="card-right" flex>
+      <div layout horizontal center>
+        <div>
+          <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+        </div>
+        <div flex>
+          <div class="card-album-title">{{selectedAlbum.album}}</div>
+          <div class="card-album-description">{{selectedAlbum.description}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</core-animated-pages>
 </template>
 <script>
 
@@ -15,8 +118,8 @@ Polymer('project-page', {
 page: 0,
 
   projects: [
-  { artist: 'Linux dzen2 wrapper', album: 'Pydzen', color: '#f4db33' },
-  { artist: 'Dissonant-Tech Website', album: 'Dissonant-Tech', color: '#972ff8' },
+  { description: 'Linux dzen2 wrapper', album: 'Pydzen', color: '#f4db33' },
+  { description: 'Dissonant-Tech Website', album: 'Dissonant-Tech', color: '#972ff8' },
 ],
 
   selectedAlbum: null,
