@@ -79,11 +79,11 @@
 
     <template repeat="{{projects as project}}">
 
-    <div class="chip" hero-id="{{project.artist}}-{{project.album}}" hero?="{{selectedAlbum === project }}">
-      <div class="chip-top" style="background:{{project.color}};" hero-id="{{project.artist}}-{{project.album}}-art" hero?="{{selectedAlbum === project}}"></div>
+    <div class="chip" hero-id="{{project.description}}-{{project.album}}" hero?="{{selectedAlbum === project }}">
+      <div class="chip-top" style="background:{{project.color}};" hero-id="{{project.description}}-{{project.album}}-art" hero?="{{selectedAlbum === project}}"></div>
       <div class="chip-bottom">
         <div class="chip-album-title">{{project.album}}</div>
-        <div class="chip-artist">{{project.artist}}</div>
+        <div class="chip-description">{{project.description}}</div>
       </div>
     </div>
 
@@ -94,8 +94,8 @@
 
 <section id="details">
 
-  <div class="card" layout horizontal hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
-    <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.artist}}-{{selectedAlbum.album}}-art" hero></div>
+  <div class="card" layout horizontal hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
+    <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}-art" hero></div>
     <div class="card-right" flex>
       <div layout horizontal center>
         <div>
@@ -103,7 +103,7 @@
         </div>
         <div flex>
           <div class="card-album-title">{{selectedAlbum.album}}</div>
-          <div class="card-album-artist">{{selectedAlbum.artist}}</div>
+          <div class="card-album-description">{{selectedAlbum.description}}</div>
         </div>
       </div>
     </div>
@@ -120,8 +120,8 @@ Polymer('project-page', {
 page: 0,
 
   projects: [
-  { artist: 'Linux dzen2 wrapper', album: 'Pydzen', color: '#f4db33' },
-  { artist: 'Dissonant-Tech Website', album: 'Dissonant-Tech', color: '#972ff8' },
+  { description: 'Linux dzen2 wrapper', album: 'Pydzen', color: '#f4db33' },
+  { description: 'Dissonant-Tech Website', album: 'Dissonant-Tech', color: '#972ff8' },
 ],
 
   selectedAlbum: null,
