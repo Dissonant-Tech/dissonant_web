@@ -149,18 +149,6 @@ menu {
   padding: 0;
 }
 
-paper-button {
-  padding: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  letter-spacing: .14em;
-  color: #757575;
-}
-
-paper-button:hover {
-  background: #eeeeee;
-  color: black;
-}
 
 #banner-container {
   background-color: #03A9F4;
