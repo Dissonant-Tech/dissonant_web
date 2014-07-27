@@ -149,7 +149,7 @@ menu {
   padding: 0;
 }
 
-paper-item {
+paper-button {
   padding: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -157,7 +157,7 @@ paper-item {
   color: #757575;
 }
 
-paper-item:hover {
+paper-button:hover {
   background: #eeeeee;
   color: black;
 }
