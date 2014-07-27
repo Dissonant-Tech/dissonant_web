@@ -6,7 +6,7 @@ class BlogPostTestCase(TestCase):
     def setUp(self):
         BlogPost.objects.create(id=1,
                 title = 'BlogPostTestCase number one',
-                posted = datetime.datetime.now(),
+                created_on = datetime.datetime.now(),
                 category = 'Testing')
         BlogPost.objects.create(id=2,
                 title = 'Tetst number two',
