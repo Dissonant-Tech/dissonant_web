@@ -8,8 +8,18 @@ from django.contrib.auth.models import User
 
 
 class Category(models.Model):
+    """Category Model"""
+
     title = models.CharField(max_length=100, db_index=True, unique=True)
     slug = models.SlugField(max_length=100, db_index=True)
+
+    def __unicode__(self):
+        return "%s" % (self.title,)
+
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=100)
@@ -24,7 +34,7 @@ class BlogPost(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('blog_post_detail', (), 
+        return ('blog_post_detail', (),
                 {
                     'slug': self.slug,
                     })
