@@ -40,7 +40,7 @@ class Article(models.Model):
     content_markdown = models.TextField(
             verbose_name = 'Content (Markdown)',
             )
-    date_publish = models.DateTimeField(auto_now_add=True,
+    date_publish = models.DateField(auto_now_add=True,
             verbose_name = 'Publish Date'
             )
     author = models.ForeignKey(User)

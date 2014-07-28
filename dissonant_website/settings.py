@@ -58,6 +58,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_LOADERS = (
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+)
+
 ROOT_URLCONF = 'dissonant_website.urls'
 
 WSGI_APPLICATION = 'dissonant_website.wsgi.application'
