@@ -17,4 +17,4 @@ class Migration(SchemaMigration):
         
     }
 
-    complete_apps = ['dissonant_tech']
+    complete_apps = ['blog']
