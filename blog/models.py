@@ -52,8 +52,8 @@ class Article(models.Model):
             )
 
     class Meta:
-        verbose_name = 'Blog Post'
-        verbose_name_plural = 'Blog Posts'
+        verbose_name = 'Article'
+        verbose_name_plural = 'Articles'
         ordering = ['-date_publish']
 
     def __unicode__(self):
