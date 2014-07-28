@@ -1,5 +1,4 @@
-from django.conf.urls.defaults import *
-from django.views.generic.simple import direct_to_template
+from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     url('^blog/archive/(?P<year>[\d]+)/(?P<month>[\d]+)/$', 'blog.views.article.date_archive', name="blog-date-archive"),
