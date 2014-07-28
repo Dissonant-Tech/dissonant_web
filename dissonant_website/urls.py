@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
 
-from dissonant_tech import views
+from blog import views
 from django.contrib import admin
 
 admin.autodiscover()

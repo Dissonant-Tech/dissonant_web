@@ -1,6 +1,6 @@
 import datetime
 from django.test import TestCase
-from dissonant_tech.models import BlogPost, Category
+from blog.models import BlogPost, Category
 
 class BlogPostTestCase(TestCase):
     def setUp(self):
