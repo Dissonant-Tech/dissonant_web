@@ -9,7 +9,6 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     """Category Model"""
-
     title = models.CharField(max_length=100, db_index=True, unique=True)
     slug = models.SlugField(max_length=100, db_index=True)
 
@@ -22,12 +21,38 @@ class Category(models.Model):
 
 
 class BlogPost(models.Model):
-    title = models.CharField(max_length=100)
-    slug = models.SlugField(unique=True)
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
+    """Blog Post Model"""
+    title = models.CharField(
+            max_length=100,
+            verbose_name = 'Title'
+            )
+    slug = models.SlugField(
+            unique=True,
+            verbose_name = 'Slug',
+            help_text = 'Uri Identifier',
+            max_length = 255
+            )
+    content_markup = models.TextField(
+            verbose_name = 'Content (Markup)',
+            )
+    content_markdown = models.TextField(
+            verbose_name = 'Content (Markdown)',
+            )
+    date_publish = models.DateTimeField(auto_now_add=True,
+            verbose_name = 'Publish Date'
+            )
     author = models.ForeignKey(User)
-    category = models.ForeignKey(Category)
+    categories = models.ManyToManyField(
+            Category,
+            verbose_name = 'Categories',
+            null = True,
+            blank = True
+            )
+
+    class Meta:
+        verbose_name = 'Blog Post'
+        verbose_name_plural = 'Blog Posts'
+        ordering = ['-date_publish']
 
     def __unicode__(self):
         return self.title
