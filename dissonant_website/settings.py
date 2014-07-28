@@ -42,6 +42,7 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
+        'main',
         'blog',
 )
 
@@ -55,6 +56,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_LOADERS = (
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
 )
 
 ROOT_URLCONF = 'dissonant_website.urls'

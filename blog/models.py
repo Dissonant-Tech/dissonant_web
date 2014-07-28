@@ -40,7 +40,7 @@ class Article(models.Model):
     content_markdown = models.TextField(
             verbose_name = 'Content (Markdown)',
             )
-    date_publish = models.DateTimeField(auto_now_add=True,
+    date_publish = models.DateField(auto_now_add=True,
             verbose_name = 'Publish Date'
             )
     author = models.ForeignKey(User)
@@ -52,8 +52,8 @@ class Article(models.Model):
             )
 
     class Meta:
-        verbose_name = 'Blog Post'
-        verbose_name_plural = 'Blog Posts'
+        verbose_name = 'Article'
+        verbose_name_plural = 'Articles'
         ordering = ['-date_publish']
 
     def __unicode__(self):
