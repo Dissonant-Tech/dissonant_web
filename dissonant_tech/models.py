@@ -4,6 +4,8 @@ from django.template.defaultfilters import slugify
 
 from django.contrib.auth.models import User
 
+from markdown import markdown
+
 # Create your models here.
 
 
@@ -67,6 +69,7 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title + created_on)
+            self.content_markup = markdown(self.content_markdown, ['codehilite'])
         super(BlogPost, self).save(*args, **kwargs)
 
 
