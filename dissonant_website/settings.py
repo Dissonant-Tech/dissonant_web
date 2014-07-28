@@ -39,6 +39,9 @@ DEFAULT_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+        'pagedown',
+        'markdown',
+        'pygments'
 )
 
 LOCAL_APPS = (

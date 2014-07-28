@@ -2,8 +2,6 @@ from django.db import models
 from django.db.models import permalink
 from django.template.defaultfilters import slugify
 
-from django.contrib.auth.models import User
-
 from markdown import markdown
 
 # Create your models here.
@@ -15,7 +13,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=100, db_index=True)
 
     def __unicode__(self):
-        return "%s" % (self.title,)
+        return self.title
 
     class Meta:
         verbose_name = 'Category'
@@ -43,7 +41,6 @@ class Article(models.Model):
     date_publish = models.DateField(auto_now_add=True,
             verbose_name = 'Publish Date'
             )
-    author = models.ForeignKey(User)
     categories = models.ManyToManyField(
             Category,
             verbose_name = 'Categories',
