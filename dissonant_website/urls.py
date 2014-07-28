@@ -2,16 +2,16 @@ from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
 
-from main import views
 from django.contrib import admin
+from main import views
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'django_project.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
     url(r'^$', views.index, name='index'),
+    url(r'^blog/', include('blog.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 
