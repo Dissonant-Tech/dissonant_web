@@ -22,8 +22,8 @@ class Category(models.Model):
         verbose_name_plural = 'Categories'
 
 
-class BlogPost(models.Model):
-    """Blog Post Model"""
+class Article(models.Model):
+    """Article Model"""
     title = models.CharField(
             max_length=100,
             verbose_name = 'Title'
@@ -70,6 +70,6 @@ class BlogPost(models.Model):
         if not self.slug:
             self.slug = slugify(self.title + created_on)
             self.content_markup = markdown(self.content_markdown, ['codehilite'])
-        super(BlogPost, self).save(*args, **kwargs)
+        super(Article, self).save(*args, **kwargs)
 
 
