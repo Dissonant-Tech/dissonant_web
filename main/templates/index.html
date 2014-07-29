@@ -50,6 +50,22 @@
         letter-spacing: .14em;
         color: black;
       }
+      .blog-container {
+      }
+      .blog-header {
+
+      }
+      .blog-header h1 {
+        font-size: 2.8rem;
+        margin-left: 2.8rem;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        color: grey;
+      }
+      .blog-header hr {
+        padding-top: 0;
+        margin-top: 0;
+      }
     </style>
 
   </head>
@@ -92,9 +108,16 @@
           <pre style="padding: 20px; padding-top: 0;">
             Welcome to Dissonant-Tech.com! This website is still very much under contruction, but feel free to look around. You can find my contact details on the contact page, or use the Projects page to look at some of my work.
           </pre>
-          </dissonant-post>
-
+        </dissonant-post>
         </div>
+
+        <div class="blog-container" flex vertical center center-justified layout>
+          <div class="blog-header"  style="width: 80%" flex>
+            <h1>Blog Posts</h1>
+            <hr style="color: grey;" flex>
+          </div>
+        </div>
+
       </div>
 
       <div id="Projects" class="page">
@@ -124,13 +147,13 @@
   <script src="static/js/jquery-2.1.1.min.js"></script>
 
   <script type="text/javascript">
-    document.addEventListener('polymer-ready', function() {
-      var navicon = document.getElementById('navicon');
-      var drawerPanel = document.getElementById('drawerPanel');
-      navicon.addEventListener('click', function() {
-        drawerPanel.togglePanel();
-      });
-    });
+document.addEventListener('polymer-ready', function() {
+  var navicon = document.getElementById('navicon');
+  var drawerPanel = document.getElementById('drawerPanel');
+  navicon.addEventListener('click', function() {
+    drawerPanel.togglePanel();
+  });
+});
 
 // core-pages-switcher, uses nav menu to switch through different pages
 var pages = document.querySelector('#core-pages');
@@ -151,5 +174,5 @@ var title = document.getElementById("title");
 function updateTitle(txt) {
   title.innerHTML = txt;
 }
-</script>
+  </script>
 </html>
