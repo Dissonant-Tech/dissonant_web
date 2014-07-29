@@ -9,10 +9,21 @@ from markdown import markdown
 
 class Category(models.Model):
     """Category Model"""
-    title = models.CharField(max_length=100, db_index=True, unique=True)
-    slug = models.SlugField(max_length=100, db_index=True)
+    title = models.CharField(
+            max_length=100,
+            db_index=True,
+            unique=True,
+            verbose_name = 'Title',
+            )
+    slug = models.SlugField(
+            max_length=100,
+            db_index=True,
+            )
 
     def __unicode__(self):
+        return self.title
+
+    def __str__(self):
         return self.title
 
     class Meta:
@@ -54,6 +65,9 @@ class Article(models.Model):
         ordering = ['-date_publish']
 
     def __unicode__(self):
+        return self.title
+
+    def __str__(self):
         return self.title
 
     @models.permalink
