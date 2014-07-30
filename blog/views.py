@@ -1,7 +1,10 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
+from django.core import serializers
+
 from blog.models import Category, Article
-import calendar, datetime
+import calendar, datetime, json
 
 def index(request):
     """Blog index"""
@@ -113,3 +116,9 @@ def category_archive(request, slug):
                 "category" : category
             }
         )
+
+def ajax(request):
+    """Ajax call"""
+    articles = Article.objects.all()
+    data = serializers.serialize("json", articles)
+    return HttpResponse(data, content_type='application/json', mimetype='application/json')
