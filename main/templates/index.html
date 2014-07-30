@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- 1. Load platform.js for polyfill support. -->
+    <!--  Load platform.js for polyfill support. -->
     <script src="/bower_components/platform/platform.js"></script>
 
-    <!-- 2. Use an HTML Import to bring in the element. -->
+    <!--  Use an HTML Import to bring in the element. -->
     <link rel="import" href="/bower_components/core-menu/core-menu.html">
+    <link rel="import" href="/bower_components/core-ajax/core-ajax.html">
     <link rel="import" href="/bower_components/core-item/core-item.html">
     <link rel="import" href="/bower_components/core-icons/core-icons.html">
     <link rel="import" href="/bower_components/core-pages/core-pages.html">
@@ -14,17 +15,18 @@
     <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="/bower_components/core-drawer-panel/core-drawer-panel.html">
     <link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
-
     <link rel="import" href="/bower_components/core-submenu/core-submenu.html">
     <link rel="import" href="/bower_components/core-collapse/core-collapse.html">
-    <link rel="import" href="/bower_components/paper-button/paper-button.html">
 
+    <!--  Import Material design elements. -->
     <link rel="import" href="/bower_components/paper-item/paper-item.html">
     <link rel="import" href="/bower_components/paper-toast/paper-toast.html">
     <link rel="import" href="/bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="/bower_components/paper-button/paper-button.html">
     <link rel="import" href="/bower_components/paper-elements/paper-elements.html">
     <link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
 
+    <!--  Import custom elements. -->
     <link rel="import" href="/bower_components/elements/my-post/my-post.html">
     <link rel="import" href="/bower_components/elements/dissonant-post/dissonant-post.html">
     <link rel="import" href="/bower_components/elements/about-page/about-page.html">
@@ -96,7 +98,7 @@
       <core-animated-pages id="core-pages" selected="0" transitions="cross-fade-all">
 
       <div id="Home" class="page" cross-fade>
-        <div id="banner-container" style="position: absolute;" flex>
+        <div id="banner-container" style="position: absolute; padding-top: 0; padding-bottom: 0;" flex>
           <div id="banner" horizontal center-justified layout>
             <img src="static/images/main_header.png" style="z-index: 1001;"flex cross-fade>
           </div>
@@ -106,6 +108,9 @@
           <div class="blog-header"  style="width: 80%" flex>
             <h1>Blog Posts</h1>
             <hr style="color: grey;" flex>
+          </div>
+          <div class="blog-list">
+            <core-ajax id="blog-ajax"></core-ajax>
           </div>
         </div>
       </div>
@@ -143,6 +148,7 @@ document.addEventListener('polymer-ready', function() {
   navicon.addEventListener('click', function() {
     drawerPanel.togglePanel();
   });
+  loadBlogs();
 });
 
 // core-pages-switcher, uses nav menu to switch through different pages
@@ -163,6 +169,19 @@ var title = document.getElementById("title");
 
 function updateTitle(txt) {
   title.innerHTML = txt;
+}
+
+// Load blogs with ajax call
+var blog_ajax = document.querySelector('#blog-ajax');
+
+function loadBlogs() {
+  var url = document.URL + 'blog/ajax/';
+
+  blog_ajax.handleAs = 'json';
+  blog_ajax.method = 'GET';
+  blog_ajax.url = url;
+  blog_ajax.go();
+  console.log(blog_ajax.response);
 }
   </script>
 </html>
