@@ -119,6 +119,9 @@
           </div>
           <div class="blog-list">
             <core-ajax id="blog-ajax"></core-ajax>
+            <div id="blog-item-container">
+
+            </div>
           </div>
         </div>
 
@@ -182,6 +185,21 @@ function updateTitle(txt) {
 
 // Load blogs with ajax call
 var blog_ajax = document.querySelector('#blog-ajax');
+var blog_item_container = document.querySelector('#blog-item-container');
+
+function renderBlogItems(parent_div, items) {
+  var len = items.length;
+
+  for(var i = 0; i < len; i++) {
+    parent_div.appendChild(renderBlogItem(items[i]['title'], items[i]['date'], items[i]['categories']));
+  }
+}
+
+function renderBlogItem(title, date, categories) {
+  var temp = document.createElement('div');
+  temp.innerHTML = '<dissonant-post title= "'+title+'" pubdate="'+date+'" ></dissonant-post>';
+  return temp;
+}
 
 function loadBlogs() {
   var url = document.URL + "ajax/";
@@ -191,11 +209,11 @@ function loadBlogs() {
   blog_ajax.params = {};
   blog_ajax.url = url;
   blog_ajax.go();
-  console.log(blog_ajax.response);
 }
 
-function renderBlogItem(item) {
+blog_ajax.addEventListener('core-response', function(e){
+  renderBlogItems(blog_item_container, this.response);
+});
 
-}
   </script>
 </html>
