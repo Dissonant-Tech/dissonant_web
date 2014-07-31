@@ -1,9 +1,10 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.core import serializers
 
 from blog.models import Category, Article
+import simplejson
 import calendar, datetime, json
 
 def index(request):
@@ -121,4 +122,13 @@ def ajax(request):
     """Ajax call"""
     articles = Article.objects.all()
     data = serializers.serialize("json", articles)
-    return HttpResponse(data, content_type='application/json', mimetype='application/json')
+    return HttpResponse(data, content_type='application/json')
+
+def ajax_test(request):
+    if request.method == 'GET':
+        data = {'this': True, 'is': True, 'a': False, 'Test': 'SUCESS!'}
+        data = simplejson.dumps(data)
+
+        return HttpResponse(data, content_type='application/json')
+    else:
+        return Http404

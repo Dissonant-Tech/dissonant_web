@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from django.template import Context, loader
 
 from blog.models import Category, Article
-import calendar, datetime
 
 def index(request):
     t = loader.get_template('index.html')
