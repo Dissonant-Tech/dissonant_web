@@ -118,17 +118,3 @@ def category_archive(request, slug):
             }
         )
 
-def ajax(request):
-    """Ajax call"""
-    articles = Article.objects.all()
-    data = serializers.serialize("json", articles)
-    return HttpResponse(data, content_type='application/json')
-
-def ajax_test(request):
-    if request.method == 'GET':
-        data = {'this': True, 'is': True, 'a': False, 'Test': 'SUCESS!'}
-        data = simplejson.dumps(data)
-
-        return HttpResponse(data, content_type='application/json')
-    else:
-        return Http404

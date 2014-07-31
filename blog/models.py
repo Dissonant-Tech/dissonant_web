@@ -78,9 +78,24 @@ class Article(models.Model):
                     })
 
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title + created_on)
-            self.content_markup = markdown(self.content_markdown, ['codehilite'])
+        self.slug = slugify(self.title + created_on)
+        self.content_markup = markdown(self.content_markdown, ['codehilite'])
         super(Article, self).save(*args, **kwargs)
+
+    def as_json(self):
+        categories = {}
+        self_categories = self.categories.all()
+        c_num = 1
+
+        for c in self_categories:
+            categories['category'+str(c_num)] = c.title
+
+        return dict(
+                title = self.title,
+                date_publish = self.date_publish.isoformat(),
+                content_markdown = self.content_markdown,
+                content_markup = self.content_markup,
+                categories = categories)
+
 
 

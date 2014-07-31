@@ -184,13 +184,18 @@ function updateTitle(txt) {
 var blog_ajax = document.querySelector('#blog-ajax');
 
 function loadBlogs() {
-  var url = document.URL + "blog/ajax/";
+  var url = document.URL + "ajax/";
 
   blog_ajax.handleAs = 'json';
   blog_ajax.method = 'GET';
+  blog_ajax.params = {};
   blog_ajax.url = url;
   blog_ajax.go();
   console.log(blog_ajax.response);
+}
+
+function renderBlogItem(item) {
+
 }
   </script>
 </html>
