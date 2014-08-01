@@ -28,6 +28,7 @@
     <!--  Import custom elements. -->
     <link rel="import" href="/bower_components/elements/my-post/my-post.html">
     <link rel="import" href="/bower_components/elements/dissonant-post/dissonant-post.html">
+    <link rel="import" href="/bower_components/elements/blog-item/blog-item.html">
     <link rel="import" href="/bower_components/elements/about-page/about-page.html">
     <link rel="import" href="/bower_components/elements/project-page/project-page.html">
     <link rel="import" href="/bower_components/elements/contact-page/contact-page.html">
@@ -52,9 +53,8 @@
         color: black;
       }
       .blog-container {
-      }
-      .blog-header {
-
+        padding-left: 7%;
+        padding-right: 7%;
       }
       .blog-header h1 {
         font-size: 2.8rem;
@@ -66,6 +66,9 @@
       .blog-header hr {
         padding-top: 0;
         margin-top: 0;
+      }
+      .blog-item-container {
+        width: 100%;
       }
     </style>
 
@@ -87,8 +90,8 @@
     </core-menu>
     </core-header-panel>
 
-    <core-header-panel main mode="cover">
-    <core-toolbar id="mainheader" class="blue">
+    <core-header-panel main mode="waterfall">
+    <core-toolbar id="mainheader">
     <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
     <span id="title" flex> Home </span>
     </core-toolbar>
@@ -96,7 +99,7 @@
     <div id="page-content" vertical layout>
       <core-animated-pages id="core-pages" selected="0" transitions="cross-fade-all">
 
-      <div id="Home" class="page" cross-fade>
+      <div id="Home" class="page blue" cross-fade>
 
         <div id="banner-container" style="position: absolute; padding-top: 0; padding-bottom: 0;" flex>
           <div id="banner" horizontal center-justified layout>
@@ -109,17 +112,17 @@
           <pre style="padding: 20px; padding-top: 0;">
             Welcome to Dissonant-Tech.com! This website is still very much under contruction, but feel free to look around. You can find my contact details on the contact page, or use the Projects page to look at some of my work.
           </pre>
-        </dissonant-post>
+          </dissonant-post>
         </div>
 
-        <div class="blog-container" flex vertical center center-justified layout>
-          <div class="blog-header"  style="width: 80%" flex>
+        <div class="blog-container" flex vertical center-justified layout>
+          <div class="blog-header" flex>
             <h1>Blog Posts</h1>
             <hr style="color: grey;" flex>
           </div>
-          <div class="blog-list">
+          <div class="blog-list" flex vertical layout>
             <core-ajax id="blog-ajax"></core-ajax>
-            <div id="blog-item-container">
+            <div id="blog-item-container" flex vertical layout>
 
             </div>
           </div>
@@ -127,17 +130,17 @@
 
       </div>
 
-      <div id="Projects" class="page">
+      <div id="Projects" class="page blue">
         <project-page>
         </project-page>
       </div>
 
-      <div id="About" class="page">
+      <div id="About" class="page blue">
         <about-page>
         </about-page>
       </div>
 
-      <div id="Contact" class="page">
+      <div id="Contact" class="page blue">
         <contact-page>
         </contact-page>
       </div>
@@ -150,18 +153,24 @@
 
   </body>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="static/js/jquery-2.1.1.min.js"></script>
+  <!-- Date.js - for date formatting -->
+  <script src="static/js/date.js"></script>
 
   <script type="text/javascript">
-document.addEventListener('polymer-ready', function() {
-  var navicon = document.getElementById('navicon');
-  var drawerPanel = document.getElementById('drawerPanel');
-  navicon.addEventListener('click', function() {
-    drawerPanel.togglePanel();
-  });
-  loadBlogs();
-});
+    document.addEventListener('polymer-ready', function() {
+      var navicon = document.getElementById('navicon');
+      var drawerPanel = document.getElementById('drawerPanel');
+      navicon.addEventListener('click', function() {
+        drawerPanel.togglePanel();
+      });
+      loadBlogs();
+    });
+
+// format dates to a 'prettier' format
+function formatDate(_date) {
+  return Date.parse(_date).toString('d MMM yyyy');
+}
+
 
 // core-pages-switcher, uses nav menu to switch through different pages
 var pages = document.querySelector('#core-pages');
@@ -191,13 +200,13 @@ function renderBlogItems(parent_div, items) {
   var len = items.length;
 
   for(var i = 0; i < len; i++) {
-    parent_div.appendChild(renderBlogItem(items[i]['title'], items[i]['date'], items[i]['categories']));
+    parent_div.appendChild(renderBlogItem(items[i]['title'], items[i]['date_publish'], items[i]['categories']));
   }
 }
 
 function renderBlogItem(title, date, categories) {
   var temp = document.createElement('div');
-  temp.innerHTML = '<dissonant-post title= "'+title+'" pubdate="'+date+'" ></dissonant-post>';
+  temp.innerHTML = '<blog-item title= "'+title+'" pubdate="'+formatDate(date)+'" flex></blog-item>';
   return temp;
 }
 
