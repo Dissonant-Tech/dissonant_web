@@ -109,11 +109,9 @@ core-header-panel {
 }
 
 #mainheader {
-  background-color: #03A9F4;
-  color: white;
+  color: #202020;
   font-family: "Roboto-Regular";
-  font-size: 2.4rem;
-  background: #03A9F4;
+  font-size: 2rem;
 }
 
 core-toolbar {
@@ -125,8 +123,6 @@ core-toolbar {
 }
 
 core-toolbar > #menu-header {
-  padding-left: 0;
-  margin-left: 0;
   font-family: "Roboto-Thin";
 }
 
@@ -146,10 +142,6 @@ paper-item:hover {
 #banner {
   margin-left: 10%;
   margin-right: 10%;
-}
-
-#page-content {
-  position: relative;
 }
 
 #page-content > core-pages h1 {
