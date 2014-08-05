@@ -101,10 +101,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 if DEBUG:
-    STATIC_ROOT = "/home/dissonance/Projects/web/dissonant_web/static/"
+    ELEMENT_ROOT = os.path.join(BASE_DIR, 'elements')
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
     COMPONENT_ROOT = os.path.join(BASE_DIR, "bower_components")
 else:
     STATIC_ROOT = "/var/www/dissonant-tech.com/static/"
 
 COMPONENT_URL = '/bower_components'
+ELEMENT_URL = '/elements'
 STATIC_URL = '/static/'
