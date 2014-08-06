@@ -120,10 +120,11 @@
       <core-animated-pages id="core-pages" selected="0" transitions="cross-fade-all">
 
       <div id="Home" cross-fade>
+        <a name="top"></a>
         <div id="subheader" class="bg-grey-small cs-inset-boxshadow-bottom" flex horizontal layout>
           <div id="subheader-text" style="padding-left: 3.8rem; color: #202020; opacity: .8;" center-justified>
             <h4>David Rodriguez -
-              <span style="color:#d5402b"> Tech Reviews</span> |
+              <span style="color:#d5402b"> Blogs</span> |
               <span style="color:#972ff8;">Tutorials</span> |
               <span style="color:#DAA520;">Web Design</span> |
               <span style="color:#6495ED;">Programming</span> </h4>
@@ -131,12 +132,16 @@
         </div>
         <div class="blog-container" flex vertical center-justified layout>
           <div class="blog-header" flex>
-            <h1>Blog Posts </h1>
-            <hr style="border-color: #fff; opacity: .8;" flex>
+            <h1>Blog Posts</h1>
           </div>
-          <div id="blog-list-container" style="height: 100%;" flex horizontal layout>
-          <div class="blog-list" style="height:100%;" flex vertical layout>
-            <paper-shadow z="1"> </paper-shadow>
+          <div id="blog-list-container" style="height: 100vh;" flex horizontal layout>
+            <paper-shadow z="2"> </paper-shadow>
+          <div class="blog-list" style="height:100%; padding-top: 1.2rem;" flex vertical layout>
+            <div id="back-top-container" style="">
+              <a href="#top" style="text-decoration: none; color: #303030; float: right;">
+                <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 85%;"></paper-fab>
+              </a>
+            </div>
             <core-ajax id="blog-ajax"></core-ajax>
             <div id="blog-item-container" flex horizontal layout center-justified>
             </div>
@@ -149,6 +154,7 @@
 
       <div id="Projects" style="height: 350px; background-color:#03A9F4;">
         <project-page>
+        <a name="projects"></a>
         </project-page>
       </div>
 
@@ -204,10 +210,14 @@ page_switcher.addEventListener('click', function(e) {
 
 // Updates the toolbar title
 var title = document.getElementById("title");
-var baseTitle = 'Dissonant-Tech |';
+var baseTitle = 'Dissonant-Tech | ';
 
 function updateTitle(txt) {
-  title.innerHTML = baseTitle + txt;
+  if (txt == 'Home') {
+    title.innerHTML = 'Dissonant-Tech';
+  } else {
+    title.innerHTML = baseTitle + txt;
+  }
 }
 
 // Load blogs with ajax call
@@ -243,4 +253,14 @@ blog_ajax.addEventListener('core-response', function(e){
 });
 
   </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-53558286-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>
