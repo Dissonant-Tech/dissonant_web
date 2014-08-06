@@ -3,7 +3,8 @@
  * Universal Styles
  * =========================================*/
 
-body {
+html, body {
+  height: 100%;
   font-family: "Roboto-Regular";
   font-size: 14px;
 }
@@ -100,6 +101,12 @@ menu {
   box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
 }
 
+.cs-inset-boxshadow-bottom {
+  -moz-box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
+  -webkit-box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
+  box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
+}
+
 /* ==========================================
  * Custom Styles
  * =========================================*/
@@ -108,11 +115,6 @@ core-header-panel {
   background: white;
 }
 
-#mainheader {
-  color: #202020;
-  font-family: "Roboto-Regular";
-  font-size: 2rem;
-}
 
 core-toolbar {
   background: #ffffff;
