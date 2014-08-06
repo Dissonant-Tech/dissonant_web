@@ -1,4 +1,5 @@
 <link rel="import" href="/bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="/bower_components/paper-shadow/paper-shadow.html">
 
 <polymer-element name="project-page">
 <template>
@@ -20,7 +21,6 @@
       overflow: hidden;
       text-align: start;
       background-color: #fff;
-      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
     }
 
     .chip-top {
@@ -47,7 +47,6 @@
       text-align: start;
       overflow: hidden;
       background: #fff;
-      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .card-left {
@@ -79,6 +78,7 @@
       <template repeat="{{projects as project}}">
 
         <div class="chip" hero-id="{{project.description}}-{{project.album}}" hero?="{{selectedAlbum === project }}">
+          <paper-shadow z="1"></paper-shadow>
           <div class="chip-top" style="background:{{project.color}};" hero-id="{{project.description}}-{{project.album}}-art" hero?="{{selectedAlbum === project}}"></div>
           <div class="chip-bottom">
             <div class="chip-album-title">{{project.album}}</div>
@@ -94,6 +94,7 @@
   <section id="details">
 
     <div class="card" layout horizontal hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
+      <paper-shadow z="2"></paper-shadow>
       <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}-art" hero></div>
       <div class="card-right" flex>
         <div layout horizontal center>
