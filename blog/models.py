@@ -78,7 +78,7 @@ class Article(models.Model):
                     })
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title + created_on)
+        self.slug = slugify(self.title)
         self.content_markup = markdown(self.content_markdown, ['codehilite'])
         super(Article, self).save(*args, **kwargs)
 
