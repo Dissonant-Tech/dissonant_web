@@ -142,9 +142,6 @@
                 <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 85%; z-index: 10;"></paper-fab>
               </a>
             </div>
-            <core-ajax id="blog-ajax"></core-ajax>
-            <div id="blog-item-container" flex vertical layout>
-            </div>
           </div>
 
           </div>
@@ -219,38 +216,6 @@ function updateTitle(txt) {
     title.innerHTML = baseTitle + txt;
   }
 }
-
-// Load blogs with ajax call
-var blog_ajax = document.querySelector('#blog-ajax');
-var blog_item_container = document.querySelector('#blog-item-container');
-
-function renderBlogItems(parent_div, items) {
-  var len = items.length;
-
-  for(var i = 0; i < len; i++) {
-    parent_div.appendChild(renderBlogItem(items[i]['title'], items[i]['date_publish'], items[i]['categories'], items[i]['content_markdown']));
-  }
-}
-
-function renderBlogItem(title, date, categories, content_markup) {
-  var temp = document.createElement('div');
-  temp.innerHTML = '<blog-item title= "'+title+'" pubdate="'+formatDate(date)+'" content_markup="'+content_markup+'" flex></blog-item>';
-  return temp;
-}
-
-function loadBlogs() {
-  var url = document.URL + "ajax/";
-
-  blog_ajax.handleAs = 'json';
-  blog_ajax.method = 'GET';
-  blog_ajax.params = {};
-  blog_ajax.url = url;
-  blog_ajax.go();
-}
-
-blog_ajax.addEventListener('core-response', function(e){
-  renderBlogItems(blog_item_container, this.response);
-});
 
   </script>
   <script>
