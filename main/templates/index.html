@@ -112,7 +112,7 @@
       }
       .article-body {
         font-size: 1rem;
-        line-height: 1.8rem;
+        line-height: 1.86rem;
         font-family: 'Droid Serif';
         color: #555555;
         visibility:visible;
@@ -201,13 +201,14 @@
                   <div class="article-header" flex>
                     <h1>{{article.title}}</h1>
                     <span>
-                      by: {% if article.user %}{{article.user}}{% else %}David Rodriguez{% endif %},  
+                      by: {% if article.user %}{{article.user}}{% else %}David Rodriguez{% endif %},
                       {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
                     </span>
                     <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand" touch-action="none"></paper-fab>
                   </div>
                   <div class="hr"></div>
-                  <div class="article-body" style="display: block;">
+                  <div class="article-oneliner"></div>
+                  <div class="article-body">
                     {% autoescape off %}
                     {{article.content_markup}}
                     {% endautoescape %}
@@ -299,8 +300,6 @@ function updateTitle(txt) {
 document.querySelector('#articles').addEventListener('pointerdown', function(e) {
   if (hasClass(e.target ,'article-expand')) {
     var article_body = document.getElementById(e.target.id).querySelector('.article-body');
-    //article_body.style.display == "block" ? article_body.style.display = "none" : article_body.style.display = "block";
-    //article_body.style.visibility == "visible" ? article_body.style.visibility = "hidden" : article_body.style.visibility = "visible";
     article_body.classList.toggle('collapsed');
   }
 });
