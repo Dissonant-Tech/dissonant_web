@@ -135,15 +135,15 @@
             <h1>Blog Posts</h1>
           </div>
           <div id="blog-list-container" style="height: 100vh;" flex horizontal layout>
-            <paper-shadow z="2"> </paper-shadow>
           <div class="blog-list" style="height:100%; padding-top: 1.2rem;" flex vertical layout>
+            <paper-shadow z="2"> </paper-shadow>
             <div id="back-top-container" style="">
               <a href="#top" style="text-decoration: none; color: #303030; float: right;">
-                <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 85%;"></paper-fab>
+                <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 85%; z-index: 10;"></paper-fab>
               </a>
             </div>
             <core-ajax id="blog-ajax"></core-ajax>
-            <div id="blog-item-container" flex horizontal layout center-justified>
+            <div id="blog-item-container" flex vertical layout>
             </div>
           </div>
 
@@ -227,13 +227,13 @@ function renderBlogItems(parent_div, items) {
   var len = items.length;
 
   for(var i = 0; i < len; i++) {
-    parent_div.appendChild(renderBlogItem(items[i]['title'], items[i]['date_publish'], items[i]['categories']));
+    parent_div.appendChild(renderBlogItem(items[i]['title'], items[i]['date_publish'], items[i]['categories'], items[i]['content_markdown']));
   }
 }
 
-function renderBlogItem(title, date, categories) {
+function renderBlogItem(title, date, categories, content_markup) {
   var temp = document.createElement('div');
-  temp.innerHTML = '<blog-item title= "'+title+'" pubdate="'+formatDate(date)+'" flex></blog-item>';
+  temp.innerHTML = '<blog-item title= "'+title+'" pubdate="'+formatDate(date)+'" content_markup="'+content_markup+'" flex></blog-item>';
   return temp;
 }
 
