@@ -7,6 +7,7 @@ from blog.models import Category, Article
 
 def index(request):
     t = loader.get_template('index.html')
-    c = Context({"page": "Home"})
+    articles = Article.objects.all()
+    c = Context({"page": "Home", "articles": articles})
 
     return HttpResponse(t.render(c))
