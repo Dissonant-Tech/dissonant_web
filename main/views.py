@@ -8,4 +8,5 @@ from blog.models import Category, Article
 def index(request):
     t = loader.get_template('index.html')
     c = Context({"page": "Home"})
-    return HttpResponse(t.render(c));
+
+    return HttpResponse(t.render(c))
