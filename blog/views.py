@@ -4,7 +4,6 @@ from django.http import HttpResponse, Http404
 from django.core import serializers
 
 from blog.models import Category, Article
-import simplejson
 import calendar, datetime, json
 
 def index(request):
