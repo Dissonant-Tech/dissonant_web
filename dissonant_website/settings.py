@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'uX0eScxk50hOJU3e9XsiG4s3NfhHvbH9xbSKl5WnjkuWHyPUz3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -105,7 +105,9 @@ if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
     COMPONENT_ROOT = os.path.join(BASE_DIR, "bower_components")
 else:
-    STATIC_ROOT = "/var/www/dissonant-tech.com/static/"
+    STATIC_ROOT = "/srv/www/dissonant-tech.com/static/"
+    ELEMENT_ROOT = os.path.join(BASE_DIR, 'elements')
+    COMPONENT_ROOT = os.path.join(BASE_DIR, "bower_components")
 
 COMPONENT_URL = '/bower_components'
 ELEMENT_URL = '/elements'
