@@ -210,7 +210,11 @@
                     <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand" touch-action="none"></paper-fab>
                   </div>
                   <div class="hr"></div>
-                  <div class="article-oneliner"></div>
+                  <div class="article-oneliner">
+                    {% autoescape off %}
+                    {{article.content_markup.readline}}
+                    {% endautoescape %}
+                  </div>
                   <div class="article-body">
                     {% autoescape off %}
                     {{article.content_markup}}
