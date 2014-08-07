@@ -30,7 +30,7 @@ class ArticleForm(forms.ModelForm):
 class ArticleAdmin(admin.ModelAdmin):
     form = ArticleForm
     prepopulated_fields = { 'slug': ('title',) }
-    list_display = ('title', 'date_publish',)
+    list_display = ('title', 'author', 'date_publish',)
     search_fields = ('title', 'content_markdown',)
     list_filter = ('categories',)
     readonly_fields = ('date_publish',)
@@ -42,7 +42,9 @@ class ArticleAdmin(admin.ModelAdmin):
                     }
                 ),
             )
-
+    def save_model(self, request, obj, form, change):
+        obj.author = request.user
+        obj.save()
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Article, ArticleAdmin)

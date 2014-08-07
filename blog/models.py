@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import permalink
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
 from markdown import markdown
 
@@ -49,7 +50,8 @@ class Article(models.Model):
     content_markdown = models.TextField(
             verbose_name = 'Content (Markdown)',
             )
-    date_publish = models.DateField(auto_now_add=True,
+    date_publish = models.DateField(
+            auto_now_add=True,
             verbose_name = 'Publish Date'
             )
     categories = models.ManyToManyField(
@@ -57,6 +59,10 @@ class Article(models.Model):
             verbose_name = 'Categories',
             null = True,
             blank = True
+            )
+    author = models.ForeignKey(
+            User,
+            verbose_name = 'User'
             )
 
     class Meta:
