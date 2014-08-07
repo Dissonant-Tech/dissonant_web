@@ -115,6 +115,13 @@
         line-height: 1.8rem;
         font-family: 'Droid Serif';
         color: #555555;
+        visibility:visible;
+        opacity:1;
+        max-height: 900px;
+        -moz-transition: max-height 1s ease,opacity 1s ease;
+        -webkit-transition: max-height 1s ease,opacity 1s ease;
+        -o-transition: max-height 1s ease,opacity 1s ease;
+        transition: max-height 1s ease,opacity 1s ease;
       }
       .article-body a {
         color: tomato;
@@ -122,6 +129,12 @@
       .article-body a:hover {
         color: tomato;
         text-decoration: underline;
+      }
+      .collapsed {
+        visibility:hidden;
+        opacity:0;
+        max-height: 0px;
+        transition:visibility 0s ease 1s,opacity 1s ease,max-height 1s ease;
       }
     </style>
 
@@ -184,14 +197,17 @@
 
               <div id="articles">
                 {% for article in articles %}
-                <div class="article-container">
+                <div id="{{article.slug}}" class="article-container">
                   <div class="article-header" flex>
                     <h1>{{article.title}}</h1>
-                    <span>{{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}</span>
-                    <paper-fab icon="unfold-less" class="mini" ></paper-fab>
+                    <span>
+                      by: {% if article.user %}{{article.user}}{% else %}David Rodriguez{% endif %},  
+                      {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
+                    </span>
+                    <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand" touch-action="none"></paper-fab>
                   </div>
                   <div class="hr"></div>
-                  <div class="article-body">
+                  <div class="article-body" style="display: block;">
                     {% autoescape off %}
                     {{article.content_markup}}
                     {% endautoescape %}
@@ -232,6 +248,9 @@
   <!-- Date.js - for date formatting -->
   <script src="static/js/date.js"></script>
 
+  <!-- Polymer Pointerevents -->
+  <script src="/bower_components/pointerevents-polyfill/pointerevents.min.js"></script>
+
   <script type="text/javascript">
     document.addEventListener('polymer-ready', function() {
       var navicon = document.getElementById('navicon');
@@ -246,6 +265,10 @@ function formatDate(_date) {
   return Date.parse(_date).toString('d MMM yyyy');
 }
 
+// Check if an element has a class
+function hasClass(element, cls) {
+      return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
 
 // core-pages-switcher, uses nav menu to switch through different pages
 var pages = document.querySelector('#core-pages');
@@ -272,6 +295,15 @@ function updateTitle(txt) {
   }
 }
 
+// Expand/Contract atricle body when clicking article-expand button
+document.querySelector('#articles').addEventListener('pointerdown', function(e) {
+  if (hasClass(e.target ,'article-expand')) {
+    var article_body = document.getElementById(e.target.id).querySelector('.article-body');
+    //article_body.style.display == "block" ? article_body.style.display = "none" : article_body.style.display = "block";
+    //article_body.style.visibility == "visible" ? article_body.style.visibility = "hidden" : article_body.style.visibility = "visible";
+    article_body.classList.toggle('collapsed');
+  }
+});
   </script>
 
   <!-- Google Analytics -->
