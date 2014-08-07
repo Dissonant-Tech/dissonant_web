@@ -107,7 +107,7 @@
         float:right;
         top: 8px;
         background: tomato;
-        color: grey;
+        color: #555555;
         opacity: .95;
       }
       .article-body {
@@ -134,7 +134,10 @@
         visibility:hidden;
         opacity:0;
         max-height: 0px;
-        transition:visibility 0s ease 1s,opacity 1s ease,max-height 1s ease;
+        -moz-transition: max-height 1s ease,opacity 1s ease;
+        -webkit-transition: max-height 1s ease,opacity 1s ease;
+        -o-transition: max-height 1s ease,opacity 1s ease;
+        transition: max-height 1s ease,opacity 1s ease;
       }
     </style>
 
@@ -201,7 +204,7 @@
                   <div class="article-header" flex>
                     <h1>{{article.title}}</h1>
                     <span>
-                      by: {% if article.user %}{{article.user}}{% else %}David Rodriguez{% endif %},
+                      by: {{article.author.get_full_name}},
                       {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
                     </span>
                     <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand" touch-action="none"></paper-fab>
