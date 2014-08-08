@@ -110,8 +110,8 @@ if DEBUG:
     COMPONENT_ROOT = os.path.join(BASE_DIR, "bower_components")
 else:
     STATIC_ROOT = "/srv/www/dissonant-tech.com/static/"
-    ELEMENT_ROOT = os.path.join(BASE_DIR, 'elements')
-    COMPONENT_ROOT = os.path.join(BASE_DIR, "bower_components")
+    ELEMENT_ROOT = "/srv/www/dissonant-tech.com/elements"
+    COMPONENT_ROOT = "/srv/www/dissonant-tech/bower_components"
 
 
 COMPONENT_URL = '/bower_components'
