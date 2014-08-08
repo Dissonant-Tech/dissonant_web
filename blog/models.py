@@ -44,9 +44,14 @@ class Article(models.Model):
             help_text = 'Uri Identifier',
             max_length = 255
             )
-    summary = models.TextField(
-            max_length = 1275,
-            verbose_name = 'Summary',
+    summary_markdown = models.TextField(
+            max_length = 765,
+            verbose_name = 'Summary (Markdown)',
+            null = True,
+            blank = True
+            )
+    summary_markup = models.TextField(
+            verbose_name = 'Summary (Markup)',
             null = True,
             blank = True
             )
@@ -91,6 +96,7 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+        self.summary_markup = markdown(self.summary_markdown, ['codehilite'])
         self.content_markup = markdown(self.content_markdown, ['codehilite'])
         super(Article, self).save(*args, **kwargs)
 
