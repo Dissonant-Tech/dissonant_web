@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os, socket
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -20,9 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'uX0eScxk50hOJU3e9XsiG4s3NfhHvbH9xbSKl5WnjkuWHyPUz3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if socket.gethostname() == 'dissonant-tech':
+    DEBUG = False
+    TEMPLATE_DEBUG = False
+else:
+    DEBUG = True
+    TEMPLATE_DEBUG = True
 
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = [
         '.dissonant-tech.com'
@@ -101,13 +105,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 if DEBUG:
-    ELEMENT_ROOT = os.path.join(BASE_DIR, 'elements')
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    ELEMENT_ROOT = os.path.join(BASE_DIR, 'elements')
     COMPONENT_ROOT = os.path.join(BASE_DIR, "bower_components")
 else:
     STATIC_ROOT = "/srv/www/dissonant-tech.com/static/"
     ELEMENT_ROOT = os.path.join(BASE_DIR, 'elements')
     COMPONENT_ROOT = os.path.join(BASE_DIR, "bower_components")
+
 
 COMPONENT_URL = '/bower_components'
 ELEMENT_URL = '/elements'
