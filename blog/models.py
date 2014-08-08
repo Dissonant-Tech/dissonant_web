@@ -35,7 +35,7 @@ class Category(models.Model):
 class Article(models.Model):
     """Article Model"""
     title = models.CharField(
-            max_length=100,
+            max_length = 100,
             verbose_name = 'Title'
             )
     slug = models.SlugField(
@@ -43,6 +43,10 @@ class Article(models.Model):
             verbose_name = 'Slug',
             help_text = 'Uri Identifier',
             max_length = 255
+            )
+    summary = models.TextField(
+            max_length = 1275,
+            verbose_name = 'Summary'
             )
     content_markup = models.TextField(
             verbose_name = 'Content (Markup)',
