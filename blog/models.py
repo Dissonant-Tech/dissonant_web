@@ -46,7 +46,9 @@ class Article(models.Model):
             )
     summary = models.TextField(
             max_length = 1275,
-            verbose_name = 'Summary'
+            verbose_name = 'Summary',
+            null = True,
+            blank = True
             )
     content_markup = models.TextField(
             verbose_name = 'Content (Markup)',
