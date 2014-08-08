@@ -8,6 +8,8 @@ from blog.models import Category, Article
 def index(request):
     t = loader.get_template('index.html')
     articles = Article.objects.all()
+    for article in articles:
+        article.summary = article.content_markup.split('\n', 1)[0]
     c = Context({"page": "Home", "articles": articles})
 
     return HttpResponse(t.render(c))

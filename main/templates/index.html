@@ -110,7 +110,7 @@
         color: #555555;
         opacity: .95;
       }
-      .article-body {
+      .article-text {
         font-size: 1rem;
         line-height: 1.86rem;
         font-family: 'Droid Serif';
@@ -123,10 +123,10 @@
         -o-transition: max-height 1s ease,opacity 1s ease;
         transition: max-height 1s ease,opacity 1s ease;
       }
-      .article-body a {
+      .article-text a {
         color: tomato;
       }
-      .article-body a:hover {
+      .article-text a:hover {
         color: tomato;
         text-decoration: underline;
       }
@@ -138,6 +138,9 @@
         -webkit-transition: max-height 1s ease,opacity 1s ease;
         -o-transition: max-height 1s ease,opacity 1s ease;
         transition: max-height 1s ease,opacity 1s ease;
+      }
+      .closed {
+        padding-bottom: 0px;
       }
     </style>
 
@@ -210,12 +213,12 @@
                     <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand" touch-action="none"></paper-fab>
                   </div>
                   <div class="hr"></div>
-                  <div class="article-oneliner">
+                  <div class="article-text article-oneliner collapsed">
                     {% autoescape off %}
-                    {{article.content_markup.readline}}
+                    {{article.summary}}
                     {% endautoescape %}
                   </div>
-                  <div class="article-body">
+                  <div class="article-text article-body">
                     {% autoescape off %}
                     {{article.content_markup}}
                     {% endautoescape %}
@@ -306,8 +309,21 @@ function updateTitle(txt) {
 // Expand/Contract atricle body when clicking article-expand button
 document.querySelector('#articles').addEventListener('pointerdown', function(e) {
   if (hasClass(e.target ,'article-expand')) {
-    var article_body = document.getElementById(e.target.id).querySelector('.article-body');
+
+    // Toggle article bottom padding
+    var article = document.getElementById(e.target.id);
+    article.classList.toggle('closed');
+
+    // Toggle article post
+    var article_body = article.querySelector('.article-body');
     article_body.classList.toggle('collapsed');
+
+    // Toggle article summary
+    var article_oneliner = article.querySelector('.article-oneliner');
+    article_oneliner.classList.toggle('collapsed');
+
+    // Toggle expand/contract icon
+    e.target.icon == 'unfold-less' ? e.target.icon = 'unfold-more' : e.target.icon = 'unfold-less';
   }
 });
   </script>
