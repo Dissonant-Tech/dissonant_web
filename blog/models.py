@@ -62,6 +62,7 @@ class Article(models.Model):
             verbose_name = 'Publish Date'
             )
     published = models.BooleanField(
+            default = False,
             verbose_name = 'Published',
             )
     categories = models.ManyToManyField(
