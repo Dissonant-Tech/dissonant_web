@@ -61,6 +61,9 @@ class Article(models.Model):
             auto_now_add=True,
             verbose_name = 'Publish Date'
             )
+    published = models.BooleanField(
+            verbose_name = 'Published',
+            )
     categories = models.ManyToManyField(
             Category,
             verbose_name = 'Categories',
@@ -109,6 +112,9 @@ class Article(models.Model):
                 date_publish = self.date_publish.isoformat(),
                 content_markdown = self.content_markdown,
                 content_markup = self.content_markup,
+                summary_markdown = self.summary_markdown,
+                summary_markup = self.summary_markup,
+                published = str(self.published),
                 categories = categories)
 
 
