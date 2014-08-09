@@ -1,28 +1,16 @@
-{% extends "base.html" %}
-{% load staticfiles %}
+{% extends "/blog/article/base.html" %}
 
-{% block title %}{{page}}{% endblock title %}
+{% block title %}Projects {% endblock %}
 
 {% block head %}
-<link rel="import" href="{% static "/elements/project-page/project-page.html" %}">
 
-<style type="text/css" media="screen">
-#Projects {
-    height: 350px;
-    background-color:#03A9F4;
-}
-</style>
-{% endblock head %}
+{% endblock %}
 
-{% block header %}{% endblock header %}
+{% block header %}{% endblock %}
 
-{% block content %}
-<div id="Projects">
-    <project-page>
-    </project-page>
-</div>
-{% endblock content %}
+{% block body %}
+<project-page>
+</project-page>
+{% endblock %}
 
-{% block footer %}{% endblock footer %}
-
-{% block script %}{% endblock script %}
+{% block footer %}{% endblock %}
