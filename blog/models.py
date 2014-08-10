@@ -108,8 +108,6 @@ class Article(models.Model):
         for c in self_categories:
             categories['category'+str(c_num)] = c.title
 
-        author = self.author.get_full_name()
-
         return dict(
                 title = self.title,
                 date_publish = self.date_publish.isoformat(),
@@ -119,7 +117,7 @@ class Article(models.Model):
                 summary_markup = self.summary_markup,
                 published = str(self.published),
                 categories = categories,
-                author = author)
+                author = self.author.get_full_name())
 
 
 
