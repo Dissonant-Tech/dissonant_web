@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{page}}{% endblock title %}
+
+{% block head %}
+<link rel="import" href="{% static "/elements/project-page/project-page.html" %}">
+
+<style type="text/css" media="screen">
+#Projects {
+    height: 350px;
+    background-color:#03A9F4;
+}
+</style>
+{% endblock head %}
+
+{% block header %}{% endblock header %}
+
+{% block content %}
+<div id="Projects">
+    <project-page>
+    </project-page>
+</div>
+{% endblock content %}
+
+{% block footer %}{% endblock footer %}
+
+{% block script %}{% endblock script %}
