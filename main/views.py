@@ -11,3 +11,21 @@ def index(request):
     c = Context({"page": "Home", "articles": articles})
 
     return HttpResponse(t.render(c))
+
+def projects(request):
+    t = loader.get_template('projects.html')
+    c = Context({"page": "Projects"})
+
+    return HttpResponse(t.render(c))
+
+def about(request):
+    t = loader.get_template('about.html')
+    c = Context({"page": "About"})
+
+    return HttpResponse(t.render(c))
+
+def contact(request):
+    t = loader.get_template('contact.html')
+    c = Context({"page": "Contact"})
+
+    return HttpResponse(t.render(c))
