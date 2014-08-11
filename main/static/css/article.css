@@ -17,21 +17,64 @@
   border-bottom: 2px #e7e7e7 solid;
   padding-top: 12px;
 }
+
+/*
+ * Paperfab
+ */
+
 .article-container paper-fab {
   float:right;
   top: 8px;
-  background: tomato;
-  color: #555555;
   opacity: .95;
 }
+
 .article-container paper-fab:hover {
-  background: #FF826C;
   -webkit-transition: background-color 425ms linear;
   -moz-transition: background-color 425ms linear;
   -o-transition: background-color 425ms linear;
   -ms-transition: background-color 425ms linear;
   transition: background-color 425ms linear;
 }
+
+.expand-container paper-fab {
+  margin-left: 10px;
+  background: tomato;
+  color: #555555;
+}
+
+.expand-container paper-fab:hover {
+  background: #FF826C;
+}
+
+/*
+ * Integration paper-fabs
+ */
+
+.article-integration paper-fab {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#integration:hover {
+  background: #555555;
+}
+
+#facebook paper-fab {
+  background: #3B5998;
+}
+
+#twitter paper-fab {
+  background: #55ACEE;
+}
+
+#gplus paper-fab {
+  background: #DD4B39;
+}
+
+/*
+ * Article body text
+ */
+
 .article-text {
   font-size: 1rem;
   line-height: 1.86rem;
