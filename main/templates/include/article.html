@@ -10,7 +10,23 @@
         by: {{article.author.get_full_name}},
         {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
       </span>
-      <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand"></paper-fab>
+
+      <span class="expand-container">
+        <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand"></paper-fab>
+      </span>
+
+      <span class="article-integration">
+        <span id="facebook">
+          <paper-fab id="integration" iconSrc="{% static "images/integration/facebook.png" %}" class="mini"></paper-fab>
+        </span>
+        <span id="twitter">
+          <paper-fab id="integration" iconSrc="{% static "images/integration/twitter.png" %}" class="mini"></paper-fab>
+        </span>
+        <span id="gplus">
+          <paper-fab id="integration" iconSrc="{% static "images/integration/gplus.png" %}" class="mini"></paper-fab>
+        </span>
+      </span>
+
     </div>
     <div class="hr"></div>
     <div class="article-text article-oneliner collapsed">
