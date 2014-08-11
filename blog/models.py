@@ -2,8 +2,8 @@ from django.db import models
 from django.db.models import permalink
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
-
 from markdown import markdown
+import pygments
 
 # Create your models here.
 
