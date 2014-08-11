@@ -1,0 +1,30 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static "css/article.css" %}">
+
+<div id="articles">
+  <div id="{{article.slug}}" class="article-container">
+    <div class="article-header" flex>
+      <h1>{{article.title}}</h1>
+      <span>
+        by: {{article.author.get_full_name}},
+        {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
+      </span>
+      <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand"></paper-fab>
+    </div>
+    <div class="hr"></div>
+    <div class="article-text article-oneliner collapsed">
+      {% autoescape off %}
+      {{article.summary_markup}}
+      {% endautoescape %}
+    </div>
+    <div class="article-text article-body">
+      {% autoescape off %}
+      {{article.content_markup}}
+      {% endautoescape %}
+    </div>
+  </div>
+</div>
+
+
+<script src="{% static "js/article.js" %}"></script>
