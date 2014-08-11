@@ -9,7 +9,7 @@
 }
 #subheader h4 {
   margin-bottom: .3rem;
-  font-size: .884rem;
+  font-size: .984rem;
   vertical-align: middle;
 }
 .blog-container {
@@ -25,64 +25,6 @@
   padding-bottom: 0;
   margin-bottom: 0;
   color: #4c4d4f;
-}
-.article-container {
-  padding-left: 75px;
-  padding-right: 75px;
-  padding-bottom: 30px;
-}
-.article-header h1 {
-  font-size: 3.8rem;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-  color: #4c4d4f;
-  font-family: 'Roboto-Thin';
-}
-.article-header span {
-  color: #949494;
-}
-.article-container .hr {
-  border-bottom: 2px #e7e7e7 solid;
-  padding-top: 12px;
-}
-.article-container paper-fab {
-  float:right;
-  top: 8px;
-  background: tomato;
-  color: #555555;
-  opacity: .95;
-}
-.article-text {
-  font-size: 1rem;
-  line-height: 1.86rem;
-  font-family: 'Droid Serif';
-  color: #555555;
-  visibility:visible;
-  opacity:1;
-  max-height: 900px;
-  -moz-transition: max-height 1s ease,opacity 1s ease;
-  -webkit-transition: max-height 1s ease,opacity 1s ease;
-  -o-transition: max-height 1s ease,opacity 1s ease;
-  transition: max-height 1s ease,opacity 1s ease;
-}
-.article-text a {
-  color: tomato;
-}
-.article-text a:hover {
-  color: tomato;
-  text-decoration: underline;
-}
-.collapsed {
-  visibility:hidden;
-  opacity:0;
-  max-height: 0px;
-  -moz-transition: max-height 1s ease,opacity 1s ease;
-  -webkit-transition: max-height 1s ease,opacity 1s ease;
-  -o-transition: max-height 1s ease,opacity 1s ease;
-  transition: max-height 1s ease,opacity 1s ease;
-}
-.closed {
-  padding-bottom: 0px;
 }
 </style>
 {% endblock head %}
@@ -118,29 +60,9 @@
           </a>
         </div>
 
-        <div id="articles">
+        <div id="articles-container">
           {% for article in articles %}
-          <div id="{{article.slug}}" class="article-container">
-            <div class="article-header" flex>
-              <h1>{{article.title}}</h1>
-              <span>
-                by: {{article.author.get_full_name}},
-                {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
-              </span>
-              <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand" touch-action="none"></paper-fab>
-            </div>
-            <div class="hr"></div>
-            <div class="article-text article-oneliner collapsed">
-              {% autoescape off %}
-              {{article.summary_markup}}
-              {% endautoescape %}
-            </div>
-            <div class="article-text article-body">
-              {% autoescape off %}
-              {{article.content_markup}}
-              {% endautoescape %}
-            </div>
-          </div>
+          {% include "include/article.html" %}
           {% endfor %}
         </div>
 
@@ -158,25 +80,4 @@
 {% block footer %}{% endblock footer %}
 
 {% block script %}
-<script>
-// Expand/Contract atricle body when clicking article-expand button
-document.querySelector('#articles').addEventListener('pointerdown', function(e) {
-    if (hasClass(e.target ,'article-expand')) {
-    // Toggle article bottom padding
-    var article = document.getElementById(e.target.id);
-    article.classList.toggle('closed');
-
-    // Toggle article post
-    var article_body = article.querySelector('.article-body');
-    article_body.classList.toggle('collapsed');
-
-    // Toggle article summary
-    var article_oneliner = article.querySelector('.article-oneliner');
-    article_oneliner.classList.toggle('collapsed');
-
-    // Toggle expand/contract icon
-    e.target.icon == 'unfold-less' ? e.target.icon = 'unfold-more' : e.target.icon = 'unfold-less';
-    }
-    });
-</script>
 {% endblock script %}
