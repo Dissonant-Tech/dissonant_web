@@ -1,0 +1,46 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static "css/article.css" %}">
+
+<div id="articles">
+  <div id="{{article.slug}}" class="article-container">
+    <div class="article-header" flex>
+      <h1>{{article.title}}</h1>
+      <span>
+        by: {{article.author.get_full_name}},
+        {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
+      </span>
+
+      <span class="expand-container">
+        <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand"></paper-fab>
+      </span>
+
+      <span class="article-integration">
+        <span id="facebook">
+          <paper-fab id="integration" iconSrc="{% static "images/integration/facebook.png" %}" class="mini"></paper-fab>
+        </span>
+        <span id="twitter">
+          <paper-fab id="integration" iconSrc="{% static "images/integration/twitter.png" %}" class="mini"></paper-fab>
+        </span>
+        <span id="gplus">
+          <paper-fab id="integration" iconSrc="{% static "images/integration/gplus.png" %}" class="mini"></paper-fab>
+        </span>
+      </span>
+
+    </div>
+    <div class="hr"></div>
+    <div class="article-text article-oneliner collapsed">
+      {% autoescape off %}
+      {{article.summary_markup}}
+      {% endautoescape %}
+    </div>
+    <div class="article-text article-body">
+      {% autoescape off %}
+      {{article.content_markup}}
+      {% endautoescape %}
+    </div>
+  </div>
+</div>
+
+
+<script src="{% static "js/article.js" %}"></script>

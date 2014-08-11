@@ -4,12 +4,12 @@
 {% block title %}{{page}}{% endblock title %}
 
 {% block head %}
-<link rel="import" href="{% static "/elements/project-page/project-page.html" %}">
+<link rel="import" href="{% static "/elements/contact-page/contact-page.html" %}">
 
 <style type="text/css" media="screen">
-#Projects {
+#Contact {
     height: 350px;
-    background-color:#03A9F4;
+    background-color: #909090;
 }
 </style>
 {% endblock head %}
@@ -17,9 +17,9 @@
 {% block header %}{% endblock header %}
 
 {% block content %}
-<div id="Projects">
-    <project-page>
-    </project-page>
+<div id="Contact">
+    <contact-page>
+    </contact-page>
 </div>
 {% endblock content %}
 

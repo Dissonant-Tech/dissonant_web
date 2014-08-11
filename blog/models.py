@@ -116,7 +116,8 @@ class Article(models.Model):
                 summary_markdown = self.summary_markdown,
                 summary_markup = self.summary_markup,
                 published = str(self.published),
-                categories = categories)
+                categories = categories,
+                author = self.author.get_full_name())
 
 
 
