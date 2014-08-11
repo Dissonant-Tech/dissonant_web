@@ -6,27 +6,46 @@
 {% block header %}{% endblock %}
 
 {% block content %}
+<div id="page-content" vertical layout>
+  <core-animated-pages id="core-pages" selected="0" transitions="cross-fade-all">
+  <div id="content-container" cross-fade>
+    <a name="top"></a>
+    <div class="blog-container" flex vertical center-justified layout>
+      <div id="back-top-container" style="">
+        <a href="#top" style="text-decoration: none; color: #303030; float: right;">
+          <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 90%; z-index: 10;"></paper-fab>
+        </a>
+      </div>
 
-<div id="{{article.slug}}" class="article-container" style="padding-top: 20px;">
-  <div class="article-header" flex>
-    <h1>{{article.title}}</h1>
-    <span>
-      by: {{article.author.get_full_name}},
-      {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
-    </span>
-    <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand" touch-action="none"></paper-fab>
+      <div id="articles">
+        <div id="{{article.slug}}" class="article-container" style="padding-top: 20px;">
+          <div class="article-header" flex>
+            <h1>{{article.title}}</h1>
+            <span>
+              by: {{article.author.get_full_name}},
+              {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
+            </span>
+            <paper-fab id="{{article.slug}}" icon="unfold-less" class="mini article-expand" touch-action="none"></paper-fab>
+          </div>
+          <div class="hr"></div>
+          <div class="article-text article-oneliner collapsed">
+            {% autoescape off %}
+            {{article.summary_markup}}
+            {% endautoescape %}
+          </div>
+          <div class="article-text article-body">
+            {% autoescape off %}
+            {{article.content_markup}}
+            {% endautoescape %}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
-  <div class="hr"></div>
-  <div class="article-text article-oneliner collapsed">
-    {% autoescape off %}
-    {{article.summary_markup}}
-    {% endautoescape %}
-  </div>
-  <div class="article-text article-body">
-    {% autoescape off %}
-    {{article.content_markup}}
-    {% endautoescape %}
-  </div>
+  </core-animated-pages>
 </div>
+
 {% endblock %}
 {% block footer %}{% endblock %}
