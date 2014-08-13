@@ -1,3 +1,9 @@
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url(/static/fonts/SourceCodePro-Regular.ttf);
+}
+
 .codehilite {
   background-color: #f7f7f7;
   margin: 1.7rem 0;
@@ -5,18 +11,18 @@
   font-size: .8rem;
   border: 1px solid #ddd;
   border-left: 8px solid #ddd;
-  font-family: monaco, monospace;
+  font-family: "Source Code Pro", monaco, monospace;
 }
 
 pre, code {
-  font-family: monaco, monospace;
+  font-family: "Source Code Pro", monaco, monospace;
   font-size: .82rem;
 }
 
 li code {
   border: 1px solid #ddd;
   background-color: #f7f7f7;
-  font-family: monaco, monospace;
+  font-family: "Source Code Pro", monaco, monospace;
 }
 
 .hll { background-color: #ffffcc }
