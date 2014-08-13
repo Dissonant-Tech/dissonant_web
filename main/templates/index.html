@@ -1,8 +1,12 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block title %}{% endblock title %}
 
 {% block head %}
+<link rel="stylesheet" href="{% static "css/article.css" %}">
+<link rel="stylesheet" href="{% static "css/codehilite.css" %}">
+
 <style type="text/css" media="screen">
 .bg-grey-small {
   background-color: #f7f7f7;
@@ -76,4 +80,5 @@
 {% block footer %}{% endblock footer %}
 
 {% block script %}
+<script src="{% static "js/article.js" %}"></script>
 {% endblock script %}

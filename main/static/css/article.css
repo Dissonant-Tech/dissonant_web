@@ -1,6 +1,6 @@
 .article-container {
-  padding-left: 75px;
-  padding-right: 75px;
+  padding-left: 7%;
+  padding-right: 7%;
   padding-bottom: 30px;
 }
 .article-header h1 {
@@ -82,7 +82,7 @@
   color: #555555;
   visibility:visible;
   opacity:1;
-  max-height: 900px;
+  max-height: 10000px;
   -moz-transition: max-height 1s ease,opacity 1s ease;
   -webkit-transition: max-height 1s ease,opacity 1s ease;
   -o-transition: max-height 1s ease,opacity 1s ease;
