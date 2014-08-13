@@ -27,6 +27,9 @@
   margin-bottom: 0;
   color: #4c4d4f;
 }
+.article-container {
+  border-top: 5px red solid;
+}
 </style>
 {% endblock head %}
 
@@ -59,6 +62,7 @@
       <div id="articles-container">
         {% for article in articles %}
         {% include "include/article.html" %}
+        <paper-shadow z="1"></paper-shadow>
         {% endfor %}
       </div>
     </div>
