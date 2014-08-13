@@ -110,8 +110,7 @@ menu {
  * Custom Styles
  * =========================================*/
 
-core-header-panel {
-  background: white;
+core-scroll-header-panel, core-header-panel {
 }
 
 
@@ -127,6 +126,10 @@ core-toolbar > #menu-header {
   font-family: "Roboto-Thin";
 }
 
+#mainheader {
+  border-bottom: 1px solid #d7d7d7;
+}
+
 paper-item {
   padding: 30px;
   padding-top: 20px;
@@ -138,11 +141,6 @@ paper-item {
 paper-item:hover {
   background: #eeeeee;
   color: black;
-}
-
-#banner {
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 #page-content > core-pages h1 {
