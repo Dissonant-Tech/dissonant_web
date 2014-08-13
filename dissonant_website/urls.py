@@ -1,9 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
-
 from django.contrib import admin
-from main import views
+
+from dissonant_website import views
 
 admin.autodiscover()
 
