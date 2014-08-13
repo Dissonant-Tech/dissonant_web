@@ -28,20 +28,6 @@ img {
   max-height: 100%;
 }
 
-pre {
-  border: none;
-  background: none;
-  font-family: "Roboto-Regular";
-  font-size: 16px;
-  padding: none;
-  margin: none;
-  white-space: pre-wrap;       /* css-3 */
-  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-  white-space: -pre-wrap;      /* Opera 4-6 */
-  white-space: -o-pre-wrap;    /* Opera 7 */
-  word-wrap: break-word;       /* Internet Explorer 5.5+ */
-}
-
 a {
   text-decoration: none;
 }
@@ -143,13 +129,6 @@ paper-item:hover {
 #banner {
   margin-left: 10%;
   margin-right: 10%;
-}
-
-/* Post Styles ----------- */
-#paper-post-container {
-  margin: 2rem;
-  margin-left: 9%;
-  margin-right: 9%;
 }
 
 /* Desktops and laptops ----------- */
