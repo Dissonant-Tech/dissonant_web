@@ -20,9 +20,6 @@
   padding-left: 7%;
   padding-right: 7%;
 }
-.blog-header-container {
-  border-bottom: 5px red solid;
-}
 .blog-header h1 {
   font-size: 2.8rem;
   margin-left: 2.8rem;
@@ -49,26 +46,20 @@
     </div>
   </div>
   <div class="blog-container">
-    <div class="blog-header-container">
-      <div class="blog-header">
-        <h1>Blog Posts</h1>
-      </div>
+    <div class="blog-header">
+      <h1>Blog Posts</h1>
     </div>
     <div id="blog-list-container">
-      <div class="blog-list" style="padding-top: 1.2rem;">
-        <div id="back-top-container" style="">
+      <span id="back-top-container" style="">
+        <a href="#top" style="text-decoration: none; color: #303030; float: right;">
+          <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 90%; z-index: 10;"></paper-fab>
+        </a>
+      </span>
 
-          <a href="#top" style="text-decoration: none; color: #303030; float: right;">
-            <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 90%; z-index: 10;"></paper-fab>
-          </a>
-        </div>
-
-        <div id="articles-container">
-          {% for article in articles %}
-          {% include "include/article.html" %}
-          {% endfor %}
-        </div>
-
+      <div id="articles-container">
+        {% for article in articles %}
+        {% include "include/article.html" %}
+        {% endfor %}
       </div>
     </div>
   </div>
