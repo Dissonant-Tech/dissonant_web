@@ -1,7 +1,12 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 
 {% block title %}{{article.title}}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static "css/article.css" %}">
+<link rel="stylesheet" href="{% static "css/codehilite.css" %}">
+{% endblock head %}
 
 {% block header %}{% endblock %}
 
@@ -22,3 +27,7 @@
 {% endblock %}
 
 {% block footer %}{% endblock %}
+
+{% block script %}
+<script src="{% static "js/article.js" %}"></script>
+{% endblock script %}
