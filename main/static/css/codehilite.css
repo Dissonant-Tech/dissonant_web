@@ -13,6 +13,12 @@ pre, code {
   font-size: .82rem;
 }
 
+li code {
+  border: 1px solid #ddd;
+  background-color: #f7f7f7;
+  font-family: monaco, monospace;
+}
+
 .hll { background-color: #ffffcc }
 .c { color: #999988; font-style: italic } /* Comment */
 .err { color: #a61717; background-color: #e3d2d2 } /* Error */
