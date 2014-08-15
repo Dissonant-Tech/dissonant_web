@@ -51,7 +51,10 @@
 
       <div id="articles-container">
         {% for article in articles %}
-        {% include "include/article.html" %}
+        <div class="shadow-container">
+          {% include "include/article.html" %}
+          <paper-shadow z="1"></paper-shadow>
+        </div>
         {% endfor %}
       </div>
     </div>
