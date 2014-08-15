@@ -110,13 +110,8 @@ menu {
  * Custom Styles
  * =========================================*/
 
-core-scroll-header-panel, core-header-panel {
-  background: #ffffff;
-}
-
-
-core-toolbar {
-  background: #ffffff;
+#drawer-panel {
+  background: #fff;
 }
 
 #drawer-toolbar {
@@ -128,7 +123,8 @@ core-toolbar > #menu-header {
 }
 
 #mainheader {
-  border-bottom: 1px solid #d7d7d7;
+  border-bottom: 1px solid #e7e7e7;
+  background: #ffffff;
 }
 
 paper-item {
