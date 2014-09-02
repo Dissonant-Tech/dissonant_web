@@ -33,6 +33,9 @@
 .article-container {
   border-top: 5px red solid;
 }
+#page-content {
+  background-color: #f7f7f7;
+}
 </style>
 {% endblock head %}
 
@@ -52,7 +55,7 @@
       <div id="articles-container">
         {% for article in articles %}
         <div class="shadow-container">
-          {% include "include/article.html" %}
+          {% include "include/article-collapsed.html" %}
           <paper-shadow z="1"></paper-shadow>
         </div>
         {% endfor %}
@@ -67,5 +70,4 @@
 {% block footer %}{% endblock footer %}
 
 {% block script %}
-<script src="{% static "js/article.js" %}"></script>
 {% endblock script %}

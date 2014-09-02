@@ -9,6 +9,13 @@
         {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
       </span>
 
+      <span class="expand-container">
+        <a href="/blog/{{article.slug}}" target="">
+        <paper-fab id="{{article.slug}}" icon="launch" class="mini article-expand">
+        </paper-fab>
+        </a>
+      </span>
+
       <span class="article-integration">
         <span id="facebook">
           <paper-fab id="integration" iconsrc="{% static "images/integration/facebook.png" %}" class="mini"></paper-fab>
@@ -23,14 +30,9 @@
 
     </div>
     <div class="hr"></div>
-    <div class="article-text article-oneliner collapsed">
+    <div class="article-text article-oneliner">
       {% autoescape off %}
       {{article.summary_markup}}
-      {% endautoescape %}
-    </div>
-    <div class="article-text article-body">
-      {% autoescape off %}
-      {{article.content_markup}}
       {% endautoescape %}
     </div>
   </div>
