@@ -136,7 +136,12 @@ paper-item {
 }
 
 core-menu a paper-item {
-  color: #d7d7d7;
+  color: #fff;
+  font-weight: 550;
+}
+
+core-menu a paper-item[label] {
+  color: #f7f7f7;
   font-weight: 550;
 }
 

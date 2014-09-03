@@ -64,6 +64,11 @@
       margin-right: 16px;
     }
 
+    .card-icon core-icon {
+      padding-left: 11px;
+      padding-top: 11px;
+    }
+
     .card-album-title {
       font-size: 2em;
     }
@@ -79,7 +84,9 @@
 
         <div class="chip" hero-id="{{project.description}}-{{project.album}}" hero?="{{selectedAlbum === project }}">
           <paper-shadow z="1"></paper-shadow>
-          <div class="chip-top" style="background:{{project.color}};" hero-id="{{project.description}}-{{project.album}}-art" hero?="{{selectedAlbum === project}}"></div>
+          <div class="chip-top" style="background:{{project.color}};" hero-id="{{project.description}}-{{project.album}}-art" hero?="{{selectedAlbum === project}}">
+            <core-icon src={{project.icon}} size="200"></core-icon>
+          </div>
           <div class="chip-bottom">
             <div class="chip-album-title">{{project.album}}</div>
             <div class="chip-description">{{project.description}}</div>
@@ -95,11 +102,14 @@
 
     <div class="card" layout horizontal hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}" hero on-tap="{{transition}}">
       <paper-shadow z="2"></paper-shadow>
-      <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}-art" hero></div>
+      <div class="card-left" style="background:{{selectedAlbum.color}};" hero-id="{{selectedAlbum.description}}-{{selectedAlbum.album}}-art" hero>
+        <core-icon src={{selectedAlbum.icon}} size="400">
+      </div>
       <div class="card-right" flex>
         <div layout horizontal center>
           <div>
-            <div class="card-icon" style="background:{{selectedAlbum.color}};"></div>
+            <div class="card-icon" style="background:{{selectedAlbum.color}};">
+            </div>
           </div>
           <div flex>
             <div class="card-album-title">{{selectedAlbum.album}}</div>
@@ -120,8 +130,8 @@
     page: 0,
 
   projects: [
-  { description: 'Linux dzen2 wrapper', album: 'Pydzen', color: '#f4db33' },
-  { description: 'Dissonant-Tech Website', album: 'Dissonant-Tech', color: '#972ff8' },
+  { description: 'Linux dzen2 wrapper', album: 'Pydzen', color: '#f4db33', icon: '"/static/images/pydzen-screen.jpg"'},
+  { description: 'Dissonant-Tech Website', album: 'Dissonant-Tech', color: '#972ff8', icon: '"/static/images/dissonant-screen.png"' },
   ],
 
   selectedAlbum: null,

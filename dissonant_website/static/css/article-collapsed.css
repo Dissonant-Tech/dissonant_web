@@ -1,0 +1,108 @@
+.article-container {
+  padding-bottom: 30px;
+  background-color: #ffffff;
+}
+.article-header h1 {
+  font-size: 3.2rem;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  color: #4c4d4f;
+  font-family: 'Roboto-Thin';
+}
+.article-header span {
+  color: #949494;
+}
+.article-container .hr {
+  border-bottom: 2px #e7e7e7 solid;
+  padding-top: 12px;
+}
+
+/*
+ * Paperfab
+ */
+
+.article-container paper-fab {
+  float:right;
+  top: 8px;
+  opacity: .95;
+}
+
+.article-container paper-fab:hover {
+  -webkit-transition: background-color 425ms linear;
+  -moz-transition: background-color 425ms linear;
+  -o-transition: background-color 425ms linear;
+  -ms-transition: background-color 425ms linear;
+  transition: background-color 425ms linear;
+}
+
+.expand-container paper-fab {
+  margin-left: 10px;
+  background: tomato;
+  color: #555555;
+}
+
+.expand-container paper-fab:hover {
+  background: #FF826C;
+}
+
+/*
+ * Integration paper-fabs
+ */
+
+.article-integration paper-fab {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#integration:hover {
+  background: #555555;
+}
+
+#facebook paper-fab {
+  background: #3B5998;
+}
+
+#twitter paper-fab {
+  background: #55ACEE;
+}
+
+#gplus paper-fab {
+  background: #DD4B39;
+}
+
+/*
+ * Article body text
+ */
+
+.article-text {
+  font-size: 1rem;
+  line-height: 1.86rem;
+  font-family: 'Droid Serif';
+  color: #555555;
+  visibility:visible;
+  opacity:1;
+  max-height: 10000px;
+  -moz-transition: max-height 1s ease,opacity 1s ease;
+  -webkit-transition: max-height 1s ease,opacity 1s ease;
+  -o-transition: max-height 1s ease,opacity 1s ease;
+  transition: max-height 1s ease,opacity 1s ease;
+}
+.article-text a {
+  color: tomato;
+}
+.article-text a:hover {
+  color: tomato;
+  text-decoration: underline;
+}
+.collapsed {
+  visibility:hidden;
+  opacity:0;
+  max-height: 0px;
+  -moz-transition: max-height 1s ease,opacity 1s ease;
+  -webkit-transition: max-height 1s ease,opacity 1s ease;
+  -o-transition: max-height 1s ease,opacity 1s ease;
+  transition: max-height 1s ease,opacity 1s ease;
+}
+.closed {
+  padding-bottom: 0px;
+}
