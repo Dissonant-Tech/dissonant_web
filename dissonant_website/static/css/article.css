@@ -1,6 +1,6 @@
 .article-container {
-  padding-left: 12%;
-  padding-right: 12%;
+  padding-left: 17%;
+  padding-right: 17%;
   padding-bottom: 30px;
   background-color: #ffffff;
 }
@@ -88,6 +88,8 @@
   -webkit-transition: max-height 1s ease,opacity 1s ease;
   -o-transition: max-height 1s ease,opacity 1s ease;
   transition: max-height 1s ease,opacity 1s ease;
+  padding-left: 4%;
+  padding-right: 4%;
 }
 .article-text a {
   color: tomato;
