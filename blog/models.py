@@ -58,7 +58,6 @@ class Article(models.Model):
             verbose_name = 'Content (Markdown)',
             )
     date_publish = models.DateField(
-            auto_now_add=True,
             verbose_name = 'Publish Date'
             )
     published = models.BooleanField(
