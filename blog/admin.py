@@ -33,12 +33,11 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'date_publish',)
     search_fields = ('title', 'content_markdown',)
     list_filter = ('categories',)
-    readonly_fields = ('date_publish',)
     fieldsets = (
             (
                 None,
                 {
-                    'fields': ('title', 'slug', 'published', 'content_markdown', 'summary_markdown', 'categories',)
+                    'fields': ('title', 'slug', 'published', 'date_publish', 'content_markdown', 'summary_markdown', 'categories',)
                     }
                 ),
             )
