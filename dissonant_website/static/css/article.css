@@ -1,21 +1,23 @@
 .article-container {
-  padding-left: 7%;
-  padding-right: 7%;
-  padding-bottom: 30px;
   background-color: #ffffff;
 }
 .article-header h1 {
   font-size: 4.4rem;
   padding-bottom: 0px;
+  padding-top: 0px;
   margin-bottom: 0px;
+  margin-top: 0px;
   color: #4c4d4f;
   font-family: 'Roboto-Thin';
 }
-.article-header span {
+.article-header {
+  padding-top: 3%;
+  padding-left: 7%;
+  padding-right: 7%;
   color: #949494;
 }
 .article-container .hr {
-  border-bottom: 2px #e7e7e7 solid;
+  border-bottom: 1px #e7e7e7 solid;
   padding-top: 12px;
 }
 
@@ -88,6 +90,7 @@
   -webkit-transition: max-height 1s ease,opacity 1s ease;
   -o-transition: max-height 1s ease,opacity 1s ease;
   transition: max-height 1s ease,opacity 1s ease;
+  padding: 15px;
   padding-left: 4%;
   padding-right: 4%;
 }
