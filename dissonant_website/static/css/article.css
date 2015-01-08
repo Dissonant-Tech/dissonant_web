@@ -9,7 +9,8 @@
 }
 
 .article-header h1 {
-    font-size: 4.4rem;
+    font-size: 4.0rem;
+    font-size: 4.0vw;
     padding-bottom: 0px;
     padding-top: 0px;
     margin-bottom: 0px;
