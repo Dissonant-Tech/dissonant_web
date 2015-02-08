@@ -1,0 +1,151 @@
+
+/* ==========================================
+ * Universal Styles
+ * =========================================*/
+
+html, body {
+  font-family: "Roboto-Regular";
+  font-size: 14px;
+}
+
+menu {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  /* adds animation for all transitions */
+  -webkit-transition: .45s ease-in-out;
+  -moz-transition: .45s ease-in-out;
+  -o-transition: .45s ease-in-out;
+  transition: .45s ease-in-out;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+pre {
+  border: none;
+  background: none;
+  font-family: "Roboto-Regular";
+  font-size: 16px;
+  padding: none;
+  margin: none;
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ==========================================
+ * Font Styles
+ * =========================================*/
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(/static/fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url(/static/fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Thin";
+  src: url(/static/fonts/Roboto-Thin.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Black";
+  src: url(/static/fonts/Roboto-Black.ttf);
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Regular";
+  src: url(/static/fonts/RobotoCondensed-Regular.ttf);
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Bold";
+  src: url(/static/fonts/RobotoCondensed-Bold.ttf);
+}
+
+/* ==========================================
+ * Helper classes
+ * =========================================*/
+
+.cs-inset-box-shadow {
+  -moz-box-shadow: inset -7px 0px 6px -7px rgba(0, 0, 0, 0.258824);
+  -webkit-box-shadow: inset -7px 0px 6px -7px rgba(0, 0, 0, 0.258824);
+  box-shadow: inset -7px 0px 6px -7px rgba(0, 0, 0, 0.258824);
+}
+
+.cs-box-shadow {
+  -moz-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+  box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
+}
+
+.cs-inset-boxshadow-bottom {
+  -moz-box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
+  -webkit-box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
+  box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
+}
+
+/* ==========================================
+ * Custom Styles
+ * =========================================*/
+
+body {
+  background-color: #f8f8f8;
+}
+
+#side-nav-bar {
+  font-size: 1.6rem;
+}
+
+.nav-wrapper {
+  font-size: 1.6rem;
+}
+
+
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 600px) {
+  /* Styles */
+  html, body {
+    font-size: 16px;
+  }
+}
+
+@media only screen
+and (min-width : 1080px) {
+  /* Styles */
+  html, body {
+    font-size: 16px;
+  }
+}
+
+@media only screen
+and (min-width : 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+  /* Styles */
+}
+
