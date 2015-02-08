@@ -27,7 +27,7 @@
         <div class="nav-wrapper row">
           <div class="col s1 right-align">
             <a href="#">
-            <i class="small mdi-navigation-menu"></i>
+              <i class="small mdi-navigation-menu"></i>
             </a>
           </div>
           <div class="col s3 site-title">
@@ -43,15 +43,18 @@
           </div>
         </div>
       </nav>
-      <div id="page-content" class="container row">
+    </div>
+
+    <div id="page-content" class="container row">
       {% block content %}
 
       {% endblock content %}
-      </div>
     </div>
 
-    <div class="container">
+    <div class="footer">
+      {% block footer %}
 
+      {% endblock footer %}
     </div>
   </body>
 
