@@ -1,26 +1,30 @@
 {% load staticfiles %}
 
-<div id="articles" style="margin-top: 2.4rem; margin-bottom: 4rem;">
- <div id="{{article.slug}}" class="article-container">
+<div class="card white" style="margin-top: 2.4rem; margin-bottom: 4rem;">
+ <div id="{{article.slug}}">
     <div class="article-header">
-      <h1>{{article.title}}</h1>
+      <span class="card-title black-text">
+        <h1>{{article.title}}</h1>
+      </span>
       <span>
         by: {{article.author.get_full_name}},
         {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
       </span>
 
       <span class="expand-container">
-        <a href="/blog/{{article.slug}}" target="">
-        <paper-fab id="{{article.slug}}" icon="launch" class="mini article-expand">
-        </paper-fab>
+        <a href="/blog/{{article.slug}}" class="btn-floating waves-effect light-blue">
+        <i id="{{article.slug}}" class="mdi-action-open-in-new article-expand"></i>
         </a>
       </span>
     </div>
     <div class="hr" style="width: 100%;"></div>
-    <div class="article-text article-oneliner">
+    <div class="card-content">
+      <div class="row col s12">
       {% autoescape off %}
       {{article.summary_markup}}
       {% endautoescape %}
+        
+      </div>
     </div>
   </div>
 </div>

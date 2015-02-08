@@ -8,47 +8,19 @@
 <link rel="stylesheet" href="{% static "css/codehilite.css" %}">
 
 <style type="text/css" media="screen">
-.bg-grey-small {
-  background-color: #f7f7f7;
-}
-#subheader h4 {
-  margin-bottom: .3rem;
-  font-size: .984rem;
-  vertical-align: middle;
-}
-.blog-container {
-  padding-left: 17%;
-  padding-right: 17%;
-  padding-top: 3rem;
-}
-#page-content {
-  background-color: #f7f7f7;
-}
 </style>
 {% endblock head %}
 
-{% block header %}{% endblock header %}
-
 {% block content %}
-<div id="Home" cross-fade>
+<div id="Home" class="container" >
   <a name="top"></a>
-  <div class="blog-container">
-    <div id="blog-list-container">
-      <span id="scroll-top" style="visibility: hidden;">
-        <a href="#top" style="text-decoration: none; color: #303030; float: right;">
-          <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 90%; z-index: 10;"></paper-fab>
-        </a>
-      </span>
-
-      <div id="articles-container">
-        {% for article in articles %}
-        <div class="shadow-container">
-          {% include "include/article-collapsed.html" %}
-          <paper-shadow z="1"></paper-shadow>
-        </div>
-        {% endfor %}
-      </div>
+  <div class="row">
+    <div class="col s12">
+      {% for article in articles %}
+      {% include "include/article-collapsed.html" %}
+      {% endfor %}
     </div>
+
   </div>
 </div>
 
@@ -59,18 +31,18 @@
 
 {% block script %}
 <script type="text/javascript" charset="utf-8">
-window.onscroll = function () {
-  var scrollTop = document.documentElement.scrollTop;
-  var toTopElem = document.queryselector("#scroll-top")
-  if (scrollTop > 500) {
-    if (toTopElem.style.visibility == "hidden") {
-      toTopElem.style.visibility = "visible";
-    }
-  } else {
-    if (toTopElem.style.visibility == "visible") {
-      toTopElem.style.visibility = "hidden";
-    }
+  window.onscroll = function () {
+    var scrollTop = document.documentElement.scrollTop;
+    var toTopElem = document.queryselector("#scroll-top")
+      if (scrollTop > 500) {
+        if (toTopElem.style.visibility == "hidden") {
+          toTopElem.style.visibility = "visible";
+        }
+      } else {
+        if (toTopElem.style.visibility == "visible") {
+          toTopElem.style.visibility = "hidden";
+        }
+      }
   }
-}
 </script>
 {% endblock script %}
