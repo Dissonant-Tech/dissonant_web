@@ -1,6 +1,6 @@
 {% load staticfiles %}
 
-<div class="card white" style="margin-top: 2.4rem; margin-bottom: 4rem;">
+<div class="article card white" style="margin-top: 2.4rem; margin-bottom: 4rem;">
  <div id="{{article.slug}}">
     <div class="article-header">
       <span class="card-title black-text">
@@ -8,7 +8,8 @@
       </span>
       <span>
         by: {{article.author.get_full_name}},
-        {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
+        {{article.date_publish}}
+        {% for c in article.categories.all %} | {{c.title}}{% endfor %}
       </span>
 
       <span class="expand-container">
@@ -23,7 +24,7 @@
       {% autoescape off %}
       {{article.summary_markup}}
       {% endautoescape %}
-        
+
       </div>
     </div>
   </div>

@@ -5,22 +5,31 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static "css/article.css" %}">
+<link rel="stylesheet" href="{% static "css/article-single.css" %}">
 <link rel="stylesheet" href="{% static "css/codehilite.css" %}">
 {% endblock head %}
 
 {% block header %}{% endblock %}
 
 {% block content %}
-<div id="content-container" cross-fade style="padding-top: 3rem; background: #ffffff;">
+<div class="container">
   <a name="top"></a>
-  <div class="blog-container" flex vertical center-justified layout>
-    <div id="back-top-container" style="">
-      <a href="#top" style="text-decoration: none; color: #303030; float: right;">
-        <paper-fab icon="expand-less" style="position: fixed; right: 6%; top: 90%; z-index: 10;"></paper-fab>
-      </a>
-    </div>
-    <div class="article-single">
-      {% include "include/article.html" %}
+  <div class="article">
+    <div id="{{article.slug}}" class="article-container">
+      <div class="article-header">
+        <h1>{{article.title}}</h1>
+        <span>
+          by: {{article.author.get_full_name}},
+          {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
+        </span>
+
+      </div>
+      <div class="hr"></div>
+      <div class="card-content">
+        {% autoescape off %}
+        {{article.content_markup}}
+        {% endautoescape %}
+      </div>
     </div>
   </div>
 </div>

@@ -111,15 +111,13 @@ body {
   background-color: #f8f8f8;
 }
 
-#side-nav-bar {
-  font-size: 1.6rem;
-}
-
 .nav-wrapper {
   font-size: 1.6rem;
 }
 
-
+/* ==========================================
+ * Media Styles
+ * =========================================*/
 
 /* Desktops and laptops ----------- */
 @media only screen

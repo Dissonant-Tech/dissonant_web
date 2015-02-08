@@ -1,3 +1,22 @@
+.article a {
+  color: skyblue;
+  -webkit-transition: .45s ease-in-out;
+  -moz-transition: .45s ease-in-out;
+  -o-transition: .45s ease-in-out;
+  transition: .45s ease-in-out;
+  text-decoration: none;
+  text-transform: none;
+  margin-right: 0px;
+}
+
+.article a:hover {
+  color: blue;
+  -webkit-transition: .45s ease-in-out;
+  -moz-transition: .45s ease-in-out;
+  -o-transition: .45s ease-in-out;
+  transition: .45s ease-in-out;
+}
+
 .article-header h1 {
   font-size: 4.0rem;
   font-size: 4.0vw;
