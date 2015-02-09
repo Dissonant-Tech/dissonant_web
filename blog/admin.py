@@ -25,6 +25,7 @@ class ArticleForm(forms.ModelForm):
         widgets = {
                 'content' : AdminPagedownWidget(css=('css/pagedown.css', 'pagedown/demo/browser/demo.css')),
                 }
+        exclude = []
 
 class ArticleAdmin(admin.ModelAdmin):
     form = ArticleForm
