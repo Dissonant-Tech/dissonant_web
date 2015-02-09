@@ -2,10 +2,6 @@ from django.db import models
 from django.db.models import permalink
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
-from markdown import markdown
-import pygments
-
-# Create your models here.
 
 
 class Category(models.Model):
@@ -48,12 +44,6 @@ class Article(models.Model):
             max_length = 765,
             verbose_name = 'Summary (Markdown)',
             )
-    summary_markup = models.TextField(
-            verbose_name = 'Summary (Markup)',
-            )
-    content_markup = models.TextField(
-            verbose_name = 'Content (Markup)',
-            )
     content_markdown = models.TextField(
             verbose_name = 'Content (Markdown)',
             )
@@ -95,8 +85,6 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        self.summary_markup = markdown(self.summary_markdown, ['codehilite'])
-        self.content_markup = markdown(self.content_markdown, ['codehilite'])
         super(Article, self).save(*args, **kwargs)
 
     def as_json(self):
@@ -111,9 +99,7 @@ class Article(models.Model):
                 title = self.title,
                 date_publish = self.date_publish.isoformat(),
                 content_markdown = self.content_markdown,
-                content_markup = self.content_markup,
                 summary_markdown = self.summary_markdown,
-                summary_markup = self.summary_markup,
                 published = str(self.published),
                 categories = categories,
                 author = self.author.get_full_name())
