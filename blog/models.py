@@ -40,11 +40,11 @@ class Article(models.Model):
             help_text = 'Uri Identifier',
             max_length = 255
             )
-    summary_markdown = models.TextField(
+    summary = models.TextField(
             max_length = 765,
             verbose_name = 'Summary (Markdown)',
             )
-    content_markdown = models.TextField(
+    content = models.TextField(
             verbose_name = 'Content (Markdown)',
             )
     date_publish = models.DateField(
@@ -98,8 +98,8 @@ class Article(models.Model):
         return dict(
                 title = self.title,
                 date_publish = self.date_publish.isoformat(),
-                content_markdown = self.content_markdown,
-                summary_markdown = self.summary_markdown,
+                content = self.content,
+                summary = self.summary,
                 published = str(self.published),
                 categories = categories,
                 author = self.author.get_full_name())

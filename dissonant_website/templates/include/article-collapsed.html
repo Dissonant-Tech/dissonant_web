@@ -25,7 +25,7 @@
     <div class="card-content row">
       <div class="col s12">
         {% autoescape off %}
-        {{article.summary_markdown | markdown }}
+        {{article.summary | markdown }}
         {% endautoescape %}
       </div>
     </div>

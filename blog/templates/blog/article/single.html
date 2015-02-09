@@ -28,7 +28,7 @@
       <div class="hr"></div>
       <div class="card-content">
         {% autoescape off %}
-        {{article.content_markdown | markdown }}
+        {{article.content | markdown }}
         {% endautoescape %}
       </div>
     </div>

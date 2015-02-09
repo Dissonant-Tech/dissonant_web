@@ -23,21 +23,20 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         widgets = {
-                'content_markdown' : AdminPagedownWidget(css=('css/pagedown.css', 'pagedown/demo/browser/demo.css')),
+                'content' : AdminPagedownWidget(css=('css/pagedown.css', 'pagedown/demo/browser/demo.css')),
                 }
-        exclude = ['content_markup',]
 
 class ArticleAdmin(admin.ModelAdmin):
     form = ArticleForm
     prepopulated_fields = { 'slug': ('title',) }
     list_display = ('title', 'author', 'date_publish',)
-    search_fields = ('title', 'content_markdown',)
+    search_fields = ('title', 'content',)
     list_filter = ('categories',)
     fieldsets = (
             (
                 None,
                 {
-                    'fields': ('title', 'slug', 'published', 'date_publish', 'content_markdown', 'summary_markdown', 'categories',)
+                    'fields': ('title', 'slug', 'published', 'date_publish', 'content', 'summary', 'categories',)
                     }
                 ),
             )
