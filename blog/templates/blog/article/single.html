@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% load extras %}
 
 {% block title %}{{article.title}}{% endblock %}
 
@@ -27,7 +28,7 @@
       <div class="hr"></div>
       <div class="card-content">
         {% autoescape off %}
-        {{article.content_markup}}
+        {{article.content_markdown | markdown }}
         {% endautoescape %}
       </div>
     </div>
