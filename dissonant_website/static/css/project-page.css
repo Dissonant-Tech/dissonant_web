@@ -1,0 +1,13 @@
+
+#Projects {
+  margin-top: 5rem;
+}
+
+.card {
+  overflow: visible;
+}
+
+.card .card-image {
+  position: relative;
+  overflow: visible;
+}

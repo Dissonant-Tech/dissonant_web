@@ -13,7 +13,8 @@
   </head>
 
   <body>
-    <div class="top-nav navbar-fixed row">
+    <div class="top-nav navbar-fixed">
+      <div class="row">
       <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper">
           <div class="col s1 right-align">
@@ -34,6 +35,7 @@
           </div>
         </div>
       </nav>
+      </div>
     </div>
 
     <div id="page-content">
@@ -52,15 +54,26 @@
   <!-- Date.js - for date formatting -->
   <script src="{% static "js/date.js" %}"></script>
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=" {% static "js/jquery-2.1.1.min.js" %}"></script>
   <script src=" {% static "js/materialize.min.js" %}"></script>
 
   <script type="text/javascript">
 
-    // format dates to a 'prettier' format
-  function formatDate(_date) {
-    return Date.parse(_date).toString('d MMM yyyy');
-  }
+  var lastScrollTop = 0;
+  $(window).scroll(function(event){
+    var st = $(this).scrollTop();
+    if (st > lastScrollTop){
+      // downscroll code
+    } else {
+      // upscroll code
+    }
+    lastScrollTop = st;
+  });
+
+// format dates to a 'prettier' format
+function formatDate(_date) {
+  return Date.parse(_date).toString('d MMM yyyy');
+}
 
 // Check if an element has a class
 function hasClass(element, cls) {
