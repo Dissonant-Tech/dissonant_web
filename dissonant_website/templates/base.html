@@ -13,31 +13,47 @@
   </head>
 
   <body>
-    <div class="top-nav navbar-fixed">
-      <nav class="light-blue lighten-1" role="navigation">
-        <div class="nav-wrapper">
-          <i><img class="logo" src="{% static "images/logo2.png" %}"></img></i>
-          <a href="#" class="brand-logo">Dissonant-Tech</a>
-          <ul id="nav-mobile" class="right side-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
 
-          <!-- Include this line below -->
-          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
-          <!-- End -->
+    <header>
+      <ul id="nav-mobile" class="side-nav fixed grey darken-4 white-text">
 
-        </div>
-      </nav>
-    </div>
+        <li class="portrait center light-blue lighten-1">
+          <img class="circle" src="{% static "images/logo2.png" %}">
+        </li>
 
-    <div id="page-content">
-      {% block content %}
+        <ul class="links grey darken-4 white-text">
+          <li><a href="/">Home</a></li>
+        </ul>
 
-      {% endblock content %}
-    </div>
+      </ul>
+
+      <div class="top-nav navbar">
+        <nav class="light-blue lighten-1" role="navigation">
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Dissonant-Tech</a>
+            <ul class="right side-nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/projects">Projects</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+
+            <!-- Include this line below -->
+            <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+            <!-- End -->
+
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div id="page-content">
+        {% block content %}
+
+        {% endblock content %}
+      </div>
+    </main>
 
     <div class="footer">
       {% block footer %}

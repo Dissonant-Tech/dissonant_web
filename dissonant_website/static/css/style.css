@@ -111,6 +111,13 @@ body {
   background-color: #f8f8f8;
 }
 
+.portrait img {
+  background-color: #333;
+  margin-top: 1.6rem;
+  height: 128px;
+  width: 128px;
+}
+
 .logo {
   padding: 10px;
 }
@@ -133,6 +140,20 @@ and (min-width : 600px) {
   }
   .logo {
     visibility: hidden;
+  }
+}
+
+@media only screen
+and (min-width : 992px) {
+  /* Styles */
+  html, body {
+    font-size: 16px;
+  }
+  .logo {
+    visibility: hidden;
+  }
+  header, main {
+    padding-left: 240px;
   }
 }
 
