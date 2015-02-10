@@ -5,8 +5,8 @@
     {% load staticfiles  %}
 
     <!-- Custom css -->
-    <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
     <link href="{% static "css/style.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
 
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     {% block head %}{% endblock %}
@@ -21,8 +21,19 @@
           <img class="circle" src="{% static "images/logo2.png" %}">
         </li>
 
-        <ul class="links grey darken-4 white-text">
-          <li><a href="/">Home</a></li>
+        <ul id="nav-links" class="grey darken-4 nav-links">
+          <li><a href="/">
+              <i class="mdi-action-home"></i>Home
+          </a></li>
+          <li><a href="/projects">
+              <i class="mdi-action-assignment"></i>Projects
+          </a></li>
+          <li><a href="/about">
+              <i class="mdi-action-info"></i>About
+          </a></li>
+          <li><a href="/contact">
+              <i class="mdi-action-perm-contact-cal"></i>Conact
+          </a></li>
         </ul>
 
       </ul>
@@ -31,12 +42,6 @@
         <nav class="light-blue lighten-1" role="navigation">
           <div class="nav-wrapper">
             <a href="#" class="brand-logo">Dissonant-Tech</a>
-            <ul class="right side-nav">
-              <li><a href="/">Home</a></li>
-              <li><a href="/projects">Projects</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
 
             <!-- Include this line below -->
             <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>

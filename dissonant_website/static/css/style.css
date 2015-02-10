@@ -5,7 +5,6 @@
 
 html, body {
   font-family: "Roboto-Regular";
-  font-size: 14px;
 }
 
 menu {
@@ -82,28 +81,6 @@ a {
 }
 
 /* ==========================================
- * Helper classes
- * =========================================*/
-
-.cs-inset-box-shadow {
-  -moz-box-shadow: inset -7px 0px 6px -7px rgba(0, 0, 0, 0.258824);
-  -webkit-box-shadow: inset -7px 0px 6px -7px rgba(0, 0, 0, 0.258824);
-  box-shadow: inset -7px 0px 6px -7px rgba(0, 0, 0, 0.258824);
-}
-
-.cs-box-shadow {
-  -moz-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
-  box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
-}
-
-.cs-inset-boxshadow-bottom {
-  -moz-box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
-  -webkit-box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
-  box-shadow: inset 0 -7px 2px -7px rgba(0, 0, 0, 0.258824);
-}
-
-/* ==========================================
  * Custom Styles
  * =========================================*/
 
@@ -127,6 +104,22 @@ body {
   padding-right: 3rem;
 }
 
+#nav-links li:hover {
+  background-color: #333; !important;
+}
+
+#nav-links li a {
+  color: white;
+}
+
+#nav-links li a:hover {
+  color: #29B6F6; !important;
+}
+
+#nav-links i {
+  padding-right: 5px;
+}
+
 /* ==========================================
  * Media Styles
  * =========================================*/
@@ -135,9 +128,6 @@ body {
 @media only screen
 and (min-width : 600px) {
   /* Styles */
-  html, body {
-    font-size: 16px;
-  }
   .logo {
     visibility: hidden;
   }
@@ -146,9 +136,6 @@ and (min-width : 600px) {
 @media only screen
 and (min-width : 992px) {
   /* Styles */
-  html, body {
-    font-size: 16px;
-  }
   .logo {
     visibility: hidden;
   }
