@@ -14,28 +14,23 @@
 
   <body>
     <div class="top-nav navbar-fixed">
-      <div class="row">
       <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper">
-          <div class="col s1 right-align">
-            <a href="#">
-              <i class="small mdi-navigation-menu"></i>
-            </a>
-          </div>
-          <div class="col s4">
-            Dissonant-Tech
-          </div>
-          <div class="col s4 right side-nav">
-            <ul>
-              <li class="waves-effect"><a href="/">Home</a></li>
-              <li class="waves-effect"><a href="/projects">Projects</a></li>
-              <li class="waves-effect"><a href="/about">About</a></li>
-              <li class="waves-effect"><a href="/contact">Conact</a></li>
-            </ul>
-          </div>
+          <i><img class="logo" src="{% static "images/logo2.png" %}"></img></i>
+          <a href="#" class="brand-logo">Dissonant-Tech</a>
+          <ul id="nav-mobile" class="right side-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+
+          <!-- Include this line below -->
+          <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+          <!-- End -->
+
         </div>
       </nav>
-      </div>
     </div>
 
     <div id="page-content">
@@ -59,16 +54,18 @@
 
   <script type="text/javascript">
 
-  var lastScrollTop = 0;
-  $(window).scroll(function(event){
-    var st = $(this).scrollTop();
-    if (st > lastScrollTop){
-      // downscroll code
-    } else {
-      // upscroll code
-    }
-    lastScrollTop = st;
-  });
+    $(".button-collapse").sideNav();
+
+    var lastScrollTop = 0;
+    $(window).scroll(function(event){
+      var st = $(this).scrollTop();
+      if (st > lastScrollTop){
+        // downscroll code
+      } else {
+        // upscroll code
+      }
+      lastScrollTop = st;
+    });
 
 // format dates to a 'prettier' format
 function formatDate(_date) {
@@ -85,15 +82,4 @@ function hasClass(element, cls) {
   {% block script %}
 
   {% endblock script %}
-
-  <!-- Google Analytics -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-53558286-1', 'auto');
-ga('send', 'pageview');
-  </script>
 </html>

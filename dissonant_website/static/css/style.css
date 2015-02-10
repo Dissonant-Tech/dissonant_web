@@ -111,8 +111,13 @@ body {
   background-color: #f8f8f8;
 }
 
+.logo {
+  padding: 10px;
+}
+
 .nav-wrapper {
-  font-size: 1.6rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 /* ==========================================
@@ -126,6 +131,9 @@ and (min-width : 600px) {
   html, body {
     font-size: 16px;
   }
+  .logo {
+    visibility: hidden;
+  }
 }
 
 @media only screen
@@ -133,6 +141,10 @@ and (min-width : 1080px) {
   /* Styles */
   html, body {
     font-size: 16px;
+  }
+
+  .logo {
+    visibility: visible;
   }
 }
 
