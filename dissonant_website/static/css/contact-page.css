@@ -1,0 +1,31 @@
+
+#Contact {
+  padding-top: 4rem;
+}
+
+.card-content img {
+  max-width: 32px;
+  max-height: 32px;
+}
+
+.card .card-content a {
+  color: black;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.collapsible-body {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+
+.collapsible-header p {
+  font-size: 1.2rem;
+  vertical-align: bottom;
+}
+
+.collapsible-header img {
+  vertical-align: middle;
+  margin-right: 7px;
+}

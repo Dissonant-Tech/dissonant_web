@@ -4,22 +4,48 @@
 {% block title %}{{page}}{% endblock title %}
 
 {% block head %}
-<link rel="import" href="{% static "/elements/contact-page/contact-page.html" %}">
-
-<style type="text/css" media="screen">
-#Contact {
-    height: 350px;
-    background-color: #909090;
-}
-</style>
+<link rel="stylesheet" href="{% static "css/contact-page.css" %}">
 {% endblock head %}
 
 {% block header %}{% endblock header %}
 
 {% block content %}
-<div id="Contact">
-    <contact-page>
-    </contact-page>
+<div id="Contact" class="container">
+  <div class="row col s12">
+    <div class="col s5 offset-s4">
+      <div class="card collapsible">
+        <div class="card-image">
+          <img src="{% static "images/david.jpg" %}" />
+          <span class="card-title">David Rodriguez</span>
+        </div>
+        <ul class="card-content">
+
+          <li>
+            <div class="collapsible-header">
+              <p><img src="{% static "images/github-mark.png" %}"/>Github</p>
+            </div>
+            <div class="collapsible-body center">
+              <a href="http://github.com/Dissonant-Tech">
+                github.com/Dissonant-Tech
+              </a>
+            </div>
+          </li>
+
+          <li>
+            <div class="collapsible-header valign-wrapper">
+              <p><img src="{% static "images/gmail-icon.png" %}"/>Email</p>
+            </div>
+            <div class="collapsible-body center">
+              <a href="mailto:dissonant.tech@gmail.com">
+                dissonant.tech@gmail.com
+              </a>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock content %}
 
