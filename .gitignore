@@ -4,3 +4,4 @@
 sources/*
 static/*
 dissonant_website/secrets.py
+db.sqlite3
