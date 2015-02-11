@@ -18,9 +18,19 @@ def projects(request):
 
     return HttpResponse(t.render(c))
 
-def about(request):
-    t = loader.get_template('about.html')
-    c = Context({"page": "About"})
+def tags(request):
+    t = loader.get_template('tags.html')
+    articles = Article.objects.all().filter(published=True)
+    tag_dict = {}
+    for article in articles:
+        for tag in article.categories.all():
+            if tag.title not in tag_dict.keys():
+                tag_dict[tag.title] = []
+                tag_dict[tag.title].append(article)
+            else:
+                tag_dict[tag.title].append(article)
+
+    c = Context({"page": "Tags", "tag_dict": tag_dict})
 
     return HttpResponse(t.render(c))
 

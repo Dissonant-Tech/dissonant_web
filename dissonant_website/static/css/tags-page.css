@@ -1,0 +1,12 @@
+
+#Tags {
+  padding-top: 4rem;
+}
+
+.collapsible-body ul {
+  list-style-type: circle;
+}
+
+.collapsible-body p {
+  padding: 1.4rem;
+}
