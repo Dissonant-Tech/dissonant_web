@@ -3,3 +3,4 @@
 */__pycache__/*
 sources/*
 static/*
+dissonant_website/secrets.py
