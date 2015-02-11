@@ -17,5 +17,3 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.ELEMENT_URL, document_root=settings.ELEMENT_ROOT)
-urlpatterns += static(settings.COMPONENT_URL, document_root=settings.COMPONENT_ROOT)
