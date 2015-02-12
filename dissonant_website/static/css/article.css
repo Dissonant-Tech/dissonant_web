@@ -31,6 +31,16 @@
   font-family: 'Roboto-Thin';
 }
 
+.article-header h2 {
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: #4c4d4f;
+}
+
 .article-header {
   padding-top: 2%;
   padding-left: 5%;
