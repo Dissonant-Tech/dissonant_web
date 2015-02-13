@@ -40,10 +40,6 @@ class Article(models.Model):
             help_text = 'Uri Identifier',
             max_length = 255
             )
-    summary = models.TextField(
-            max_length = 765,
-            verbose_name = 'Summary (Markdown)',
-            )
     content = models.TextField(
             verbose_name = 'Content (Markdown)',
             )
@@ -99,7 +95,6 @@ class Article(models.Model):
                 title = self.title,
                 date_publish = self.date_publish.isoformat(),
                 content = self.content,
-                summary = self.summary,
                 published = str(self.published),
                 categories = categories,
                 author = self.author.get_full_name())
