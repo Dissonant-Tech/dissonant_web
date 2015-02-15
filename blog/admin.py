@@ -37,7 +37,7 @@ class ArticleAdmin(admin.ModelAdmin):
             (
                 None,
                 {
-                    'fields': ('title', 'slug', 'published', 'date_publish', 'content', 'summary', 'categories',)
+                    'fields': ('title', 'slug', 'published', 'date_publish', 'content', 'categories',)
                     }
                 ),
             )
