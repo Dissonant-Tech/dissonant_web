@@ -23,6 +23,7 @@ else:
     DEBUG = True
     TEMPLATE_DEBUG = True
 
+ADMINS = (('David', 'dissonant.tech@gmail.com'))
 
 ALLOWED_HOSTS = [
         '.dissonant-tech.com'
