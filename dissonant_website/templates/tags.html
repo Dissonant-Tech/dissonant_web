@@ -23,7 +23,7 @@
             <ul>
               {% for article in articles %}
               <li><p>
-                  <a href="/blog/{{article.slug}}">{{article}}</a>
+                  <a href="{% url 'blog.views.single' article.slug %}">{{article}}</a>
               </p></li>
               {% endfor %}
             </ul>

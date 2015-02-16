@@ -16,7 +16,7 @@
       </span>
 
       <span class="expand-container">
-        <a href="/blog/{{article.slug}}" class="btn-floating waves-effect light-blue">
+        <a href="{% url 'blog.views.single' article.slug %}" class="btn-floating waves-effect light-blue">
           <i id="{{article.slug}}" class="mdi-action-open-in-new article-expand"></i>
         </a>
       </span>
