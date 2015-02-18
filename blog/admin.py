@@ -32,7 +32,7 @@ class ArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = { 'slug': ('title',) }
     list_display = ('title', 'author', 'date_publish',)
     search_fields = ('title', 'content',)
-    list_filter = ('categories',)
+    list_filter = ('categories','date_publish')
     fieldsets = (
             (
                 None,
