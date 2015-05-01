@@ -53,7 +53,6 @@ class Article(models.Model):
     categories = models.ManyToManyField(
             Category,
             verbose_name = 'Categories',
-            null = True,
             blank = True
             )
     author = models.ForeignKey(
