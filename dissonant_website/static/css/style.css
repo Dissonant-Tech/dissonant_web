@@ -116,9 +116,39 @@ body {
   padding-right: 5px;
 }
 
+
 /* ==========================================
  * Media Styles
  * =========================================*/
+
+@media only screen
+and (max-device-width: 480px) {
+    html, body {
+        font-size: 28px;
+    }
+    #nav-links li a {
+      color: white;
+      font-size: 2.8rem;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    header .top-nav nav {
+        height: 7rem;
+    }
+    .nav-wrapper {
+        padding-top: 2rem;
+    }
+    nav .nav-wrapper .brand-logo {
+        font-size: 2.6rem;
+    }
+    nav .nav-wrapper .button-collapse i {
+        font-size: 4.5rem;
+    }
+    #page-content {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
 
 /* Desktops and laptops ----------- */
 @media only screen

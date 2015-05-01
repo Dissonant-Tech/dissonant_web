@@ -1,106 +1,112 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{% block title %}{% endblock %}|Dissonant-Tech</title>
-    {% load staticfiles  %}
+    <head>
+        <title>{% block title %}{% endblock %}|Dissonant-Tech</title>
+        {% load staticfiles  %}
 
-    <!-- Custom css -->
-    <link href="{% static "css/style.css" %}" rel="stylesheet"/>
-    <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
+        <!-- Custom css -->
+        <link href="{% static "css/style.css" %}" rel="stylesheet"/>
+        <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
 
-    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    {% block head %}{% endblock %}
-  </head>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        {% block head %}{% endblock %}
+    </head>
 
-  <body>
+    <body>
 
-    <header>
-      <ul id="nav-mobile" class="side-nav fixed grey darken-4 white-text">
+        <header class="row">
+            <ul id="nav-mobile" class="side-nav fixed grey darken-4 white-text">
 
-        <li class="portrait center light-blue lighten-1">
-          <img class="circle" src="{% static "images/logo2.png" %}">
-        </li>
+                <li class="portrait center light-blue lighten-1">
+                    <img class="circle" src="{% static "images/logo2.png" %}">
+                </li>
 
-        <ul id="nav-links" class="grey darken-4 nav-links">
-          <li><a href="/">
-              <i class="mdi-action-home"></i>Home
-          </a></li>
-          <li><a href="/tags">
-              <i class="mdi-action-loyalty"></i>Tags
-          </a></li>
-          <li><a href="/projects">
-              <i class="mdi-action-assignment"></i>Projects
-          </a></li>
-          <li><a href="/contact">
-              <i class="mdi-action-perm-contact-cal"></i>Conact
-          </a></li>
-        </ul>
+                <ul id="nav-links" class="grey darken-4 nav-links">
+                    <li><a href="/">
+                            <i class="mdi-action-home"></i>Home
+                    </a></li>
+                    <li><a href="/tags">
+                            <i class="mdi-action-loyalty"></i>Tags
+                    </a></li>
+                    <li><a href="/projects">
+                            <i class="mdi-action-assignment"></i>Projects
+                    </a></li>
+                    <li><a href="/contact">
+                            <i class="mdi-action-perm-contact-cal"></i>Conact
+                    </a></li>
+                </ul>
 
-      </ul>
+            </ul>
 
-      <div class="top-nav navbar">
-        <nav class="light-blue lighten-1" role="navigation">
-          <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Dissonant-Tech</a>
+            <div class="top-nav navbar">
+                <nav class="light-blue lighten-1" role="navigation">
+                    <div class="nav-wrapper">
+                        <a href="#" class="brand-logo">Dissonant-Tech</a>
 
-            <!-- Include this line below -->
-            <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
-            <!-- End -->
+                        <!-- Include this line below -->
+                        <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+                        <!-- End -->
 
-          </div>
-        </nav>
-      </div>
-    </header>
+                    </div>
+                </nav>
+            </div>
+        </header>
 
-    <main>
-      <div id="page-content">
-        {% block content %}
+        <main>
+            <div id="page-content">
+                {% block content %}
 
-        {% endblock content %}
-      </div>
-    </main>
+                {% endblock content %}
+            </div>
+        </main>
 
-    <div class="footer">
-      {% block footer %}
+        <div class="footer">
+            {% block footer %}
 
-      {% endblock footer %}
-    </div>
-  </body>
+            {% endblock footer %}
+        </div>
+    </body>
 
-  <!-- Date.js - for date formatting -->
-  <script src="{% static "js/date.js" %}"></script>
+    <!-- Date.js - for date formatting -->
+    <script src="{% static "js/date.js" %}"></script>
 
-  <script src=" {% static "js/jquery-2.1.1.min.js" %}"></script>
-  <script src=" {% static "js/materialize.min.js" %}"></script>
+    <script src=" {% static "js/jquery-2.1.1.min.js" %}"></script>
+    <script src=" {% static "js/materialize.min.js" %}"></script>
 
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-    $(".button-collapse").sideNav();
+        $(document).ready(function() {
+            $(".button-collapse").sideNav({
+                menuWidth: 300,
+                edge: 'left',
+            });
+        });
 
-    var lastScrollTop = 0;
-    $(window).scroll(function(event){
-      var st = $(this).scrollTop();
-      if (st > lastScrollTop){
-        // downscroll code
-      } else {
-        // upscroll code
-      }
-      lastScrollTop = st;
-    });
+
+        var lastScrollTop = 0;
+        $(window).scroll(function(event){
+            var st = $(this).scrollTop();
+            if (st > lastScrollTop){
+                // downscroll code
+            } else {
+                // upscroll code
+            }
+            lastScrollTop = st;
+        });
 
 // format dates to a 'prettier' format
 function formatDate(_date) {
-  return Date.parse(_date).toString('d MMM yyyy');
+    return Date.parse(_date).toString('d MMM yyyy');
 }
 
 // Check if an element has a class
 function hasClass(element, cls) {
-  return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 }
-  </script>
+    </script>
 
 
-  {% block script %}
+    {% block script %}
 
-  {% endblock script %}
+    {% endblock script %}
 </html>
