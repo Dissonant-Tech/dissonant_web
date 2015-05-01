@@ -166,7 +166,7 @@ and (min-width : 992px) {
     visibility: hidden;
   }
   header, main {
-    padding-left: 240px;
+    padding-left: 300px;
   }
 }
 
