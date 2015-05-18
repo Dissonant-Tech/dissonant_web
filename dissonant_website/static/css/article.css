@@ -41,7 +41,11 @@ img {
   margin-bottom: 0px;
   margin-top: 0px;
   color: #4c4d4f;
-  font-family: 'Roboto-Thin';
+  font-family: 'Roboto-Bold';
+}
+
+.article-header span {
+    text-align: center;
 }
 
 .card-content h2 {
@@ -59,6 +63,7 @@ img {
   padding-left: 5%;
   padding-right: 5%;
   color: #949494;
+  text-align: center;
 }
 
 .hr {
