@@ -15,38 +15,27 @@
     <body>
 
         <header class="row">
-            <ul id="nav-mobile" class="side-nav fixed grey darken-4 white-text">
-
-                <li class="portrait center light-blue lighten-1">
-                    <img class="circle" src="{% static "images/logo2.png" %}">
-                </li>
-
-                <ul id="nav-links" class="grey darken-4 nav-links">
-                    <li><a href="/">
-                            <i class="mdi-action-home"></i>Home
-                    </a></li>
-                    <li><a href="/tags">
-                            <i class="mdi-action-loyalty"></i>Tags
-                    </a></li>
-                    <li><a href="/projects">
-                            <i class="mdi-action-assignment"></i>Projects
-                    </a></li>
-                    <li><a href="/contact">
-                            <i class="mdi-action-perm-contact-cal"></i>Conact
-                    </a></li>
-                </ul>
-
-            </ul>
-
             <div class="top-nav navbar">
                 <nav class="light-blue lighten-1" role="navigation">
-                    <div class="nav-wrapper">
-                        <a href="#" class="brand-logo">Dissonant-Tech</a>
-
+                    <div class="nav-wrapper container">
+                        <img class="logo" src="{% static "images/logo_white.png" %}" alt=""/>
+                        <a href="#!" class="brand-logo">Dissonant-Tech</a>
                         <!-- Include this line below -->
                         <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
                         <!-- End -->
 
+                        <ul class="nav-links right hide-on-med-and-down">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/tags">Tags</a></li>
+                            <li><a href="/projects">Projects</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                        <ul id="nav-mobile" class="side-nav">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/tags">Tags</a></li>
+                            <li><a href="/projects">Projects</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
                     </div>
                 </nav>
             </div>
@@ -73,40 +62,11 @@
     <script src=" {% static "js/jquery-2.1.1.min.js" %}"></script>
     <script src=" {% static "js/materialize.min.js" %}"></script>
 
-    <script type="text/javascript">
-
-        $(document).ready(function() {
-            $(".button-collapse").sideNav({
-                menuWidth: 300,
-                edge: 'left',
-            });
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            $(".button-collapse").sideNav();
         });
-
-
-        var lastScrollTop = 0;
-        $(window).scroll(function(event){
-            var st = $(this).scrollTop();
-            if (st > lastScrollTop){
-                // downscroll code
-            } else {
-                // upscroll code
-            }
-            lastScrollTop = st;
-        });
-
-// format dates to a 'prettier' format
-function formatDate(_date) {
-    return Date.parse(_date).toString('d MMM yyyy');
-}
-
-// Check if an element has a class
-function hasClass(element, cls) {
-    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-}
     </script>
 
-
-    {% block script %}
-
-    {% endblock script %}
+    {% block script %}{% endblock script %}
 </html>

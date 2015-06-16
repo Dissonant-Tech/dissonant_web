@@ -1,33 +1,33 @@
 {% load staticfiles %}
 {% load extras %}
 
-<div class="article card white" style="margin-top: 2.4rem; margin-bottom: 4rem;">
-  <div id="{{article.slug}}" class="section">
-    <div class="article-header">
+<div class="col s12 m6">
+    <div class="article card" style="margin-bottom: 4rem;">
+        <div id="{{article.slug}}" class="section">
+            <div class="article-header card-title">
 
-      <span class="card-title black-text">
-        <h1>{{article.title}}</h1>
-      </span>
+                <h1>{{article.title}}</h1>
 
-      <span>
-        by: {{article.author.get_full_name}},
-        {{article.date_publish}}
-        {% for c in article.categories.all %} | {{c.title}}{% endfor %}
-      </span>
+                <span>
+                    by: {{article.author.get_full_name}},
+                    {{article.date_publish}}
+                    {% for c in article.categories.all %} | {{c.title}}{% endfor %}
+                </span>
 
-      <span class="expand-container">
-        <a href="{% url 'blog.views.single' article.slug %}" class="btn-floating waves-effect light-blue">
-          <i id="{{article.slug}}" class="mdi-action-open-in-new article-expand"></i>
-        </a>
-      </span>
+                <span class="expand-container">
+                    <a href="{% url 'blog.views.single' article.slug %}" class="btn-floating waves-effect light-blue">
+                        <i id="{{article.slug}}" class="mdi-action-open-in-new article-expand"></i>
+                    </a>
+                </span>
+            </div>
+            <div class="hr" style="width: 100%;"></div>
+            <div class="card-content row">
+                <div class="col s12">
+                    {% autoescape off %}
+                    {{article.content |markdown |truncatewords_html:75 }}
+                    {% endautoescape %}
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="hr" style="width: 100%;"></div>
-    <div class="card-content row">
-      <div class="col s12">
-        {% autoescape off %}
-        {{article.content |markdown |truncatewords_html:100 }}
-        {% endautoescape %}
-      </div>
-    </div>
-  </div>
 </div>

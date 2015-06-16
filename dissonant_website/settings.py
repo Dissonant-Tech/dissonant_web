@@ -105,4 +105,4 @@ if DEBUG:
 else:
     STATIC_ROOT = "/srv/www/dissonant-tech.com/static/"
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
