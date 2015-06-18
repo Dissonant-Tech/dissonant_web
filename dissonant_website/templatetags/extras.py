@@ -19,7 +19,7 @@ def markdown(arg):
             'codehilite':
             {
                 'css_class': 'codehilite',
-                'pygments_style': 'monokai',
+                'pygments_style': 'trac',
                 'noclasses': 'True'
                 }
             }

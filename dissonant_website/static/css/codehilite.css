@@ -4,17 +4,15 @@
   padding: 8px;
   font-size: .8rem;
   border: 1px solid #ddd;
-  border-left: 8px solid skyblue;
+  border-left: 8px solid #ddd;
   font-family: monaco, monospace;
 }
 
 pre, code {
-  font-family: "Source Code Pro", monaco, monospace;
-  font-size: .82rem;
+  font-size: 1rem;
 }
 
 li code {
-  font-family: "Source Code Pro", monaco, monospace;
 }
 
 p code {

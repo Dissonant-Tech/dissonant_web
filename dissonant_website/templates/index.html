@@ -11,15 +11,11 @@
 {% block content %}
 <div id="Home" class="container" >
     <a name="top"></a>
+    <div class="row">
     {% for article in articles %}
-        {% cycle '<div class="row">' ''%}
         {% include "include/article-collapsed.html" %}
-        {% if forloop.last %}
-            </div>
-        {% else %}
-            {% cycle '' '</div>' %}
-        {% endif %}
     {% endfor %}
+    </div>
 </div>
 
 

@@ -84,7 +84,19 @@ main {
  * =========================================*/
 
 body {
-    background-color: #f8f8f8;
+    background-color: #ffffff;
+}
+
+.navbar nav {
+    color: rgb(98, 110, 122);
+    moz-box-shadow: none;
+    webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid #eee;
+}
+
+.mdi-navigation {
+    color: rgb(98, 110, 122);
 }
 
 .portrait img {
@@ -101,6 +113,7 @@ body {
 
 .brand-logo::before {
     content: "|";
+    color: rgb(98, 110, 122);
 }
 
 .nav-wrapper {
@@ -115,6 +128,7 @@ body {
 }
 
 .nav-links li a {
+    color: rgb(98, 110, 122);
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -134,7 +148,6 @@ and (max-device-width: 480px) {
         font-size: 28px;
     }
     #nav-links li a {
-        color: white;
         font-size: 2.8rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;

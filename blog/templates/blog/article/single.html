@@ -6,7 +6,6 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static "css/article.css" %}">
-<link rel="stylesheet" href="{% static "css/article-single.css" %}">
 <link rel="stylesheet" href="{% static "css/codehilite.css" %}">
 {% endblock head %}
 
@@ -26,7 +25,7 @@
 
       </div>
       <div class="hr"></div>
-      <div class="card-content">
+      <div class="card-content grey-text text-darken-2">
         {% autoescape off %}
         {{article.content | markdown }}
         {% endautoescape %}
