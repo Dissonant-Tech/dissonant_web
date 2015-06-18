@@ -163,10 +163,32 @@ and (max-device-width: 480px) {
 
 /* Desktops and laptops ----------- */
 @media only screen
-and (min-width : 600px) {
+and (min-width : 0px) {
     /* Styles */
+    html, body {
+        font-size: 16px !important;
+    }
     .logo {
         visibility: hidden;
+    }
+}
+
+@media only screen
+and (min-width : 600px) {
+    /* Styles */
+    html, body {
+        font-size: 16px !important;
+    }
+    .logo {
+        visibility: hidden;
+    }
+}
+
+@media only screen
+and (min-width : 992px) {
+    /* Styles */
+    html, body {
+        font-size: 16px !important;
     }
 }
 
