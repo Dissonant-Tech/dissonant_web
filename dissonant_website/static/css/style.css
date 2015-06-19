@@ -91,7 +91,6 @@ body {
     color: rgb(98, 110, 122);
     moz-box-shadow: none;
     webkit-box-shadow: none;
-    box-shadow: none;
     border-bottom: 1px solid #eee;
 }
 
@@ -135,6 +134,10 @@ body {
 
 .nav-links li {
     list-style-type: none;
+}
+
+.no-shadow {
+    box-shadow: none;
 }
 
 
