@@ -44,14 +44,14 @@ DEFAULT_APPS = (
 THIRD_PARTY_APPS = (
         'pagedown',
         'markdown',
-        'pygments'
+        'pygments',
+        'compressor',
 )
 
 LOCAL_APPS = (
         'dissonant_website',
         'blog',
 )
-
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -110,3 +110,10 @@ else:
 
 STATIC_URL = "/static/"
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATICFILES_FINDERS = {
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+    }
+
+COMPRESS_ENABLED = True

@@ -3,12 +3,14 @@
     <head>
         <title>{% block title %}{% endblock %}|Dissonant-Tech</title>
         {% load staticfiles  %}
+        {% load compress %}
 
         <!-- Custom css -->
+        {% compress css %}
         <link href="{% static "css/style.css" %}" rel="stylesheet"/>
         <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
+        {% endcompress %}
 
-        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         {% block head %}{% endblock %}
     </head>
 
@@ -59,11 +61,12 @@
         </div>
     </body>
 
+    {% compress js %}
     <!-- Date.js - for date formatting -->
     <script src="{% static "js/date.js" %}"></script>
-
-    <script src=" {% static "js/jquery-2.1.1.min.js" %}"></script>
-    <script src=" {% static "js/materialize.min.js" %}"></script>
+    <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+    <script src="{% static "js/materialize.min.js" %}"></script>
+    {% endcompress %}
 
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function(){
