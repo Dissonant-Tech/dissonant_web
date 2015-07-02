@@ -3,6 +3,8 @@ from django.db.models import permalink
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 
+from django.utils.functional import cached_property
+
 
 class Category(models.Model):
     """Category Model"""
@@ -44,10 +46,12 @@ class Article(models.Model):
             verbose_name = 'Content (Markdown)',
             )
     date_publish = models.DateField(
+            db_index=True,
             verbose_name = 'Publish Date'
             )
     published = models.BooleanField(
             default = False,
+            db_index=True,
             verbose_name = 'Published',
             )
     categories = models.ManyToManyField(
@@ -82,6 +86,7 @@ class Article(models.Model):
         self.slug = slugify(self.title)
         super(Article, self).save(*args, **kwargs)
 
+    @cached_property
     def as_json(self):
         categories = {}
         self_categories = self.categories.all()

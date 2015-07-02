@@ -109,3 +109,4 @@ else:
     STATIC_ROOT = "/srv/www/dissonant-tech.com/static/"
 
 STATIC_URL = "/static/"
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
