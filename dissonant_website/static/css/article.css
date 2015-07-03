@@ -55,7 +55,7 @@ img {
     font-size: 1.6rem;
 }
 
-.card-title span {
+.card-title span:first-of-type {
     color: #949494;
     font-size: 1rem;
 }
@@ -87,7 +87,8 @@ blockquote {
 .expand-container {
     position: relative;
     float:right;
-    top: 30px;
+    top: -5px;
+    right: 7px;
 }
 
 .card-content {

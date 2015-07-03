@@ -30,12 +30,12 @@
                             {% for c in article.categories.all %} | {{c.title}}{% endfor %}
                         </span>
 
-                        <span class="expand-container">
-                            <a href="{% url 'blog.views.single' article.slug %}" class="btn-floating waves-effect light-blue">
-                                <i id="{{article.slug}}" class="mdi-action-open-in-new article-expand"></i>
-                            </a>
-                        </span>
                     </div>
+                    <span class="expand-container">
+                        <a href="{% url 'blog.views.single' article.slug %}" class="btn-floating waves-effect light-blue">
+                            <i id="{{article.slug}}" class="mdi-action-open-in-new article-expand"></i>
+                        </a>
+                    </span>
                     <div class="hr" style="width: 100%;"></div>
                     <div class="card-content row">
                         <div class="col s12">

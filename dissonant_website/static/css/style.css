@@ -58,25 +58,6 @@ main {
     src: url(/static/fonts/Roboto-Bold.ttf);
 }
 
-@font-face {
-    font-family: "Roboto-Thin";
-    src: url(/static/fonts/Roboto-Thin.ttf);
-}
-
-@font-face {
-    font-family: "Roboto-Black";
-    src: url(/static/fonts/Roboto-Black.ttf);
-}
-
-@font-face {
-    font-family: "RobotoCondensed-Regular";
-    src: url(/static/fonts/RobotoCondensed-Regular.ttf);
-}
-
-@font-face {
-    font-family: "RobotoCondensed-Bold";
-    src: url(/static/fonts/RobotoCondensed-Bold.ttf);
-}
 
 /* ==========================================
  * Custom Styles
@@ -168,7 +149,7 @@ and (max-device-width: 480px) {
 and (min-width : 0px) {
     /* Styles */
     html, body {
-        font-size: 16px !important;
+        font-size: 10px !important;
     }
     .logo {
         visibility: hidden;
@@ -179,7 +160,7 @@ and (min-width : 0px) {
 and (min-width : 600px) {
     /* Styles */
     html, body {
-        font-size: 16px !important;
+        font-size: 10px !important;
     }
     .logo {
         visibility: hidden;
@@ -190,7 +171,7 @@ and (min-width : 600px) {
 and (min-width : 992px) {
     /* Styles */
     html, body {
-        font-size: 16px !important;
+        font-size: 12px !important;
     }
 }
 

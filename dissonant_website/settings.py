@@ -91,11 +91,16 @@ CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
             'LOCATION': '127.0.0.1:11211',
-
             }
         }
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+if DEBUG:
+    CACHES = {
+            'default': {
+                'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+                }
+            }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -126,8 +131,4 @@ STATICFILES_FINDERS = {
         'compressor.finders.CompressorFinder',
         }
 
-COMPRESS_ENABLED = True
-COMPRESS_CSS_FILTERS = [
-        'compress.filters.css_default.CssAbsoluteFilter',
-        'compress.filters.cssmin.CSSMinFilter'
-        ]
+COMPRESS_CSS_FILTERS = [ 'compress.filters.css_default.CssAbsoluteFilter', 'compress.filters.cssmin.CSSMinFilter' ]
