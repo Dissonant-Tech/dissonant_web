@@ -7,8 +7,8 @@
 
         <!-- Custom css -->
         {% compress css %}
-        <link href="{% static "css/style.css" %}" rel="stylesheet"/>
-        <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
+        <link async href="{% static "css/style.css" %}" rel="stylesheet"/>
+        <link async href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
         {% endcompress %}
 
         {% block head %}{% endblock %}
