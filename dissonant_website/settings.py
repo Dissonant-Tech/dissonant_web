@@ -127,7 +127,7 @@ STATICFILES_FINDERS = {
         }
 
 COMPRESS_ENABLED = True
-COMPRESS_CSS_FILTERS = [ 
+COMPRESS_CSS_FILTERS = [
         'compress.filters.css_default.CssAbsoluteFilter',
         'compress.filters.cssmin.CSSMinFilter'
         ]

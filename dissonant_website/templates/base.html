@@ -11,13 +11,6 @@
         <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
         {% endcompress %}
 
-        {% compress js %}
-        <!-- Date.js - for date formatting -->
-        <script src="{% static "js/date.js" %}"></script>
-        <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
-        <script src="{% static "js/materialize.min.js" %}"></script>
-        {% endcompress %}
-
         {% block head %}{% endblock %}
     </head>
 
@@ -67,6 +60,13 @@
             {% endblock footer %}
         </div>
     </body>
+
+    {% compress js %}
+    <!-- Date.js - for date formatting -->
+    <script  src="{% static "js/date.js" %}"></script>
+    <script  src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+    <script src="{% static "js/materialize.min.js" %}"></script>
+    {% endcompress %}
 
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function(){
