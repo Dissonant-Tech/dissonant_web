@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}{% endblock %}|Dissonant-Tech</title>
         {% load staticfiles  %}
         {% load compress %}
 
         <!-- Custom css -->
         {% compress css %}
-        <link async href="{% static "css/style.css" %}" rel="stylesheet"/>
-        <link async href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
+        <link href="{% static "css/style.css" %}" rel="stylesheet"/>
+        <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
         {% endcompress %}
 
         {% block head %}{% endblock %}
