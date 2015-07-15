@@ -64,6 +64,13 @@ img {
     font-size: 1.4rem;
 }
 
+.collapsed .card-content h2,
+.collapsed .card-content h3,
+.collapsed .card-content h4 {
+    font-size: 1.2rem;
+    margin: 0px;
+}
+
 .article-header {
     padding-left: 5%;
     padding-right: 5%;
