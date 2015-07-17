@@ -3,15 +3,6 @@
 {% load extras %}
 {% load compress %}
 
-{% block title %}{% endblock title %}
-
-{% block head %}
-{% compress css %}
-<link rel="stylesheet" href="{% static "css/article.css" %}">
-<link rel="stylesheet" href="{% static "css/codehilite.css" %}">
-{% endcompress %}
-{% endblock head %}
-
 {% block content %}
 <div id="Home" class="container" >
     <a name="top"></a>
