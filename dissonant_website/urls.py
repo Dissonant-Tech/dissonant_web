@@ -12,8 +12,9 @@ urlpatterns = patterns('',
     url(r'^projects/$', views.projects, name='projects'),
     url(r'^tags/$', views.tags, name='tags'),
     url(r'^contact/$', views.contact, name='contact'),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^blog/$', views.index, name='index'),
     url(r'^blog/', include('blog.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

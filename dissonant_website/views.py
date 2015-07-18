@@ -6,6 +6,7 @@ from django.template import Context, loader
 from blog.models import Category, Article
 
 def index(request):
+    """ Basic request. Shows list of blog articles """
     t = loader.get_template('index.html')
     articles = Article.objects.all().filter(published=True)
     c = Context({"page": "Home", "articles": articles})
