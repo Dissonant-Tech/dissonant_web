@@ -11,41 +11,41 @@
 
 {% block content %}
 <div id="Contact" class="container">
-  <div class="row col s12">
-    <div class="col s10 offset-s1 m8 offset-m2 l5 offset-l4">
-      <div class="card collapsible">
-        <div class="card-image">
-          <img src="{% static "images/david.jpg" %}" />
-          <span class="card-title">David Rodriguez</span>
+    <div class="row col s12">
+        <div class="col s10 offset-s1 m8 offset-m2 l5 offset-l4">
+            <div class="card collapsible">
+                <div class="card-image">
+                    <img src="{% static "images/david.jpg" %}" />
+                    <span class="card-title">David Rodriguez</span>
+                </div>
+                <ul class="card-content">
+
+                    <li>
+                        <a href="http://github.com/Dissonant-Tech">
+                            <div class="collapsible-header">
+                                <p><img src="{% static "images/github-mark.png" %}"/>Github</p>
+                            </div>
+                            <div class="collapsible-body center">
+                                github.com/Dissonant-Tech
+                            </div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="mailto:dissonant.tech@gmail.com">
+                            <div class="collapsible-header valign-wrapper">
+                                <p><img src="{% static "images/gmail-icon.png" %}"/>Email</p>
+                            </div>
+                            <div class="collapsible-body center">
+                                dissonant.tech@gmail.com
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
-        <ul class="card-content">
-
-          <li>
-            <div class="collapsible-header">
-              <p><img src="{% static "images/github-mark.png" %}"/>Github</p>
-            </div>
-            <div class="collapsible-body center">
-              <a href="http://github.com/Dissonant-Tech">
-                github.com/Dissonant-Tech
-              </a>
-            </div>
-          </li>
-
-          <li>
-            <div class="collapsible-header valign-wrapper">
-              <p><img src="{% static "images/gmail-icon.png" %}"/>Email</p>
-            </div>
-            <div class="collapsible-body center">
-              <a href="mailto:dissonant.tech@gmail.com">
-                dissonant.tech@gmail.com
-              </a>
-            </div>
-          </li>
-
-        </ul>
-      </div>
     </div>
-  </div>
 </div>
 {% endblock content %}
 
