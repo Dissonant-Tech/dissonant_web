@@ -7,15 +7,17 @@ h1 {
     margin-bottom: 15px !important;
 }
 
-ul {
-    list-style-type: disc;
+.article ul li {
+    margin-left: 1.2rem;
 }
 
-ul li {
+.article ul li {
     list-style-type: disc;
+    list-style-position: inside;
 }
 
-img {
+
+.article img {
     max-width: 100%;
     height: auto;
 }
