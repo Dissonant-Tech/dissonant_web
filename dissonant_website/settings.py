@@ -26,7 +26,8 @@ else:
 ADMINS = (('David', 'dissonant.tech@gmail.com'))
 
 ALLOWED_HOSTS = [
-        '.dissonant-tech.com'
+        '.dissonant-tech.com',
+        '.davidrodriguez.io'
         ]
 
 
