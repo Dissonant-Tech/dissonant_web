@@ -1,21 +1,25 @@
 
 .codehilite {
-  margin: 1.7rem 0;
-  padding: 8px;
-  font-size: .8rem;
-  border: 1px solid #ddd;
-  border-left: 8px solid #ddd;
-  font-family: monaco, monospace;
+    margin: 1.7rem 0;
+    padding: 8px;
+    font-size: .8rem;
+    border: 1px solid #ddd;
+    border-left: 8px solid #ddd;
+    font-family: monaco, monospace;
 }
 
 pre, code {
-  font-size: 1rem;
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: .7rem;
+    padding: 2px;
+    border-radius: 2px;
 }
 
 li code {
 }
 
 p code {
-  border: 1px solid #ddd;
-  background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    background-color: #f7f7f7;
 }

@@ -12,12 +12,12 @@
 {% block header %}{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container row">
   <a name="top"></a>
   <div class="article">
     <div id="{{article.slug}}" class="article-container">
       <div class="article-header">
-        <h1>{{article.title}}</h1>
+        <h2>{{article.title}}</h2>
         <span>
           by: {{article.author.get_full_name}},
           {{article.date_publish}} {% for c in article.categories.all %} | {{c.title}}{% endfor %}
@@ -25,7 +25,7 @@
 
       </div>
       <div class="hr"></div>
-      <div class="card-content grey-text text-darken-2">
+      <div class="card-content grey-text text-darken-3 col m8 s12 offset-m2">
         {% autoescape off %}
         {{article.content | markdown }}
         {% endautoescape %}
