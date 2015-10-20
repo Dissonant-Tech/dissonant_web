@@ -8,12 +8,15 @@
     font-family: monaco, monospace;
 }
 
-pre, code {
-    white-space: nowrap;
-    font-family: monospace;
-    font-size: .7rem;
-    padding: 2px;
-    border-radius: 2px;
+pre code {
+    border-radius: 3px;
+    color: rgba(46,48,58,0.96);
+    display: block;
+    font-size: 0.9rem;
+    outline: none;
+    overflow-x: auto;
+    padding: 0.8rem 1.1rem;
+    white-space: inherit;
 }
 
 li code {
@@ -21,5 +24,12 @@ li code {
 
 p code {
     border: 1px solid #ddd;
+    padding: 2px;
+    border-radius: .18rem;
     background-color: #f7f7f7;
+    white-space: nowrap;
+    font-family: monaco, monospace;
+    font-size: 1.06rem;
+    letter-spacing: -0.4px;
+    vertical-align: baseline;
 }

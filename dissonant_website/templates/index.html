@@ -11,26 +11,52 @@
 <div id="Home" class="container" >
     <a name="top"></a>
     <div class="row">
-    {% for article in articles %}
+        {% for article in articles %}
+        {% if article.image  %}
+        <div class="col s12 m12 l6">
+            <div class="article card">
+                <div class="card-image">
+                    <img class="materialboxed" width="650" src="{% static "images/projects/pydzen.png" %}">
+                    <span class="article-header card-title">
+                        {{article.title}}
+                    </span>
+                    <div class="hr" style="width: 100%;"></div>
+                </div>
+                <div class="card-content row">
+                    <div class="col s12">
+                        {% autoescape off %}
+                        {{article.content |markdown |truncatewords_html:75 }}
+                        {% endautoescape %}
+                    </div>
+                </div>
+                <div class="card-action center">
+                    <a href="{% url 'blog.views.single' article.slug %}">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
         <div class="col s12 m12 l6">
             <div class="article card collapsed">
-                <div id="{{article.slug}}" class="section">
+                <div id="{{article.slug}}" class="">
                     <div class="article-header card-title">
 
                         <h1>{{article.title}}</h1>
 
-                        <span>
-                            by: {{article.author.get_full_name}},
-                            {{article.date_publish}}
-                            {% for c in article.categories.all %} | {{c.title}}{% endfor %}
-                        </span>
+                        <div class="meta">
+                            <span class="meta-author">
+                                <a href="/contact">{{article.author.get_full_name}}</a>
+                            </span>
+                            <span class="meta-seperator">|</span>
+                            <span class="meta-date">
+                                {{article.date_publish}}
+                            </span>
+                            <br/>
+                            <span class="meta-tags">
+                                {% for c in article.categories.all %}  {{c.title}}{% endfor %}
+                            </span>
+                        </div>
 
                     </div>
-                    <span class="expand-container">
-                        <a href="{% url 'blog.views.single' article.slug %}" class="btn-floating waves-effect light-blue">
-                            <i id="{{article.slug}}" class="mdi-action-open-in-new article-expand"></i>
-                        </a>
-                    </span>
                     <div class="hr" style="width: 100%;"></div>
                     <div class="card-content row">
                         <div class="col s12">
@@ -39,10 +65,14 @@
                             {% endautoescape %}
                         </div>
                     </div>
+                    <div class="card-action center">
+                        <a href="{% url 'blog.views.single' article.slug %}">Read More</a>
+                    </div>
                 </div>
             </div>
         </div>
-    {% endfor %}
+        {% endif %}
+        {% endfor %}
     </div>
 </div>
 

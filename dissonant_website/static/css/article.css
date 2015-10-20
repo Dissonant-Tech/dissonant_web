@@ -8,13 +8,13 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.68rem !important;
-    margin-bottom: .6rem !important;
+    font-size: 2.68rem;
+    margin-bottom: .6rem;
 }
 
 h2 {
-    font-size: 1.8rem !important;
-    line-height: 2.48rem !important;
+    font-size: 1.8rem;
+    line-height: 2.48rem;
 }
 
 .article ul li {
@@ -33,7 +33,7 @@ h2 {
 }
 
 .article a {
-    color: skyblue;
+    color: #E53935;
     -webkit-transition: .45s ease-in-out;
     -moz-transition: .45s ease-in-out;
     -o-transition: .45s ease-in-out;
@@ -44,7 +44,7 @@ h2 {
 }
 
 .article a:hover {
-    color: lightblue;
+    color: tomato;
     -webkit-transition: .45s ease-in-out;
     -moz-transition: .45s ease-in-out;
     -o-transition: .45s ease-in-out;
@@ -60,7 +60,6 @@ h2 {
 
 .hr {
     border-bottom: 1px #e7e7e7 solid;
-    margin-top: 1.4rem;
     margin-bottom: 1.4rem;
 }
 
@@ -88,6 +87,7 @@ blockquote {
     font-family: 'PT Serif', serif;
     font-style: italic;
     font-size: 1.12rem;
+    color: rgba(46,48,58,0.96);
 }
 
 .meta-date {
@@ -101,7 +101,7 @@ blockquote {
 
 .card-content {
     font-family: 'PT Serif';
-    line-height: 1.68rem;
-    font-size: 1.12rem;
+    line-height: 1.88rem;
+    font-size: 1.28rem;
     color: rgba(46,48,58,0.96);
 }
