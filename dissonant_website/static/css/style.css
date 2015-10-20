@@ -5,6 +5,7 @@
 
 html, body {
     font-family: "Roboto-Regular";
+    font-size: 16px;
 }
 
 menu {
@@ -47,6 +48,9 @@ main {
 /* ==========================================
  * Font Styles
  * =========================================*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300);
+@import url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic);
 
 @font-face {
     font-family: "Roboto-Regular";
@@ -153,20 +157,24 @@ and (max-device-width: 480px) {
 @media only screen
 and (min-width : 0px) {
     /* Styles */
-    html, body {
-        font-size: 12px !important;
-    }
     .logo {
         visibility: hidden;
+    }
+}
+
+@media screen
+and (min-width 40em) {
+    .title {
+        font-family: calluna-sans, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+        font-size: 2.6rem;
+        line-height: 3.4rem;
+        margin-bottom: 2rem !important;
     }
 }
 
 @media only screen
 and (min-width : 600px) {
     /* Styles */
-    html, body {
-        font-size: 12px !important;
-    }
     .logo {
         visibility: hidden;
     }
@@ -176,13 +184,6 @@ and (min-width : 600px) {
     }
 }
 
-@media only screen
-and (min-width : 992px) {
-    /* Styles */
-    html, body {
-        font-size: 14px !important;
-    }
-}
 
 @media only screen
 and (max-width : 992px) {
@@ -199,10 +200,6 @@ and (max-width : 992px) {
 @media only screen
 and (min-width : 1080px) {
     /* Styles */
-    html, body {
-        font-size: 16px;
-    }
-
     .logo {
         visibility: visible;
     }
