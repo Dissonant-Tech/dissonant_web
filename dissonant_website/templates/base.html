@@ -1,92 +1,103 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}{% endblock %}|Dissonant-Tech</title>
-        {% load staticfiles  %}
-        {% load compress %}
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{% block title %}{% endblock %}|Dissonant-Tech</title>
+		{% load staticfiles  %}
+		{% load compress %}
 
-        <!-- Custom css -->
-        {% compress css %}
-        <link href="{% static "css/style.css" %}" rel="stylesheet"/>
-        <link rel="stylesheet" href="{% static "css/article.css" %}">
-        <link rel="stylesheet" href="{% static "css/codehilite.css" %}">
-        <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
-        {% endcompress %}
+		<!-- Custom css -->
+		{% compress css %}
+		<link href="{% static "css/style.css" %}" rel="stylesheet"/>
+		<link rel="stylesheet" href="{% static "css/article.css" %}">
+		<link rel="stylesheet" href="{% static "css/codehilite.css" %}">
+		<link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
+		{% endcompress %}
 
-        {% block head %}{% endblock %}
-    </head>
+		{% block head %}{% endblock %}
+	</head>
 
-    <body>
+	<body>
 
-        <header class="row">
-            <div class="top-nav navbar navbar-fixed">
-                <nav class="white lighten-2 no-shadow" role="navigation">
-                    <div class="nav-wrapper container">
-                        <img class="logo" src="{% static "images/logo.png" %}" alt=""/>
-                        <a href="#!" class="brand-logo grey-text text-darken-3">Dissonant-Tech</a>
-                        <!-- Include this line below -->
-                        <a class="button-collapse" href="#" data-activates="nav-mobile">
-                            <i class=" grey-text text-darken-3 mdi-navigation-menu">
-                        </i></a>
-                        <!-- End -->
+		<header class="row">
+			<div class="top-nav navbar navbar-fixed">
+				<nav class="white lighten-2 no-shadow" role="navigation">
+					<div class="nav-wrapper container">
+						<img class="logo" src="{% static "images/logo.png" %}" alt=""/>
+						<a href="#!" class="brand-logo grey-text text-darken-3">Dissonant-Tech</a>
+						<!-- Include this line below -->
+						<a class="button-collapse" href="#" data-activates="nav-mobile">
+							<i class=" grey-text text-darken-3 mdi-navigation-menu">
+						</i></a>
+						<!-- End -->
 
-                        <ul class="nav-links right hide-on-med-and-down">
-                            <li><a class="grey-text text-darken-3" href="/">Home</a></li>
-                            <li><a class="grey-text text-darken-3" href="/tags">Tags</a></li>
-                            <li><a class="grey-text text-darken-3" href="/projects">Projects</a></li>
-                            <li><a class="grey-text text-darken-3" href="/contact">Contact</a></li>
-                        </ul>
+						<ul class="nav-links right hide-on-med-and-down">
+							<li><a class="grey-text text-darken-3" href="/">Home</a></li>
+							<li><a class="grey-text text-darken-3" href="/tags">Tags</a></li>
+							<li><a class="grey-text text-darken-3" href="/projects">Projects</a></li>
+							<li><a class="grey-text text-darken-3" href="/contact">Contact</a></li>
+						</ul>
 
-                        <ul id="nav-mobile" class="side-nav">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/tags">Tags</a></li>
-                            <li><a href="/projects">Projects</a></li>
-                            <li><a href="/contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </header>
+						<ul id="nav-mobile" class="side-nav">
+							<li><a href="/">Home</a></li>
+							<li><a href="/tags">Tags</a></li>
+							<li><a href="/projects">Projects</a></li>
+							<li><a href="/contact">Contact</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
 
-        <main>
-            <div id="page-content">
-                {% block content %}
+		<main>
+			<div id="page-content">
+				{% block content %}
 
-                {% endblock content %}
-            </div>
-        </main>
+				{% endblock content %}
+			</div>
+		</main>
 
-        <div class="footer">
-            {% block footer %}
+		<div class="footer">
+			{% block footer %}
 
-            {% endblock footer %}
-        </div>
-    </body>
+			{% endblock footer %}
+		</div>
+	</body>
 
-    {% compress js %}
-    <!-- Date.js - for date formatting -->
-    <script  src="{% static "js/date.js" %}"></script>
-    <script  src="{% static "js/jquery-2.1.1.min.js" %}"></script>
-    <script src="{% static "js/materialize.min.js" %}"></script>
-    {% endcompress %}
+	{% compress js %}
+	<!-- Date.js - for date formatting -->
+	<script  src="{% static "js/date.js" %}"></script>
+	<script  src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+	<script src="{% static "js/materialize.min.js" %}"></script>
+	{% endcompress %}
 
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function(){
-            $(".button-collapse").sideNav();
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			$(".button-collapse").sideNav();
 
-            $(window).scroll(function(e){
-                var navbar = $("nav");
-                var noShadow = "no-shadow";
+            var navbar = $("nav");
+            var noShadow = "no-shadow";
+            var lastScrollTop = 0;
 
-                if (document.body.scrollTop != 0) {
-                    navbar.removeClass(noShadow);
-                } else {
-                    navbar.addClass(noShadow);
-                }
-            });
-        });
-    </script>
+			$(window).scroll(function(e){
+                var st = document.body.scrollTop;
 
-    {% block script %}{% endblock script %}
+				if (st != 0) {
+                    if (st >= navbar.outerHeight() &&
+                            st > lastScrollTop) {
+                        navbar.css('top', (0 - navbar.outerHeight()) + 'px');
+                    } else if (st < lastScrollTop) {
+                        navbar.css('top', '0px');
+                    }
+					navbar.removeClass(noShadow);
+				} else {
+					navbar.addClass(noShadow);
+                    navbar.css('top', '0px');
+				}
+                lastScrollTop = st;
+			});
+		});
+	</script>
+
+	{% block script %}{% endblock script %}
 </html>
