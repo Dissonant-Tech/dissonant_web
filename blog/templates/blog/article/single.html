@@ -28,7 +28,7 @@
                     </span>
                     <br/>
                     <span class="meta-tags">
-                        {% for c in article.categories.all %}  {{c.title}}{% endfor %}
+                        {{ article.categories.all | join:", " }}
                     </span>
                 </div>
             </div>
