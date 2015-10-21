@@ -47,8 +47,9 @@ THIRD_PARTY_APPS = (
         'markdown',
         'pygments',
         'compressor',
-        'debug_toolbar',
         )
+if DEBUG:
+    THIRD_PARTY_APPS += ('debug_toolbar',)
 
 LOCAL_APPS = (
         'dissonant_website',
@@ -58,7 +59,6 @@ LOCAL_APPS = (
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = (
-        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
@@ -69,6 +69,9 @@ MIDDLEWARE_CLASSES = (
         'django.middleware.common.CommonMiddleware',
         'django.middleware.cache.FetchFromCacheMiddleware',
         )
+
+if DEBUG:
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 
 TEMPLATE_LOADERS = (
         'django.template.loaders.filesystem.Loader',
