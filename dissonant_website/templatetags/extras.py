@@ -14,7 +14,7 @@ def markdown(arg):
     :returns: html
 
     """
-    extentions = ['codehilite', 'fenced_code']
+    extentions = ['codehilite', 'fenced_code', 'tables']
     extention_configs = {
             'codehilite':
             {
