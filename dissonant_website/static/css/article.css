@@ -105,3 +105,10 @@ blockquote {
     font-size: 1.28rem;
     color: rgba(46,48,58,0.96);
 }
+
+.card-content img {
+    box-shadow: 4px 4px 18px #000;
+    margin: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
