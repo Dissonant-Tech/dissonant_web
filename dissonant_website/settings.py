@@ -148,6 +148,8 @@ else:
     MEDIA_ROOT = "/srv/www/dissonant-tech.com/media/"
 
 STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
+
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 STATICFILES_FINDERS = {
         'django.contrib.staticfiles.finders.FileSystemFinder',

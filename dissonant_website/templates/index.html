@@ -12,15 +12,15 @@
 <div id="Home" class="container" >
     <div class="row">
         {% for article in articles %}
-        {% if article.image  %}
+        {% if article.cover_image  %}
         <div class="col s12 m12 l6">
             <div class="article card">
                 <div class="card-image">
-                    <img class="materialboxed" width="650" src="{% static "images/projects/pydzen.png" %}">
-                    <span class="article-header card-title">
+                    <img class="materialboxed" width="650" src="{{ article.cover_image.url }}">
+                    <span class="article-header card-title white-text">
                         {{article.title}}
                     </span>
-                    <div class="hr" style="width: 100%;"></div>
+                    <span class="hr" style="width: 100%;"></span>
                 </div>
                 <div class="card-content row">
                     <div class="col s12">
