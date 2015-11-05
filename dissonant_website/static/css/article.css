@@ -99,14 +99,7 @@ blockquote {
     font-size: .8rem;
 }
 
-.card-content {
-    font-family: 'PT Serif';
-    line-height: 1.88rem;
-    font-size: 1.28rem;
-    color: rgba(46,48,58,0.96);
-}
-
-.card-content img {
+.article img {
     box-shadow: 4px 4px 18px #000;
     margin: 5px;
     margin-left: 15px;

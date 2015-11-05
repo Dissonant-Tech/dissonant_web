@@ -2,7 +2,14 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{% block title %}{% endblock %}|Dissonant-Tech</title>
+        <title>
+            {% block title %}{% endblock %}
+            {% if 'davidrodriguez.io' in request_url %}
+                |DavidRodriguez.io
+            {% else %}
+                |Dissonant-Tech
+            {% endif %}
+        </title>
 		{% load staticfiles  %}
 		{% load compress %}
 
@@ -24,7 +31,13 @@
 				<nav class="white lighten-2 no-shadow" role="navigation">
 					<div class="nav-wrapper container">
 						<img class="logo" src="{% static "images/logo.png" %}" alt=""/>
-						<a href="#!" class="brand-logo grey-text text-darken-3">Dissonant-Tech</a>
+                        <a href="#!" class="brand-logo grey-text text-darken-3">
+                            {% if 'davidrodriguez.io' in request_url %}
+                                DavidRodriguez.io
+                            {% else %}
+                                Dissonant-Tech
+                            {% endif %}
+                        </a>
 						<!-- Include this line below -->
 						<a class="button-collapse" href="#" data-activates="nav-mobile">
 							<i class=" grey-text text-darken-3 mdi-navigation-menu">

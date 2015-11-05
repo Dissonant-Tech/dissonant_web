@@ -90,3 +90,10 @@ body {
 .card .card-action a{
     color: #E53935;
 }
+
+.card-content {
+    font-family: 'PT Serif';
+    line-height: 1.88rem;
+    font-size: 1.28rem;
+    color: rgba(46,48,58,0.96);
+}
