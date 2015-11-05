@@ -23,7 +23,7 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         widgets = {
-                'content' : AdminPagedownWidget(css=('css/pagedown.css', 'pagedown/demo/browser/demo.css')),
+                'content' : AdminPagedownWidget(css=('css/pagedown.css', 'pagedown/demo/browser/demo.css', 'css/article.css')),
                 }
         exclude = []
 
