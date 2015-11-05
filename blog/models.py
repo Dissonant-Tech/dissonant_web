@@ -63,6 +63,9 @@ class Article(models.Model):
             User,
             verbose_name = 'User'
             )
+    cover_image = models.ImageField(
+            upload_to = 'articles/%Y/%m/'
+            )
 
     class Meta:
         verbose_name = 'Article'
