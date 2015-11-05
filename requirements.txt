@@ -4,6 +4,7 @@ django-compressor==1.5
 django-debug-toolbar==1.4
 django-pagedown==0.1.0
 Markdown==2.4.1
+Pillow==3.0.0
 Pygments==1.6
 python3-memcached==1.51
 six==1.9.0
