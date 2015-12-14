@@ -142,13 +142,15 @@ USE_TZ = True
 
 if DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATIC_URL = "/static/"
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+    MEDIA_URL = "http://www.davidrodriguez.io/media/"
 else:
     STATIC_ROOT = "/srv/www/dissonant-tech.com/static/"
+    STATIC_URL = "/static/"
     MEDIA_ROOT = "/srv/www/dissonant-tech.com/media/"
+    MEDIA_URL = "/media/"
 
-STATIC_URL = "/static/"
-MEDIA_URL = "/media/"
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 STATICFILES_FINDERS = {
