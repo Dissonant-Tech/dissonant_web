@@ -1,130 +1,131 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>
-			{% block title %}{% endblock %}
-			{% if 'davidrodriguez.io' in request_url %}
-			|DavidRodriguez.io
-			{% else %}
-			|Dissonant-Tech
-			{% endif %}
-		</title>
-		{% load staticfiles  %}
-		{% load compress %}
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}{% endblock %}
+            {% if 'davidrodriguez.io' in request_url %}
+            |DavidRodriguez.io
+            {% else %}
+            |Dissonant-Tech
+            {% endif %}
+        </title>
+        {% load staticfiles  %}
+        {% load compress %}
 
-		<!-- Custom css -->
-		{% compress css %}
-		<link href="{% static "css/style.css" %}" rel="stylesheet"/>
-		<link rel="stylesheet" href="{% static "css/codehilite.css" %}">
-		<link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
-		{% endcompress %}
+        <!-- Custom css -->
+        {% compress css %}
+        <link href="{% static "css/style.css" %}" rel="stylesheet"/>
+        <link rel="stylesheet" href="{% static "css/codehilite.css" %}">
+        <link href="{% static "css/materialize.min.css" %}" rel="stylesheet"/>
+        {% endcompress %}
 
-		{% block head %}{% endblock %}
-	</head>
+        {% block head %}{% endblock %}
+    </head>
 
-	<body>
+    <body>
 
-		<header class="row">
-			<div class="top-nav navbar navbar-fixed">
-				<nav class="white lighten-2 no-shadow" role="navigation">
-					<div class="nav-wrapper container">
-						<img class="logo" src="{% static "images/logo.png" %}" alt=""/>
-						<a href="#!" class="brand-logo grey-text text-darken-3">
-							{% if 'davidrodriguez.io' in request_url %}
-							DavidRodriguez.io
-							{% else %}
-							Dissonant-Tech
-							{% endif %}
-						</a>
-						<!-- Include this line below -->
-						<a class="button-collapse" href="#" data-activates="nav-mobile">
-							<i class=" grey-text text-darken-3 mdi-navigation-menu">
-						</i></a>
-						<!-- End -->
+        <header class="row">
+            <div class="top-nav navbar navbar-fixed">
+                <nav class="white lighten-2 no-shadow" role="navigation">
+                    <div class="nav-wrapper container">
+                        <img class="logo" src="{% static "images/logo.png" %}" alt=""/>
+                        <a href="#!" class="brand-logo grey-text text-darken-3">
+                            {% if 'davidrodriguez.io' in request_url %}
+                            DavidRodriguez.io
+                            {% else %}
+                            Dissonant-Tech
+                            {% endif %}
+                        </a>
+                        <!-- Include this line below -->
+                        <a class="button-collapse" href="#" data-activates="nav-mobile">
+                            <i class=" grey-text text-darken-3 mdi-navigation-menu">
+                        </i></a>
+                        <!-- End -->
 
-						<ul class="nav-links right hide-on-med-and-down">
-							<li><a class="grey-text text-darken-3" href="/">Home</a></li>
-							<li><a class="grey-text text-darken-3" href="/tags">Tags</a></li>
-							<li><a class="grey-text text-darken-3" href="/projects">Projects</a></li>
-							<li><a class="grey-text text-darken-3" href="/contact">Contact</a></li>
-						</ul>
+                        <ul class="nav-links right hide-on-med-and-down">
+                            <li><a class="grey-text text-darken-3" href="/">Home</a></li>
+                            <li><a class="grey-text text-darken-3" href="/tags">Tags</a></li>
+                            <li><a class="grey-text text-darken-3" href="/projects">Projects</a></li>
+                            <li><a class="grey-text text-darken-3" href="/contact">Contact</a></li>
+                        </ul>
 
-						<ul id="nav-mobile" class="side-nav">
-							<li><a href="/">Home</a></li>
-							<li><a href="/tags">Tags</a></li>
-							<li><a href="/projects">Projects</a></li>
-							<li><a href="/contact">Contact</a></li>
-						</ul>
-					</div>
-				</nav>
-			</div>
-		</header>
+                        <ul id="nav-mobile" class="side-nav">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/tags">Tags</a></li>
+                            <li><a href="/projects">Projects</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
 
-		<main>
-			<div id="page-content">
-				{% block content %}
+        <main>
+            <div id="page-content">
+                {% block content %}
 
-				{% endblock content %}
-			</div>
-		</main>
+                {% endblock content %}
+            </div>
+        </main>
 
-		<div class="footer">
-			{% block footer %}
+        <div class="footer">
+            {% block footer %}
 
-			{% endblock footer %}
-		</div>
+            {% endblock footer %}
+        </div>
         <!-- Piwik -->
         <script type="text/javascript">
             var _paq = _paq || [];
             _paq.push(['trackPageView']);
             _paq.push(['enableLinkTracking']);
             (function() {
-                var u="//107.170.143.35/piwik/";
+                var u="//piwik.davidrodriguez.io/";
                 _paq.push(['setTrackerUrl', u+'piwik.php']);
                 _paq.push(['setSiteId', 1]);
                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
                 g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
             })();
         </script>
-        <noscript><p><img src="//107.170.143.35/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+        <noscript><p><img src="//piwik.davidrodriguez.io/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+        })
         <!-- End Piwik Code -->
-	</body>
+    </body>
 
-	{% compress js %}
-	<!-- Date.js - for date formatting -->
-	<script  src="{% static "js/date.js" %}"></script>
-	<script  src="{% static "js/jquery-2.1.1.min.js" %}"></script>
-	<script src="{% static "js/materialize.min.js" %}"></script>
-	{% endcompress %}
+    {% compress js %}
+    <!-- Date.js - for date formatting -->
+    <script  src="{% static "js/date.js" %}"></script>
+    <script  src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+    <script src="{% static "js/materialize.min.js" %}"></script>
+    {% endcompress %}
 
-	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function(){
-			$(".button-collapse").sideNav();
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            $(".button-collapse").sideNav();
 
-			var navbar = $("nav");
-			var noShadow = "no-shadow";
-			var lastScrollTop = 0;
+            var navbar = $("nav");
+            var noShadow = "no-shadow";
+            var lastScrollTop = 0;
 
-			$(window).scroll(function(e){
-				var st = document.body.scrollTop;
+            $(window).scroll(function(e){
+                var st = document.body.scrollTop;
 
-				if (st != 0) {
-					if (st >= navbar.outerHeight() &&
-							st > lastScrollTop) {
-						navbar.css('top', (0 - navbar.outerHeight()) + 'px');
-					} else if (st < lastScrollTop) {
-						navbar.css('top', '0px');
-					}
-					navbar.removeClass(noShadow);
-				} else {
-					navbar.addClass(noShadow);
-					navbar.css('top', '0px');
-				}
-				lastScrollTop = st;
-			});
-		});
-	</script>
+                if (st != 0) {
+                    if (st >= navbar.outerHeight() &&
+                            st > lastScrollTop) {
+                        navbar.css('top', (0 - navbar.outerHeight()) + 'px');
+                    } else if (st < lastScrollTop) {
+                        navbar.css('top', '0px');
+                    }
+                    navbar.removeClass(noShadow);
+                } else {
+                    navbar.addClass(noShadow);
+                    navbar.css('top', '0px');
+                }
+                lastScrollTop = st;
+            });
+        });
+    </script>
 
-	{% block script %}{% endblock script %}
+    {% block script %}{% endblock script %}
 </html>
