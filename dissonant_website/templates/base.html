@@ -3,12 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
-            {% block title %}{% endblock %}
-            {% if 'davidrodriguez.io' in request_url %}
-            |DavidRodriguez.io
-            {% else %}
-            |Dissonant-Tech
-            {% endif %}
+            {% block title %}{% endblock %}|DavidRodriguez.io
         </title>
         {% load staticfiles  %}
         {% load compress %}

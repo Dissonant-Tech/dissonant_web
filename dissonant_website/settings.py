@@ -1,12 +1,3 @@
-"""
-Django settings for dissonant_website project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from dissonant_website.secrets import *
@@ -16,23 +7,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if socket.gethostname() == 'dissonant-tech':
-    DEBUG = False
-    TEMPLATE_DEBUG = False
-else:
-    DEBUG = True
-    TEMPLATE_DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = False
 
 ADMINS = (('David', 'dissonant.tech@gmail.com'))
 
 ALLOWED_HOSTS = [
-        '.dissonant-tech.com',
         '.davidrodriguez.io'
         ]
 
-
 # Application definition
-
 DEFAULT_APPS = (
         'django.contrib.admin',
         'django.contrib.auth',
@@ -146,9 +130,9 @@ if DEBUG:
     MEDIA_ROOT = os.path.join(BASE_DIR, "media")
     MEDIA_URL = "http://www.davidrodriguez.io/media/"
 else:
-    STATIC_ROOT = "/srv/www/dissonant-tech.com/static/"
+    STATIC_ROOT = "/srv/www/davidrodriguez.io/static/"
     STATIC_URL = "/static/"
-    MEDIA_ROOT = "/srv/www/dissonant-tech.com/media/"
+    MEDIA_ROOT = "/srv/www/davidrodriguez.io/media/"
     MEDIA_URL = "/media/"
 
 
