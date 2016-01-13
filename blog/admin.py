@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
-from blog.models import Category, Article
 from pagedown.widgets import AdminPagedownWidget
+from blog.models import Category, Article
 
 # Register your models here.
 
@@ -11,13 +11,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('title',)
     search_fields = ('title',)
     fieldsets = (
-            (
-                None,
-                {
-                    'fields': ('title', 'slug',)
-                    }
-                ),
-            )
+        (
+            None,
+            {
+                'fields': ('title', 'slug',)
+                }
+            ),
+        )
 
 class ArticleForm(forms.ModelForm):
     class Meta:
