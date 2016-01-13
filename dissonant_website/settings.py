@@ -15,7 +15,8 @@ TEMPLATE_DEBUG = False
 ADMINS = (('David', 'dissonant.tech@gmail.com'))
 
 ALLOWED_HOSTS = [
-    '.davidrodriguez.io'
+    '.davidrodriguez.io',
+    '162.243.169.128'
     ]
 
 # Application definition
