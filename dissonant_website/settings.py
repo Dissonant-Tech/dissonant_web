@@ -7,9 +7,8 @@ from dissonant_website.secrets import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
 
 ADMINS = (('David', 'dissonant.tech@gmail.com'))
@@ -138,7 +137,6 @@ else:
     STATIC_URL = "/static/"
     MEDIA_ROOT = "/srv/www/davidrodriguez.io/media/"
     MEDIA_URL = "/media/"
-
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATICFILES_FINDERS = {
