@@ -8,7 +8,7 @@ from dissonant_website.secrets import *
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = False
 
 ADMINS = (('David', 'dissonant.tech@gmail.com'))
