@@ -35,9 +35,6 @@ THIRD_PARTY_APPS = (
     'compressor',
     )
 
-if DEBUG:
-    THIRD_PARTY_APPS += ('debug_toolbar',)
-
 LOCAL_APPS = (
     'dissonant_website',
     'blog',
@@ -56,9 +53,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
     )
-
-if DEBUG:
-    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -79,6 +73,15 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(
+                os.path.expanduser('~'),
+                '.ansible/vault/davidrodriguez.io/db.sqlite3'),
+            }
+        }
 
 CACHES = {
     'default': {
@@ -93,23 +96,6 @@ if DEBUG:
             'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
             }
         }
-
-DEBUG_TOOLBAR_PANELS = [
-    'debug_toolbar.panels.versions.VersionsPanel',
-    'debug_toolbar.panels.timer.TimerPanel',
-    'debug_toolbar.panels.settings.SettingsPanel',
-    'debug_toolbar.panels.headers.HeadersPanel',
-    'debug_toolbar.panels.request.RequestPanel',
-    'debug_toolbar.panels.sql.SQLPanel',
-    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-    'debug_toolbar.panels.templates.TemplatesPanel',
-    'debug_toolbar.panels.cache.CachePanel',
-    'debug_toolbar.panels.signals.SignalsPanel',
-    'debug_toolbar.panels.logging.LoggingPanel',
-    'debug_toolbar.panels.redirects.RedirectsPanel',
-    'debug_toolbar.panels.profiling.ProfilingPanel',
-    ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
