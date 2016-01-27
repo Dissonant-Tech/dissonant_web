@@ -8,12 +8,13 @@ from dissonant_website.secrets import *
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
 
 ADMINS = (('David', 'dissonant.tech@gmail.com'))
 
 ALLOWED_HOSTS = [
+    'localhtst',
     '.davidrodriguez.io',
     '162.243.169.128'
     ]

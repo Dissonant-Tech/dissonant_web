@@ -11,6 +11,13 @@
 <a name="top"></a>
 <div id="Home" class="container" >
     <div class="row">
+        <div class="card banner">
+            <div class="card-image">
+                <img height="400" src="{% static "images/banner.png" %}" alt=""/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         {% for article in articles %}
         {% if article.cover_image  %}
         <div class="col s12 m12 l6">
@@ -36,7 +43,7 @@
         </div>
         {% else %}
         <div class="col s12 m12 l6">
-            <div class="article card collapsed">
+            <div class="article card">
                 <div id="{{article.slug}}" class="">
                     <div class="article-header card-title">
 
