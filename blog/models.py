@@ -66,7 +66,8 @@ class Article(models.Model):
         )
     cover_image = models.ImageField(
         upload_to='articles/%Y/%m/',
-        null=True
+        null=True,
+        blank=True
         )
 
     class Meta:

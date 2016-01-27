@@ -13,35 +13,12 @@
     <div class="row">
         <div class="card banner">
             <div class="card-image">
-                <img height="400" src="{% static "images/banner.png" %}" alt=""/>
+                <img src="{% static "images/banner.png" %}" alt=""/>
             </div>
         </div>
     </div>
     <div class="row">
         {% for article in articles %}
-        {% if article.cover_image  %}
-        <div class="col s12 m12 l6">
-            <div class="article card">
-                <div class="card-image">
-                    <img class="materialboxed" width="650" src="{{ article.cover_image.url }}">
-                    <span class="article-header card-title white-text">
-                        {{article.title}}
-                    </span>
-                    <span class="hr" style="width: 100%;"></span>
-                </div>
-                <div class="card-content row">
-                    <div class="col s12">
-                        {% autoescape off %}
-                        {{article.content |markdown |truncatewords_html:75 }}
-                        {% endautoescape %}
-                    </div>
-                </div>
-                <div class="card-action center">
-                    <a href="{% url 'blog.views.single' article.slug %}">Read More</a>
-                </div>
-            </div>
-        </div>
-        {% else %}
         <div class="col s12 m12 l6">
             <div class="article card">
                 <div id="{{article.slug}}" class="">
@@ -78,7 +55,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
         {% endfor %}
     </div>
 </div>

@@ -88,9 +88,14 @@
     color: #E53935;
 }
 
-.card-content {
+.card-content p {
     font-family: 'PT Serif';
-    line-height: 1.88rem;
-    font-size: 1.28rem;
+    line-height: 1.6;
+    font-size: 1rem;
     color: rgba(46,48,58,0.96);
+}
+
+.card pre, .card code{
+    word-wrap: normal;
+    white-space: normal;
 }

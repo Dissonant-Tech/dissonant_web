@@ -12,7 +12,7 @@
         {% compress css %}
         <link href="{% static "css/style.css" %}" rel="stylesheet"/>
         <link rel="stylesheet" href="{% static "css/codehilite.css" %}">
-        <link href="{% static "lib/materialize/css/materialize.min.css" %}" rel="stylesheet"/>
+        <link href="{% static "lib/css/materialize.min.css" %}" rel="stylesheet"/>
         {% endcompress %}
 
         {% block head %}{% endblock %}
@@ -89,9 +89,9 @@
 
     {% compress js %}
     <!-- Date.js - for date formatting -->
-    <script  src="{% static "js/date.js" %}"></script>
-    <script  src="{% static "js/jquery-2.1.1.min.js" %}"></script>
-    <script src="{% static "js/materialize.min.js" %}"></script>
+    <script  src="{% static "lib/js/date.js" %}"></script>
+    <script  src="{% static "lib/js/jquery-2.1.1.min.js" %}"></script>
+    <script src="{% static "lib/js/materialize.min.js" %}"></script>
     {% endcompress %}
 
     <script type="text/javascript" charset="utf-8">

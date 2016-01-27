@@ -23,13 +23,15 @@ li code {
 }
 
 p code {
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
     padding: 2px;
     border-radius: .18rem;
-    background-color: #f7f7f7;
     white-space: nowrap;
-    font-family: monaco, monospace;
-    font-size: 1.06rem;
     letter-spacing: -0.4px;
     vertical-align: baseline;
+    background-color: rgba(0, 0, 0, 0.04);
+    -webkit-font-smoothing: antialiased;
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-style: normal;
+    font-size: .94rem;
 }
