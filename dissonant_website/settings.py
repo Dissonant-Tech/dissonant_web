@@ -2,19 +2,23 @@
 Settings
 """
 import os
+import socket
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from dissonant_website.secrets import *
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-TEMPLATE_DEBUG = False
+if socket.gethostname() == 'archtp':
+    DEBUG = True
+    TEMPLATE_DEBUG = True
+else:
+    DEBUG = False
+    TEMPLATE_DEBUG = False
 
 ADMINS = (('David', 'dissonant.tech@gmail.com'))
 
 ALLOWED_HOSTS = [
-    'localhtst',
     '.davidrodriguez.io',
     '162.243.169.128'
     ]
