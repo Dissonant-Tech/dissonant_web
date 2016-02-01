@@ -4,11 +4,9 @@
  * =========================================*/
 
 html, body {
-    font-family: "Roboto-Regular";
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     line-height: 1.6;
-    color: rgba(46,48,58,0.96);
 }
 
 menu {
@@ -238,7 +236,7 @@ blockquote {
 }
 
 .banner {
-    height: 300px;
+    max-height: 300px;
     overflow: hidden !important;
     position: relative !important;
 }
@@ -253,19 +251,19 @@ blockquote {
 @media only screen
 and (max-device-width: 480px) {
     html, body {
-        font-size: 10px;
+        font-size: 16px;
+    }
+    .brand-logo {
+        font-size: 1.6rem;
     }
     #nav-links li a {
         font-size: 2.8rem;
         padding-top: 2.5rem;
         padding-bottom: 2.5rem;
     }
-    header .top-nav nav {
-        height: 7rem;
-    }
     #page-content {
-        padding-left: 4rem;
-        padding-right: 4rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
     }
 }
 

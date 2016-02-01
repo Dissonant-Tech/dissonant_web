@@ -10,34 +10,24 @@
 
 {% block content %}
 <div id="Projects" class="container">
-  <div class="row">
+    <div class="row">
 
-    <div class="col s12 m12 l6 left">
-      <div class="card">
-        <div class="card-image">
-          <img class="materialboxed" width="650" src="{% static "images/projects/pydzen.png" %}">
-          <span class="card-title">Pydzen</span>
+        {% for project in projects %}
+        <div class="col s12 m6">
+            <div class="blue-grey card">
+                <div class="card-content">
+                    <span class="card-title">
+                        {{ project.name }}
+                    </span>
+                    <p>{{ project.description }}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ project.link }}">Link</a>
+                </div>
+            </div>
         </div>
-        <div class="card-content">
-          <p>Pydzen is a wrapper script around dzen, written in python, to easily create
-          nice looking statusbars.</p>
-        </div>
-      </div>
+        {% endfor %}
     </div>
-
-    <div class="col s12 m12 l6 right">
-      <div class="card">
-        <div class="card-image">
-          <img class="materialboxed" width="650" src="{% static "images/projects/dissonant-tech.png" %}">
-          <span class="card-title">Dissonant-Tech</span>
-        </div>
-        <div class="card-content">
-          <p>This webpage! You can find out more about how this site was built here.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
 </div>
 {% endblock content %}
 
@@ -45,8 +35,8 @@
 
 {% block script %}
 <script type="text/javascript" charset="utf-8">
-  $(document).ready(function() {
-    $('materialboxed').materialbox();
-  });
+    $(document).ready(function() {
+        $('materialboxed').materialbox();
+    });
 </script>
 {% endblock script %}
