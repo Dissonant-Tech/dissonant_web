@@ -8,4 +8,52 @@
 </div>
 
 </template>
+<script>
+
+Polymer('project-page', {
+
+page: 0,
+
+  projects: [
+  { artist: 'Linux dzen2 wrapper', album: 'Pydzen', color: '#f4db33' },
+  { artist: 'Dissonant-Tech Website', album: 'Dissonant-Tech', color: '#972ff8' },
+],
+
+  selectedAlbum: null,
+
+  transition: function(e) {
+    if (this.page === 0) {
+      this.selectedAlbum = e.target.templateInstance.model.project;
+      this.page = 1;
+    } else {
+      this.page = 0;
+    }
+  }
+
+});
+
+
+addEventListener('template-bound', function(e) {
+  var scope = e.target;
+
+  scope.selectView = function(e) {
+    var i = e.target.templateInstance.model.item;
+    this.$.pages.selected = i+1;
+  }
+
+  scope.back = function() {
+    this.lastSelected = this.$.pages.selected;
+    console.log(this.lastSelected);
+    this.$.pages.selected = 0;
+  }
+
+  scope.transitionend = function() {
+    if (this.lastSelected) {
+      this.lastSelected = null;
+    }
+  }
+})
+
+
+</script>
 </polymer-element>
