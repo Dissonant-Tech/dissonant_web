@@ -4,23 +4,18 @@ Settings
 import os
 import socket
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from dissonant_website.secrets import *
-
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+SECRET_KEY = os.environ.get('SECRET_KEY', 'USE_A_REAL_KEY')
+
 # SECURITY WARNING: don't run with debug turned on in production!
-if socket.gethostname() == 'archtp':
-    DEBUG = True
-    TEMPLATE_DEBUG = True
-else:
-    DEBUG = False
-    TEMPLATE_DEBUG = False
+DEBUG = True if os.environ.get('DEBUG', False) == 'True' else False
+TEMPLATE_DEBUG = False
 
 ADMINS = (('David', 'dissonant.tech@gmail.com'))
 
 ALLOWED_HOSTS = [
     '.davidrodriguez.io',
-    '162.243.169.128'
     ]
 
 # Application definition
@@ -78,15 +73,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(
-                os.path.expanduser('~'),
-                '.ansible/vault/davidrodriguez.io/db.sqlite3'),
-            }
-        }
 
 CACHES = {
     'default': {
