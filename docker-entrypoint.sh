@@ -8,7 +8,7 @@ python manage.py collectstatic --noinput  # Collect static files
 
 # Start Gunicorn processes
 echo Starting Gunicorn.
-exec gunicorn splyttr.wsgi:application \
+exec gunicorn dissonant_website.wsgi:application \
     --name splyttr \
     --bind 0.0.0.0:8050 \
     --workers 3 \

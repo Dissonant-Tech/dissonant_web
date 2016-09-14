@@ -16,6 +16,7 @@ ADMINS = (('David', 'dissonant.tech@gmail.com'))
 
 ALLOWED_HOSTS = [
     '.davidrodriguez.io',
+    'localhost',
     ]
 
 # Application definition
@@ -104,16 +105,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-if DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
-    STATIC_URL = "/static/"
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-    MEDIA_URL = "http://www.davidrodriguez.io/media/"
-else:
-    STATIC_ROOT = "/srv/www/davidrodriguez.io/static/"
-    STATIC_URL = "/static/"
-    MEDIA_ROOT = "/srv/www/davidrodriguez.io/media/"
-    MEDIA_URL = "/media/"
+STATIC_ROOT = '/static/'
+STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 STATICFILES_FINDERS = {
