@@ -10,10 +10,13 @@ services:
     env_file: .env
     volumes:
       - static:/static
-    network_mode: bridge
+      - sqlite_data:/data
 
 
 volumes:
 
   static:
+    driver: local
+
+  sqlite_data:
     driver: local
